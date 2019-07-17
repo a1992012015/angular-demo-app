@@ -1,0 +1,13 @@
+.page-contain {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-section {
+  flex-grow: 1;
+}
+
+.table {
+  height: 50px;
+}
