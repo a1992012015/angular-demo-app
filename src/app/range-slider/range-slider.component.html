@@ -1,1 +1,43 @@
-<p>range-slider works!</p>
+<div class="slider" (mousedown)="mousedown($event)">
+
+  <div class="slider-wrapper" #sliderThumb>
+    <div class="slider-thumb-container"
+         cdkDrag
+         cdkDragLockAxis="x"
+         (cdkDragMoved)="onDragMovedLeft($event)"
+         (cdkDragEnded)="cdkDragEndedLeft($event)"
+         [cdkDragFreeDragPosition]="leftPosition"
+         [cdkDragConstrainPosition]="onPositionLeft"
+         [cdkDragBoundary]="sliderThumb">
+      <div class="slider-thumb"></div>
+    </div>
+
+    <div class="slider-thumb-container"
+         cdkDrag
+         cdkDragLockAxis="x"
+         (cdkDragMoved)="onDragMovedRight($event)"
+         (cdkDragEnded)="cdkDragEndedRight($event)"
+         [cdkDragFreeDragPosition]="rightPosition"
+         [cdkDragConstrainPosition]="onPositionRight"
+         [cdkDragBoundary]="sliderThumb">
+      <div class="slider-thumb"></div>
+    </div>
+
+    <div class="slider-thumb-container"
+         [ngStyle]="{transform: 'translateX(' + displayHoverValue + 'px)'}"
+         *ngIf="displayHoverValue">
+      <div class="slider-hover"></div>
+    </div>
+
+    <div class="slider-track-wrapper">
+      <div class="slider-track slider-track-left" [ngStyle]="{'width': track.left + '%'}"></div>
+      <div class="slider-track slider-track-fill" [ngStyle]="{'width': track.middle + '%'}"></div>
+      <div class="slider-track slider-track-right" [ngStyle]="{'width': track.right + '%'}"></div>
+    </div>
+  </div>
+</div>
+
+<div class="view-value">
+  <span>{{leftValue}}</span><span>{{rightValue}}</span>
+</div>
+

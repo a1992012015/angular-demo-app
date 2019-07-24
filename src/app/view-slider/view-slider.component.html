@@ -1,0 +1,18 @@
+<div class="slider">
+  <mat-slider></mat-slider>
+
+  <app-range-slider [hoverValue]="hoverValue"
+                    [(rightValue)]="sliderValue.right"
+                    [(leftValue)]="sliderValue.left"></app-range-slider>
+
+
+  <div>{{sliderValue.left}}    {{sliderValue.right}}</div>
+  <div class="slider-hover"
+       (cdkDragMoved)="cdkDragMoved($event)"
+       (cdkDragEnded)="cdkDragEnded()"
+       [cdkDragFreeDragPosition]="position"
+       [cdkDragBoundary]="'body'"
+       cdkDrag>
+    I can only be dragged up/down
+  </div>
+</div>

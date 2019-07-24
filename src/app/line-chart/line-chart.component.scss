@@ -1,0 +1,16 @@
+.thermometer-wrap {
+  position: relative;
+  width: 100%;
+}
+
+div {
+  position: absolute;
+  background: #ff9900;
+  width: 100px;
+  height: 100px;
+}
+
+svg {
+  position: absolute;
+  z-index: 1;
+}

@@ -1,16 +1,19 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { RangeSliderComponent } from './range-slider/range-slider.component';
+import { RouterModule, Routes } from '@angular/router';
+import { ViewSliderComponent } from './view-slider/view-slider.component';
 import { MeetTimerComponent } from './meet-timer/meet-timer.component';
+import { ViewChartComponent } from './view-chart/view-chart.component';
 
 const routes: Routes = [
-  {path: '', pathMatch: 'full', redirectTo: 'meet-timer'},
-  {path: 'meet-timer', component: MeetTimerComponent},
-  {path: 'range-slider', component: RangeSliderComponent},
+  { path: '', pathMatch: 'full', redirectTo: 'meet-timer' },
+  { path: 'meet-timer', component: MeetTimerComponent },
+  { path: 'range-slider', component: ViewSliderComponent },
+  { path: 'line-chart', component: ViewChartComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

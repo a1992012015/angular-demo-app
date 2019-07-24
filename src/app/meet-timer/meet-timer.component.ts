@@ -1,21 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-meet-timer',
   templateUrl: './meet-timer.component.html',
   styleUrls: ['./meet-timer.component.scss'],
 })
-export class MeetTimerComponent implements OnInit {
+export class MeetTimerComponent implements OnInit, OnDestroy {
   nextTime = '2019-08-07';
-  timesString = '';
+  timesString = 'loading....';
+  meet = null;
 
   constructor() {
   }
 
   ngOnInit() {
-    setInterval(() => {
+    this.meet = setInterval(() => {
       this.formatTime();
     }, 1000);
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this.meet);
   }
 
   formatTime() {
@@ -37,7 +42,5 @@ export class MeetTimerComponent implements OnInit {
     } else if (hours !== 0) {
       this.timesString = '还有' + hours + '小时' + mins + '分钟' + secs + '秒';
     }
-
-    console.log('timesString', this.timesString);
   }
 }
