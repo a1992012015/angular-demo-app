@@ -10,6 +10,7 @@ import { MeetTimerComponent } from './meet-timer/meet-timer.component';
 import { ViewSliderComponent } from './view-slider/view-slider.component';
 import { ViewChartComponent } from './view-chart/view-chart.component';
 import { LineChartComponent } from './line-chart/line-chart.component';
+import { MagikarpCodeComponent } from './magikarp-code/magikarp-code.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { LineChartComponent } from './line-chart/line-chart.component';
     ViewSliderComponent,
     ViewChartComponent,
     LineChartComponent,
+    MagikarpCodeComponent,
   ],
   imports: [
     BrowserModule,

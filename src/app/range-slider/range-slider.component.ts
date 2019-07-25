@@ -44,18 +44,20 @@ export class RangeSliderComponent implements OnInit {
 
   ngOnInit() {
     const offset = this.getLeft(this.sliderThumb.nativeElement);
+
     this.point = {
       left: 0,
       right: this.sliderThumb.nativeElement.offsetWidth,
       width: this.sliderThumb.nativeElement.offsetWidth,
       offsetLeft: offset,
     };
+
     this.rightPosition = {
       x: this.point.width,
       y: 0,
     };
+
     this.rangeValue = this.maxValue - this.minValue;
-    console.log('point', this.point);
   }
 
   mousedown(event) {

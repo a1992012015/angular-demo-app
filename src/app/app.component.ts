@@ -5,6 +5,7 @@ enum urlConfig {
   '/meet-timer' = 0,
   '/range-slider' = 1,
   '/line-chart' = 2,
+  '/magikarp-code' = 3
 }
 
 @Component({
@@ -35,7 +36,6 @@ export class AppComponent implements OnInit {
 
   groupChange(index) {
     const url = AppComponent.getNavigateUrl(index);
-    console.log(url);
     this.router.navigate([url]);
   }
 }
