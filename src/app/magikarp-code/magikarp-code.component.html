@@ -35,4 +35,13 @@
   </table>
 </div>
 
-<p class="seed" *ngFor="let seed of randomNumber;index as i">{{'第' + (i + 1) + '条'}}：{{seed.join('')}}</p>
+<ng-container *ngIf="randomNumber.length >= 127">
+  <div class="seed" *ngFor="let seed of randomNumber;index as i">
+    <p>{{'第' + (i + 1) + '条seed'}}：{{seed.seed}}</p>
+    <p>{{'第' + (i + 1) + '条value'}}：{{seed.value.join(' ')}}</p>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="randomNumber.length < 127">
+  <div class="seed">{{initNumber.join('')}}</div>
+</ng-container>

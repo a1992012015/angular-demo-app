@@ -6,6 +6,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatTableModule } from '@angular/material/table';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const allModule = [
   BrowserAnimationsModule,
@@ -15,6 +16,7 @@ const allModule = [
   DragDropModule,
   MatTableModule,
   MatChipsModule,
+  MatSnackBarModule,
 ];
 
 /**
