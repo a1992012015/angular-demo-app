@@ -9,8 +9,9 @@ describe('MagikarpCodeComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ MagikarpCodeComponent ]
-    })
-    .compileComponents();
+    }).compileComponents().then(res => {
+      console.log(res);
+    });
   }));
 
   beforeEach(() => {

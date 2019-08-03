@@ -6,7 +6,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
   styleUrls: ['./meet-timer.component.scss'],
 })
 export class MeetTimerComponent implements OnInit, OnDestroy {
-  nextTime = '2019-08-07';
+  nextTime = '2019-08-07T04:00:00Z';
   timesString = 'loading....';
   meet = null;
 
@@ -23,9 +23,28 @@ export class MeetTimerComponent implements OnInit, OnDestroy {
     clearInterval(this.meet);
   }
 
+  numDiv(num1: number, num2: number): number {
+    let baseNum1 = 0;
+    let baseNum2 = 0;
+    let baseNum3;
+    let baseNum4;
+    try {
+      baseNum1 = num1.toString().split('.')[1].length;
+    } catch (e) {
+      baseNum1 = 0;
+    }
+    try {
+      baseNum2 = num2.toString().split('.')[1].length;
+    } catch (e) {
+      baseNum2 = 0;
+    }
+    baseNum3 = Number(num1.toString().replace('.', ''));
+    baseNum4 = Number(num2.toString().replace('.', ''));
+    return (baseNum3 / baseNum4) * Math.pow(10, baseNum2 - baseNum1);
+  }
+
   formatTime() {
-    const endStr = this.nextTime.replace(/-/g, '/');
-    const classTime = new Date(endStr).getTime();   // 将时间字符串转换为时间.
+    const classTime = new Date(this.nextTime).getTime();   // 将时间字符串转换为时间.
     const nowTime = new Date().getTime();
     const totalSecs = (classTime - nowTime) / 1000;   // 获得两个时间的总毫秒数. 靠前的就调换再减。
     const days = Math.floor(totalSecs / 3600 / 24);
