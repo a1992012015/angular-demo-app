@@ -1,21 +1,11 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { ViewSliderComponent } from './view-slider/view-slider.component';
-import { MeetTimerComponent } from './meet-timer/meet-timer.component';
-import { ViewChartComponent } from './view-chart/view-chart.component';
-import { MagikarpCodeComponent } from './magikarp-code/magikarp-code.component';
+import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'meet-timer' },
-  { path: 'meet-timer', component: MeetTimerComponent },
-  { path: 'range-slider', component: ViewSliderComponent },
-  { path: 'line-chart', component: ViewChartComponent },
-  { path: 'magikarp-code', component: MagikarpCodeComponent },
-];
+
+const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule { }

@@ -1,41 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-
-enum urlConfig {
-  '/meet-timer' = 0,
-  '/range-slider' = 1,
-  '/line-chart' = 2,
-  '/magikarp-code' = 3
-}
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'my-angular-test-app';
-  activeUrl = 0;
-
-  constructor(
-    private router: Router,
-  ) {
-  }
-
-  private static getNavigateUrl(index) {
-    if (urlConfig[index]) {
-      return urlConfig[index];
-    } else {
-      return '/';
-    }
-  }
+  title = 'angular-demo-app';
 
   ngOnInit(): void {
-    this.activeUrl = urlConfig[window.location.pathname];
-  }
-
-  groupChange(index) {
-    const url = AppComponent.getNavigateUrl(index);
-    this.router.navigate([url]);
+    if (typeof Worker !== 'undefined') {
+      // Create a new
+      const worker = new Worker('./workers/worker-test.worker', { type: 'module' });
+      worker.onmessage = ({ data }) => {
+        const end = formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss:SSS', 'en-US', 'UTC');
+        console.log('end', end);
+        console.log(`%cpage got message: ${data}`, 'color: red;');
+      };
+      const start = formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss:SSS', 'en-US', 'UTC');
+      console.log('start', start);
+      worker.postMessage(42);
+    } else {
+      // Web workers are not supported in this environment.
+      // You should add a fallback so that your program still executes correctly.
+    }
   }
 }
