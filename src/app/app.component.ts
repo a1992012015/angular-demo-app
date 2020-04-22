@@ -4,10 +4,23 @@ import { formatDate } from '@angular/common';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  title = 'angular-demo-app';
+  routerPaths = [
+    {
+      routerName: 'Dashboard',
+      routerPath: '/',
+    },
+    {
+      routerName: 'Css Selector',
+      routerPath: '/css-selector',
+    },
+    {
+      routerName: 'Rem Compute',
+      routerPath: '/rem-compute',
+    },
+  ];
 
   ngOnInit(): void {
     if (typeof Worker !== 'undefined') {

@@ -1,0 +1,9 @@
+<form class="example-container" [formGroup]="options">
+  <mat-form-field appearance="fill">
+    <mat-label>Font size</mat-label>
+    <input matInput type="number" (input)="getFontRem()" [formControl]="fontSizeControl">
+    <span matSuffix>px</span>
+  </mat-form-field>
+</form>
+
+<p>计算得到rem:{{fontRem}}</p>
