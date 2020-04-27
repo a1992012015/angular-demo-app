@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { formatDate } from '@angular/common';
+import { GapiLoaderService } from './service/gapi-loader.service';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +21,14 @@ export class AppComponent implements OnInit {
       routerName: 'Rem Compute',
       routerPath: '/rem-compute',
     },
+    {
+      routerName: 'Google Chart',
+      routerPath: '/google-chart',
+    },
   ];
+
+  constructor(protected gapiLoader: GapiLoaderService) {
+  }
 
   ngOnInit(): void {
     if (typeof Worker !== 'undefined') {

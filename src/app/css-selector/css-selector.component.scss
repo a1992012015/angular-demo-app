@@ -1,3 +1,7 @@
-.selector-1:nth-child(even):nth-last-child(-n+3) ~ p {
+.selector-1:nth-child(even):nth-last-child(-n+3) ~ .selector-1 {
+  background: #ff0000;
+}
+
+.selector-2:nth-child(3n) {
   background: #ff0000;
 }

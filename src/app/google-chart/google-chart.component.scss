@@ -1,0 +1,27 @@
+$fb-base-gap-width: 0.25rem;
+
+.chart {
+  margin: 20px;
+  width: 600px;
+  height: 300px;
+}
+
+:host::ng-deep .line-chart-tooltip {
+  padding: $fb-base-gap-width * 4;
+  min-width: 7rem;
+
+  .title {
+    font-weight: bold;
+    font-size: .875rem;
+  }
+
+  .label {
+    margin-top: $fb-base-gap-width * 6;
+    margin-bottom: $fb-base-gap-width * 2;
+    color: #757575
+  }
+
+  .value {
+    font-size: 1.25rem;
+  }
+}

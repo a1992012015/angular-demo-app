@@ -1,0 +1,9 @@
+<div class="chart">
+  <google-chart *ngIf="formatValue.rawData.length" style="width: 100%; height: 12.5rem"
+                [dynamicResize]="true"
+                [type]="formatValue.type"
+                [data]="formatValue.rawData"
+                [columnNames]="formatValue.columnNames"
+                [options]="formatValue.options">
+  </google-chart>
+</div>

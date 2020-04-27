@@ -1,27 +1,36 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CssSelectorComponent } from './css-selector/css-selector.component';
 import { BaseRemComputeComponent } from './base-rem-compute/base-rem-compute.component';
+import { GoogleChartComponent } from './google-chart/google-chart.component';
+import { GapiReadyResolverGuard } from './guard/gapi-ready-resolver.guard';
 
 const routes: Routes = [
   {
     path: '',
-    component: DashboardComponent
+    component: DashboardComponent,
   },
   {
     path: 'css-selector',
-    component: CssSelectorComponent
+    component: CssSelectorComponent,
   },
   {
     path: 'rem-compute',
-    component: BaseRemComputeComponent
+    component: BaseRemComputeComponent,
+  },
+  {
+    path: 'google-chart',
+
+    resolve: { gapi: GapiReadyResolverGuard },
+    component: GoogleChartComponent,
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

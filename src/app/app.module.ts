@@ -11,6 +11,8 @@ import { CssSelectorComponent } from './css-selector/css-selector.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatDesignModule } from './modules/mat-design.module';
 import { BaseRemComputeComponent } from './base-rem-compute/base-rem-compute.component';
+import { GoogleChartComponent } from './google-chart/google-chart.component';
+import { GoogleChartsModule } from './modules/google-chart/google-charts.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { BaseRemComputeComponent } from './base-rem-compute/base-rem-compute.com
     CssSelectorComponent,
     DashboardComponent,
     BaseRemComputeComponent,
+    GoogleChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,6 +29,7 @@ import { BaseRemComputeComponent } from './base-rem-compute/base-rem-compute.com
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    GoogleChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
