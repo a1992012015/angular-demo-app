@@ -13,6 +13,7 @@ import { MatDesignModule } from './modules/mat-design.module';
 import { BaseRemComputeComponent } from './base-rem-compute/base-rem-compute.component';
 import { GoogleChartComponent } from './google-chart/google-chart.component';
 import { GoogleChartsModule } from './modules/google-chart/google-charts.module';
+import { HideScrollbarComponent } from './hide-scrollbar/hide-scrollbar.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { GoogleChartsModule } from './modules/google-chart/google-charts.module'
     DashboardComponent,
     BaseRemComputeComponent,
     GoogleChartComponent,
+    HideScrollbarComponent,
   ],
   imports: [
     BrowserModule,

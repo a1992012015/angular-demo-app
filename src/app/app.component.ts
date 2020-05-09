@@ -25,6 +25,10 @@ export class AppComponent implements OnInit {
       routerName: 'Google Chart',
       routerPath: '/google-chart',
     },
+    {
+      routerName: 'Hide Scrollbar',
+      routerPath: '/hide-scrollbar'
+    }
   ];
 
   constructor(protected gapiLoader: GapiLoaderService) {

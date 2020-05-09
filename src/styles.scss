@@ -1,4 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+$fb-base-gap-width: .25rem;
+
+.line-chart-tooltip {
+  padding: $fb-base-gap-width * 4;
+  min-width: 7rem;
+
+  .title {
+    font-weight: bold;
+    font-size: .875rem;
+  }
+
+  .label {
+    margin-top: $fb-base-gap-width * 6;
+    margin-bottom: $fb-base-gap-width * 2;
+    color: #757575
+  }
+
+  .value {
+    font-size: 1.25rem;
+    color: #D2670D;
+  }
+}

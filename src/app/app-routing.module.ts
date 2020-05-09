@@ -6,6 +6,7 @@ import { CssSelectorComponent } from './css-selector/css-selector.component';
 import { BaseRemComputeComponent } from './base-rem-compute/base-rem-compute.component';
 import { GoogleChartComponent } from './google-chart/google-chart.component';
 import { GapiReadyResolverGuard } from './guard/gapi-ready-resolver.guard';
+import { HideScrollbarComponent } from './hide-scrollbar/hide-scrollbar.component';
 
 const routes: Routes = [
   {
@@ -22,10 +23,13 @@ const routes: Routes = [
   },
   {
     path: 'google-chart',
-
     resolve: { gapi: GapiReadyResolverGuard },
     component: GoogleChartComponent,
   },
+  {
+    path: 'hide-scrollbar',
+    component: HideScrollbarComponent,
+  }
 ];
 
 @NgModule({
