@@ -10,6 +10,17 @@
 </div>
 
 <div class="chart">
+  <google-chart *ngIf="lineFormatValue.rawData.length"
+                style="width: 100%; min-height: 12.5rem"
+                [dynamicResize]="true"
+                [type]="lineFormatValue.type"
+                [data]="lineFormatValue.rawData"
+                [columnNames]="lineFormatValue.columnNames"
+                [options]="lineFormatValue.options">
+  </google-chart>
+</div>
+
+<div class="chart">
   <google-chart *ngIf="timeLineFormatValue.rawData.length"
                 style="width: 100%; min-height: 12.5rem"
                 [dynamicResize]="true"

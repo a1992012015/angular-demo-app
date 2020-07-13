@@ -28,6 +28,10 @@ export class AppComponent implements OnInit {
     {
       routerName: 'Hide Scrollbar',
       routerPath: '/hide-scrollbar'
+    },
+    {
+      routerName: 'Request Animation Frame',
+      routerPath: '/request-animation-frame'
     }
   ];
 

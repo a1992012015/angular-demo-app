@@ -14,6 +14,7 @@ import { BaseRemComputeComponent } from './base-rem-compute/base-rem-compute.com
 import { GoogleChartComponent } from './google-chart/google-chart.component';
 import { GoogleChartsModule } from './modules/google-chart/google-charts.module';
 import { HideScrollbarComponent } from './hide-scrollbar/hide-scrollbar.component';
+import { RequestAnimationFrameComponent } from './request-animation-frame/request-animation-frame.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { HideScrollbarComponent } from './hide-scrollbar/hide-scrollbar.componen
     BaseRemComputeComponent,
     GoogleChartComponent,
     HideScrollbarComponent,
+    RequestAnimationFrameComponent,
   ],
   imports: [
     BrowserModule,
