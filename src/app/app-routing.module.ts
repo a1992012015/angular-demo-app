@@ -8,6 +8,7 @@ import { GoogleChartComponent } from './google-chart/google-chart.component';
 import { GapiReadyResolverGuard } from './guard/gapi-ready-resolver.guard';
 import { HideScrollbarComponent } from './hide-scrollbar/hide-scrollbar.component';
 import { RequestAnimationFrameComponent } from './request-animation-frame/request-animation-frame.component';
+import { ImagesStepComponent } from './images-step/images-step.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,10 @@ const routes: Routes = [
   {
     path: 'request-animation-frame',
     component: RequestAnimationFrameComponent,
+  },
+  {
+    path: 'images-step',
+    component: ImagesStepComponent,
   },
 ];
 

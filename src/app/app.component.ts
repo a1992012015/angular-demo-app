@@ -32,6 +32,10 @@ export class AppComponent implements OnInit {
     {
       routerName: 'Request Animation Frame',
       routerPath: '/request-animation-frame'
+    },
+    {
+      routerName: 'Image Step',
+      routerPath: '/images-step'
     }
   ];
 

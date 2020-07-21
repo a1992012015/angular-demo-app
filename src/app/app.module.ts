@@ -15,6 +15,8 @@ import { GoogleChartComponent } from './google-chart/google-chart.component';
 import { GoogleChartsModule } from './modules/google-chart/google-charts.module';
 import { HideScrollbarComponent } from './hide-scrollbar/hide-scrollbar.component';
 import { RequestAnimationFrameComponent } from './request-animation-frame/request-animation-frame.component';
+import { ImagesStepComponent } from './images-step/images-step.component';
+import { ImageStepOverlayComponent } from './images-step/image-step-overlay/image-step-overlay.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { RequestAnimationFrameComponent } from './request-animation-frame/reques
     GoogleChartComponent,
     HideScrollbarComponent,
     RequestAnimationFrameComponent,
+    ImagesStepComponent,
+    ImageStepOverlayComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,7 @@ import { RequestAnimationFrameComponent } from './request-animation-frame/reques
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    GoogleChartsModule
+    GoogleChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
