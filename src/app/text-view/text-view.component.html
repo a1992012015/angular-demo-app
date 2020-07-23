@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="ellipsis" [style.maxHeight]="show ? '' : '108px'">
+    <div class="ellipsis-container">
+<!--      <div class="ellipsis-content">腾讯成立于1998年11月，是目前中国领先的互联网增值服务提供商之一。成立10多年来，腾讯一直秉承“一切以用户价值为依归”的经营理念，为亿级海量用户提供稳定优质的各类服务，始终处于稳健发展状态。2004年6月16日，腾讯控股有限公司在香港联交所主板公开上市(股票代号700)。</div>-->
+      <div class="ellipsis-content">腾讯成立于1998年11月，是目前中国领先的互联网增值服务提供商之一。成立10多年来</div>
+
+      <div class="ellipsis-ghost">
+        <div class="ellipsis-placeholder" [style.height]="show ? '100%' : '108px'"></div>
+
+        <div class="ellipsis-more" (click)="viewClickEvent()">...更多</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ellipsis-less" *ngIf="show" (click)="viewClickEvent()">收起</div>
+</div>
+<p>最下面</p>

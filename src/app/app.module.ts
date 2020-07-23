@@ -17,6 +17,7 @@ import { HideScrollbarComponent } from './hide-scrollbar/hide-scrollbar.componen
 import { RequestAnimationFrameComponent } from './request-animation-frame/request-animation-frame.component';
 import { ImagesStepComponent } from './images-step/images-step.component';
 import { ImageStepOverlayComponent } from './images-step/image-step-overlay/image-step-overlay.component';
+import { TextViewComponent } from './text-view/text-view.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ImageStepOverlayComponent } from './images-step/image-step-overlay/imag
     RequestAnimationFrameComponent,
     ImagesStepComponent,
     ImageStepOverlayComponent,
+    TextViewComponent,
   ],
   imports: [
     BrowserModule,

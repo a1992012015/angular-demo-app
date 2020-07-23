@@ -14,11 +14,11 @@ export class AppComponent implements OnInit {
       routerPath: '/',
     },
     {
-      routerName: 'Css Selector',
+      routerName: 'Css选择器',
       routerPath: '/css-selector',
     },
     {
-      routerName: 'Rem Compute',
+      routerName: 'Rem计算工具',
       routerPath: '/rem-compute',
     },
     {
@@ -26,16 +26,20 @@ export class AppComponent implements OnInit {
       routerPath: '/google-chart',
     },
     {
-      routerName: 'Hide Scrollbar',
+      routerName: '隐藏滚动条',
       routerPath: '/hide-scrollbar'
     },
     {
-      routerName: 'Request Animation Frame',
+      routerName: '高性能动画',
       routerPath: '/request-animation-frame'
     },
     {
-      routerName: 'Image Step',
+      routerName: '添加遮罩',
       routerPath: '/images-step'
+    },
+    {
+      routerName: '显示更多文本',
+      routerPath: '/text-view'
     }
   ];
 

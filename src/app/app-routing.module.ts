@@ -9,6 +9,7 @@ import { GapiReadyResolverGuard } from './guard/gapi-ready-resolver.guard';
 import { HideScrollbarComponent } from './hide-scrollbar/hide-scrollbar.component';
 import { RequestAnimationFrameComponent } from './request-animation-frame/request-animation-frame.component';
 import { ImagesStepComponent } from './images-step/images-step.component';
+import { TextViewComponent } from './text-view/text-view.component';
 
 const routes: Routes = [
   {
@@ -39,6 +40,10 @@ const routes: Routes = [
   {
     path: 'images-step',
     component: ImagesStepComponent,
+  },
+  {
+    path: 'text-view',
+    component: TextViewComponent,
   },
 ];
 
