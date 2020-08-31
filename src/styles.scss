@@ -31,3 +31,11 @@ $fb-base-gap-width: .25rem;
     color: #D2670D;
   }
 }
+
+
+.share-admin-dialog-container {
+  .mat-form-field-wrapper {
+    padding: 0;
+    height: 100%;
+  }
+}

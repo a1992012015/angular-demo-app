@@ -7,6 +7,9 @@ import { MatInputModule } from '@angular/material/input';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const materialModule = [
   MatSidenavModule,
@@ -16,6 +19,9 @@ const materialModule = [
   OverlayModule,
   MatButtonModule,
   MatIconModule,
+  MatChipsModule,
+  MatMenuModule,
+  MatDialogModule,
 ];
 
 /**

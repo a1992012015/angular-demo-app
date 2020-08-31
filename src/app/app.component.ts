@@ -40,6 +40,10 @@ export class AppComponent implements OnInit {
     {
       routerName: '显示更多文本',
       routerPath: '/text-view'
+    },
+    {
+      routerName: '弹窗样式',
+      routerPath: '/dialog-input'
     }
   ];
 

@@ -18,6 +18,8 @@ import { RequestAnimationFrameComponent } from './request-animation-frame/reques
 import { ImagesStepComponent } from './images-step/images-step.component';
 import { ImageStepOverlayComponent } from './images-step/image-step-overlay/image-step-overlay.component';
 import { TextViewComponent } from './text-view/text-view.component';
+import { DialogInputComponent } from './dialog-input/dialog-input.component';
+import { ShareAdminDialogComponent } from './components/share-admin-dialog/share-admin-dialog.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { TextViewComponent } from './text-view/text-view.component';
     ImagesStepComponent,
     ImageStepOverlayComponent,
     TextViewComponent,
+    DialogInputComponent,
+    ShareAdminDialogComponent,
   ],
   imports: [
     BrowserModule,

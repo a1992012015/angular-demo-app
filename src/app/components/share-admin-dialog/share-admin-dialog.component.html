@@ -1,0 +1,54 @@
+<div class="container">
+  <h1 class="dialog-title" i18n="@@share-admin-dialog-title">Share admin level data</h1>
+
+  <div class="share-form">
+    <mat-form-field class="form-email" appearance="fill">
+      <mat-chip-list #chipList aria-label="Fruit selection">
+        <mat-chip *ngFor="let fruit of fruits"
+                  [selectable]="true"
+                  [removable]="true"
+                  (removed)="remove(fruit)">
+          <mat-icon *ngIf="fruit.photo">warning</mat-icon>
+          {{fruit.name}}
+          <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+        <input placeholder="Add people"
+               [matChipInputFor]="chipList"
+               [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+               [matChipInputAddOnBlur]="true"
+               (matChipInputTokenEnd)="add($event)">
+      </mat-chip-list>
+    </mat-form-field>
+
+    <button class="form-action" mat-button color="accent" [matMenuTriggerFor]="menu">
+      Done
+      <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+  </div>
+
+  <div class="content" *ngIf="addEmail">
+    <p *ngIf="!peopleList.length" class="no-people">No People List</p>
+
+    <ng-container *ngIf="peopleList.length">
+      <div class="people-item" *ngFor="let people of peopleList;">
+        啊都是实打实
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<div class="action" *ngIf="addEmail">
+    <button mat-raised-button color="accent" (click)="onCancel()" i18n="@@share-admin-dialog-done">Done</button>
+</div>
+
+<div class="action" *ngIf="!addEmail">
+    <button mat-stroked-button color="accent" (click)="onCancel()" i18n="@@share-admin-dialog-done">Cancel</button>
+    <button mat-raised-button color="accent" (click)="onCancel()" i18n="@@share-admin-dialog-done">Add</button>
+</div>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="selectedPurview()">
+    <mat-icon>share</mat-icon>
+    <span i18n="private-crop-yield-dashboard-share">Data Sharing</span>
+  </button>
+</mat-menu>

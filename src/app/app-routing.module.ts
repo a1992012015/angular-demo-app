@@ -10,6 +10,7 @@ import { HideScrollbarComponent } from './hide-scrollbar/hide-scrollbar.componen
 import { RequestAnimationFrameComponent } from './request-animation-frame/request-animation-frame.component';
 import { ImagesStepComponent } from './images-step/images-step.component';
 import { TextViewComponent } from './text-view/text-view.component';
+import { DialogInputComponent } from './dialog-input/dialog-input.component';
 
 const routes: Routes = [
   {
@@ -44,6 +45,10 @@ const routes: Routes = [
   {
     path: 'text-view',
     component: TextViewComponent,
+  },
+  {
+    path: 'dialog-input',
+    component: DialogInputComponent,
   },
 ];
 
