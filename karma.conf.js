@@ -27,6 +27,7 @@ module.exports = function (config) {
     autoWatch: false,
     browsers: ['ChromeHeadless'],
     singleRun: true,
-    restartOnFileChange: true
+    restartOnFileChange: true,
+    browserNoActivityTimeout: 1200000
   });
 };

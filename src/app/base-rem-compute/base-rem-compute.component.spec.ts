@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { BaseRemComputeComponent } from './base-rem-compute.component';
 import { createMockServices, setDefaultMethodsToMocks } from '../../tests/mock-utilities';
+import { MatDesignModule } from '../modules/mat-design.module';
 
 describe('BaseRemComputeComponent', () => {
   let component: BaseRemComputeComponent;
@@ -14,6 +15,7 @@ describe('BaseRemComputeComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [BaseRemComputeComponent],
+      imports: [MatDesignModule],
       providers: [...mockServicesObj.providers]
     }).compileComponents();
     setDefaultMethodsToMocks(mockServicesObj, {

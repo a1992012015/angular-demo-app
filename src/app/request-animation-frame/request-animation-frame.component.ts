@@ -19,7 +19,6 @@ export class RequestAnimationFrameComponent implements OnInit {
     const div = this.box.nativeElement;
     const width = div.style.width ? div.style.width : 10;
     div.style.width = parseInt(width, 10) + 1 + 'px';
-    console.log('width', parseInt(div.style.width, 10));
     if (parseInt(div.style.width, 10) < 200) {
       requestAnimationFrame(this.animationWidth$);
     }

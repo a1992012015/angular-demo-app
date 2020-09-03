@@ -18,7 +18,6 @@ export class DialogInputComponent implements OnInit {
   }
 
   openShareDialog() {
-    console.log('openShareDialog');
     const dialogRef = this.dialog.open(ShareAdminDialogComponent, {
       autoFocus: false,
       data: { apiData: 'section.apiData, textStyle: 1' },

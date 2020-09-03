@@ -57,9 +57,7 @@ export class ShareAdminDialogComponent implements OnInit {
       this.addEmail = false;
       const emailValue = value.trim();
       const re = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
-      console.log(re.test(emailValue));
       const index = emailValue.indexOf('@');
-      console.log('index', index);
       if (re.test(emailValue)) {
         this.fruits.push({ name: emailValue.slice(0, index), email: emailValue, photo: '' });
       } else {

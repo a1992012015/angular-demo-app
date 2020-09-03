@@ -169,10 +169,7 @@ export class GoogleChartComponent implements OnInit {
         new Date(first.getUTCFullYear(), first.getUTCMonth(), first.getUTCDate()),
       ];
     });
-    console.log('rawData', rawData);
-    console.log('timeLineData', this.timeLineData);
     this.timeLineFormatValue.options.height = rawData.length * 41 + 50;
-    console.log(this.timeLineFormatValue.options);
     this.timeLineFormatValue.rawData = rawData;
   }
 
