@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ImageStepOverlayComponent } from './image-step-overlay.component';
+import { ImageStepOverlayComponent, PORTAL_IMAGE_STEP_DATA } from './image-step-overlay.component';
+import { MatDesignModule } from '../../modules/mat-design.module';
 
 describe('ImageStepOverlayComponent', () => {
   let component: ImageStepOverlayComponent;
@@ -8,9 +9,10 @@ describe('ImageStepOverlayComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ImageStepOverlayComponent ]
-    })
-    .compileComponents();
+      declarations: [ImageStepOverlayComponent],
+      imports: [MatDesignModule],
+      providers: [{ provide: PORTAL_IMAGE_STEP_DATA, useValue: { initData: { adminLevel: 'myAdminLevel' } } }]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

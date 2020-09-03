@@ -10,9 +10,8 @@ import { ShareAdminDialogComponent } from '../components/share-admin-dialog/shar
 })
 export class DialogInputComponent implements OnInit {
 
-  constructor(
-    private dialog: MatDialog,
-    ) { }
+  constructor(private dialog: MatDialog) {
+  }
 
   ngOnInit(): void {
     this.openShareDialog();

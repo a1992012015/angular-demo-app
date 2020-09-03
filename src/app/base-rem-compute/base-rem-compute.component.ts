@@ -14,7 +14,7 @@ export class BaseRemComputeComponent implements OnInit {
 
   fontRem = 0;
 
-  constructor(fb: FormBuilder) {
+  constructor(private fb: FormBuilder) {
     this.options = fb.group({
       fontSize: this.fontSizeControl,
     });

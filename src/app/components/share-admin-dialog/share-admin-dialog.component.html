@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="dialog-title" i18n="@@share-admin-dialog-title">Share admin level data</h1>
+  <h1 class="dialog-title">Share admin level data</h1>
 
   <div class="share-form">
     <mat-form-field class="form-email" appearance="fill">
@@ -38,17 +38,17 @@
 </div>
 
 <div class="action" *ngIf="addEmail">
-    <button mat-raised-button color="accent" (click)="onCancel()" i18n="@@share-admin-dialog-done">Done</button>
+    <button mat-raised-button color="accent" (click)="onCancel()">Done</button>
 </div>
 
 <div class="action" *ngIf="!addEmail">
-    <button mat-stroked-button color="accent" (click)="onCancel()" i18n="@@share-admin-dialog-done">Cancel</button>
-    <button mat-raised-button color="accent" (click)="onCancel()" i18n="@@share-admin-dialog-done">Add</button>
+    <button mat-stroked-button color="accent" (click)="onCancel()">Cancel</button>
+    <button mat-raised-button color="accent" (click)="onCancel()">Add</button>
 </div>
 
 <mat-menu #menu="matMenu">
   <button mat-menu-item (click)="selectedPurview()">
     <mat-icon>share</mat-icon>
-    <span i18n="private-crop-yield-dashboard-share">Data Sharing</span>
+    <span>Data Sharing</span>
   </button>
 </mat-menu>

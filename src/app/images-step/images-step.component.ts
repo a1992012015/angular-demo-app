@@ -25,7 +25,6 @@ export class ImagesStepComponent implements OnInit {
   }
 
   openOverlay() {
-    console.log('openOverlay');
     this.overlayRef = this.overlay.create();
     const userProfilePortal = new ComponentPortal(
       ImageStepOverlayComponent,
@@ -40,7 +39,6 @@ export class ImagesStepComponent implements OnInit {
   }
 
   private closeOverlay() {
-    console.log('closeOverlay');
     this.overlayRef.detach();
   }
 
