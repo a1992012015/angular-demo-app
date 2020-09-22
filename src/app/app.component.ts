@@ -44,6 +44,10 @@ export class AppComponent implements OnInit {
     {
       routerName: '弹窗样式',
       routerPath: '/dialog-input'
+    },
+    {
+      routerName: '地图图片',
+      routerPath: '/google-map-svg'
     }
   ];
 

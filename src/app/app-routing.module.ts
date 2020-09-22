@@ -11,6 +11,7 @@ import { RequestAnimationFrameComponent } from './request-animation-frame/reques
 import { ImagesStepComponent } from './images-step/images-step.component';
 import { TextViewComponent } from './text-view/text-view.component';
 import { DialogInputComponent } from './dialog-input/dialog-input.component';
+import { GoogleMapSvgComponent } from './google-map-svg/google-map-svg.component';
 
 const routes: Routes = [
   {
@@ -49,6 +50,10 @@ const routes: Routes = [
   {
     path: 'dialog-input',
     component: DialogInputComponent,
+  },
+  {
+    path: 'google-map-svg',
+    component: GoogleMapSvgComponent,
   },
 ];
 

@@ -20,6 +20,7 @@ import { ImageStepOverlayComponent } from './images-step/image-step-overlay/imag
 import { TextViewComponent } from './text-view/text-view.component';
 import { DialogInputComponent } from './dialog-input/dialog-input.component';
 import { ShareAdminDialogComponent } from './components/share-admin-dialog/share-admin-dialog.component';
+import { GoogleMapSvgComponent } from './google-map-svg/google-map-svg.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ShareAdminDialogComponent } from './components/share-admin-dialog/share
     TextViewComponent,
     DialogInputComponent,
     ShareAdminDialogComponent,
+    GoogleMapSvgComponent,
   ],
   imports: [
     BrowserModule,
