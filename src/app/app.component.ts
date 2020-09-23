@@ -50,22 +50,30 @@ export class AppComponent implements OnInit {
       routerPath: '/google-map-svg'
     }
   ];
+  workerStart = 0;
+  workerEnd = 0;
 
   constructor(protected gapiLoader: GapiLoaderService) {
   }
 
   ngOnInit(): void {
+    let nowDate: Date;
     if (typeof Worker !== 'undefined') {
       // Create a new
       const worker = new Worker('./workers/worker-test.worker', { type: 'module' });
       worker.onmessage = ({ data }) => {
-        const end = formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss:SSS', 'en-US', 'UTC');
-        console.log('end', end);
-        console.log(`%cpage got message: ${data}`, 'color: red;');
+        nowDate = new Date();
+        const end = formatDate(nowDate, 'yyyy-MM-dd HH:mm:ss:SSS', 'en-US', 'UTC');
+        console.log(`%cend => ${end}`, 'color: blue;');
+        this.workerEnd = nowDate.getTime();
+        const minutes = (this.workerEnd - this.workerStart) / 1000;
+        console.log(`%cpage got message: ${data}, time consuming: ${minutes}`, 'color: red;');
       };
-      const start = formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss:SSS', 'en-US', 'UTC');
-      console.log('start', start);
-      worker.postMessage(42);
+      nowDate = new Date();
+      const start = formatDate(nowDate, 'yyyy-MM-dd HH:mm:ss:SSS', 'en-US', 'UTC');
+      console.log(`%cstart => ${start}`, 'color: blue;');
+      this.workerStart = nowDate.getTime();
+      worker.postMessage(45);
     } else {
       // Web workers are not supported in this environment.
       // You should add a fallback so that your program still executes correctly.

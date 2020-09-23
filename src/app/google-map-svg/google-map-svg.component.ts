@@ -1,7 +1,8 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
-// @ts-ignore
-import paths from './paths.json';
+import { IGeometry, IPoint, MaxMinInterface, TileDataInterface } from '../interface/worker.interface';
+import * as privatePath from './private-path-point.json';
+import * as publicPath from './public-path-point.json';
 
 @Component({
   selector: 'app-google-map-svg',
@@ -9,25 +10,11 @@ import paths from './paths.json';
   styleUrls: ['./google-map-svg.component.scss'],
 })
 export class GoogleMapSvgComponent implements OnInit, AfterViewInit {
-  @ViewChild('svgElement', { static: false }) svgElement: ElementRef<HTMLElement>;
-  min = { latitude: 40.58058466412762, longitude: -98.4375 };
-  max = { latitude: 40.51379915504414, longitude: -98.349609375 };
+  @ViewChild('publicSvgElement', { static: false }) publicSvgElement: ElementRef<HTMLElement>;
+  @ViewChild('privateSvgElement', { static: false }) privateSvgElement: ElementRef<HTMLElement>;
 
-  debug = [
-    { lat: -36.3871459262831, lng: -61.8264426654395 },
-    { lat: -36.3868080271405, lng: -61.8241738989959 },
-    { lat: -36.3840479207707, lng: -61.8206401931984 },
-    { lat: -36.383725844305, lng: -61.8207401099872 },
-    { lat: -36.3835339579268, lng: -61.8209499015239 },
-    { lat: -36.3833160603036, lng: -61.8203740074777 },
-    { lat: -36.3818683709283, lng: -61.819399341395 },
-    { lat: -36.3765363650154, lng: -61.818629556296 },
-    { lat: -36.3573601516748, lng: -61.84060899988685 },
-    { lat: -36.3740481902967, lng: -61.82163261494365 },
-    { lat: -36.371560015578, lng: -61.8246356735913 },
-    { lat: -36.367391406552116, lng: -61.857770074274406 },
-    { lat: -36.3799096718486, lng: -61.8352237665058 },
-  ];
+  publicTileData: TileDataInterface = { coord: { x: 928, y: 1542 }, zoom: 12 };
+  privateTileData: TileDataInterface = { coord: { x: 1344, y: 2493 }, zoom: 12 };
 
   ngOnInit(): void {
   }
@@ -37,30 +24,35 @@ export class GoogleMapSvgComponent implements OnInit, AfterViewInit {
   }
 
   init() {
-    const svgProps = this.poly_gm2svg();
-    this.drawPoly(svgProps);
+    const publicMaxMin = this.getPointMaxMin(this.publicTileData);
+    const publicSvgProps = this.poly_gm2svg(publicPath.data, publicMaxMin);
+    this.drawPoly(publicSvgProps, this.publicTileData, this.publicSvgElement, '../../assets/images/publicTileImage.png');
+
+    const privateMaxMin = this.getPointMaxMin(this.privateTileData);
+    const privateSvgProps = this.poly_gm2svg(privatePath.data, privateMaxMin);
+    this.drawPoly(privateSvgProps, this.privateTileData, this.privateSvgElement, '../../assets/images/privateTileImage.png');
   }
 
-  drawPoly(props) {
-    const node = this.svgElement.nativeElement;
+  drawPoly(props, tileData: TileDataInterface, element, url: string) {
+    const node = element.nativeElement;
     const svg = node.cloneNode(false) as HTMLElement;
     const image = document.createElementNS('http://www.w3.org/2000/svg', 'image');
     const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
     const clipPath = document.createElementNS('http://www.w3.org/2000/svg', 'clipPath');
     const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-    clipPath.setAttribute('id', 'polygon-path');
+    clipPath.setAttribute('id', `polygon-path-${tileData.coord.x}-${tileData.coord.y}`);
     rect.setAttribute('x', props.x);
     rect.setAttribute('y', props.y);
     rect.setAttribute('width', props.width);
     rect.setAttribute('height', props.height);
     rect.setAttribute('fill', 'red');
-    rect.setAttribute('clip-path', 'url(#polygon-path)');
+    rect.setAttribute('clip-path', `url(#polygon-path-${tileData.coord.x}-${tileData.coord.y})`);
     image.setAttribute('x', props.x);
     image.setAttribute('y', props.y);
     image.setAttribute('height', props.height);
     image.setAttribute('width', props.width);
-    image.setAttribute('clip-path', 'url(#polygon-path)');
-    image.setAttribute('href', '../../assets/images/tileImage.png');
+    image.setAttribute('clip-path', `url(#polygon-path-${tileData.coord.x}-${tileData.coord.y})`);
+    image.setAttribute('href', url);
     node.parentNode.replaceChild(svg, node);
     props.path.forEach((p) => {
       clipPath.appendChild(p);
@@ -72,30 +64,37 @@ export class GoogleMapSvgComponent implements OnInit, AfterViewInit {
     svg.setAttribute('viewBox', [props.x, props.y, props.width, props.height].join(' '));
   }
 
-  poly_gm2svg() {
+  poly_gm2svg(pathData: IGeometry[][][][], maxMin: MaxMinInterface) {
     const svgPaths = [];
-    const { x: minX, y: minY } = this.latLng2point(this.min);
-    const { x: maxX, y: maxY } = this.latLng2point(this.max);
+    const { x: minX, y: maxY } = this.latLng2point(maxMin.min);
+    const { x: maxX, y: minY } = this.latLng2point(maxMin.max);
 
-    // const pointPath = [paths.data[0].splice(0, 1)];
-    const pointPath = [...paths.data];
+    // const pointPath = [pointPaths.data[0].splice(0, 1)];
+    const pointPath = [...pathData];
     pointPath.forEach((tile) => {
       tile.forEach((multipolygon) => {
         multipolygon.forEach((geometry) => {
           geometry.forEach((polygon) => {
             polygon.polygon.forEach((loops) => {
-              loops.loop.forEach((points) => {
-                if (this.checkPointPosition(points.point)) {
+              const paths: string[] = [];
+              loops.loop.forEach((points, index) => {
+                if (this.checkPointPosition(points.point, maxMin)) {
                   const svgPath = [];
                   points.point.forEach((point) => {
                     const p = this.latLng2point(point);
-                    svgPath.push([p.x, p.y].join(','));
+                    if (index === 0) {
+                      svgPath.push([p.x, p.y].join(','));
+                    } else {
+                      svgPath.unshift([p.x, p.y].join(','));
+                    }
                   });
-                  const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-                  path.setAttribute('d', 'M' + svgPath.join(' ') + 'z');
-                  svgPaths.push(path);
+                  paths.push(`M${svgPath.join(' ')}z`);
                 }
               });
+              const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+              path.setAttribute('fill-rule', 'evenodd');
+              path.setAttribute('d', paths.join(' '));
+              svgPaths.push(path);
             });
           });
         });
@@ -111,14 +110,14 @@ export class GoogleMapSvgComponent implements OnInit, AfterViewInit {
     };
   }
 
-  checkPointPosition(points: { longitude: number, latitude: number }[]) {
-    const min = { latitude: this.max.latitude, longitude: this.min.longitude };
-    const max = { latitude: this.min.latitude, longitude: this.max.longitude };
+  checkPointPosition(points: IPoint[], maxMin: MaxMinInterface) {
     return points.some((point) => {
-      return point.longitude < max.longitude &&
-        point.longitude > min.longitude &&
-        point.latitude < max.latitude &&
-        point.latitude > min.latitude;
+      return (
+        point.longitude < maxMin.max.longitude &&
+        point.longitude > maxMin.min.longitude &&
+        point.latitude < maxMin.max.latitude &&
+        point.latitude > maxMin.min.latitude
+      );
     });
   }
 
@@ -127,5 +126,33 @@ export class GoogleMapSvgComponent implements OnInit, AfterViewInit {
       x: (latLng.longitude + 180) * (256 / 360),
       y: (256 / 2) - (256 * Math.log(Math.tan((Math.PI / 4) + ((latLng.latitude * Math.PI / 180) / 2))) / (2 * Math.PI)),
     };
+  }
+
+  getPointMaxMin(tileData: TileDataInterface) {
+    const min = this.calculateLatLngFromCoords(
+      { x: tileData.coord.x, y: tileData.coord.y + 1 },
+      tileData.zoom,
+    );
+    const max = this.calculateLatLngFromCoords(
+      { x: tileData.coord.x + 1, y: tileData.coord.y },
+      tileData.zoom,
+    );
+    return { max, min };
+  }
+
+  calculateLatLngFromCoords(coords: { x: number; y: number }, zoom: number) {
+    return {
+      latitude: this.tile2lat(coords.y, zoom),
+      longitude: this.tile2long(coords.x, zoom),
+    };
+  }
+
+  tile2long(x: number, z: number) {
+    return (x / Math.pow(2, z)) * 360 - 180;
+  }
+
+  tile2lat(y: number, z: number) {
+    const n = Math.PI - (2 * Math.PI * y) / Math.pow(2, z);
+    return (180 / Math.PI) * Math.atan(0.5 * (Math.exp(n) - Math.exp(-n)));
   }
 }
