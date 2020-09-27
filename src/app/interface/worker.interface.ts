@@ -57,7 +57,7 @@ interface IPolygon {
   loop?: ILine[] | null;
 }
 
-interface ILine {
+export interface ILine {
   /** Line point */
   point?: IPoint[] | null;
 }

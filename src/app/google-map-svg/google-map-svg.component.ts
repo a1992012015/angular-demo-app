@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import * as _ from 'lodash';
 
-import { IGeometry, IPoint, MaxMinInterface, TileDataInterface } from '../interface/worker.interface';
+import { IGeometry, ILine, IPoint, MaxMinInterface, TileDataInterface } from '../interface/worker.interface';
 import * as privatePath from './private-path-point.json';
 import * as publicPath from './public-path-point.json';
 
@@ -14,7 +15,7 @@ export class GoogleMapSvgComponent implements OnInit, AfterViewInit {
   @ViewChild('privateSvgElement', { static: false }) privateSvgElement: ElementRef<HTMLElement>;
 
   publicTileData: TileDataInterface = { coord: { x: 928, y: 1542 }, zoom: 12 };
-  privateTileData: TileDataInterface = { coord: { x: 1344, y: 2493 }, zoom: 12 };
+  privateTileData: TileDataInterface = { coord: { x: 1347, y: 2493 }, zoom: 12 };
 
   ngOnInit(): void {
   }
@@ -69,16 +70,17 @@ export class GoogleMapSvgComponent implements OnInit, AfterViewInit {
     const { x: minX, y: maxY } = this.latLng2point(maxMin.min);
     const { x: maxX, y: minY } = this.latLng2point(maxMin.max);
 
-    // const pointPath = [pointPaths.data[0].splice(0, 1)];
+    // const pointPath = [[pathData[0][1]]];
     const pointPath = [...pathData];
     pointPath.forEach((tile) => {
       tile.forEach((multipolygon) => {
         multipolygon.forEach((geometry) => {
           geometry.forEach((polygon) => {
             polygon.polygon.forEach((loops) => {
-              const paths: string[] = [];
-              loops.loop.forEach((points, index) => {
-                if (this.checkPointPosition(points.point, maxMin)) {
+              const result = this.checkPointPosition(loops.loop, maxMin);
+              if (loops.loop.length && result) {
+                const paths: string[] = [];
+                loops.loop.forEach((points, index) => {
                   const svgPath = [];
                   points.point.forEach((point) => {
                     const p = this.latLng2point(point);
@@ -89,12 +91,12 @@ export class GoogleMapSvgComponent implements OnInit, AfterViewInit {
                     }
                   });
                   paths.push(`M${svgPath.join(' ')}z`);
-                }
-              });
-              const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-              path.setAttribute('fill-rule', 'evenodd');
-              path.setAttribute('d', paths.join(' '));
-              svgPaths.push(path);
+                });
+                const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                path.setAttribute('fill-rule', 'evenodd');
+                path.setAttribute('d', paths.join(' '));
+                svgPaths.push(path);
+              }
             });
           });
         });
@@ -105,26 +107,64 @@ export class GoogleMapSvgComponent implements OnInit, AfterViewInit {
       path: svgPaths,
       x: minX,
       y: minY,
-      width: maxX - minX,
-      height: maxY - minY,
+      width: _.subtract(maxX, minX),
+      height: _.subtract(maxY, minY),
     };
   }
 
-  checkPointPosition(points: IPoint[], maxMin: MaxMinInterface) {
-    return points.some((point) => {
-      return (
-        point.longitude < maxMin.max.longitude &&
-        point.longitude > maxMin.min.longitude &&
-        point.latitude < maxMin.max.latitude &&
-        point.latitude > maxMin.min.latitude
-      );
-    });
+  checkPointPosition(points: ILine[], maxMin: MaxMinInterface) {
+    const outerBorder = points[0] || { point: [] };
+    const { polygonBoundingBox, tileBoundingBox } = this.getBoundingBox(outerBorder.point, maxMin);
+    return tileBoundingBox.right < polygonBoundingBox.left ||
+      tileBoundingBox.left > polygonBoundingBox.right ||
+      tileBoundingBox.bottom < polygonBoundingBox.top ||
+      tileBoundingBox.top > polygonBoundingBox.bottom;
+  }
+
+  getBoundingBox(point: IPoint[], maxMin: MaxMinInterface) {
+    const tileBoundingBox = {
+      left: maxMin.min.longitude,
+      right: maxMin.max.longitude,
+      top: maxMin.max.latitude,
+      bottom: maxMin.min.latitude,
+    };
+    const polygonBoundingBox = point.reduce((value, current) => {
+      const { longitude, latitude } = _.cloneDeep(current);
+      if (Object.keys(value).length) {
+        if (longitude < value.left) {
+          value.left = longitude;
+        }
+        if (longitude > value.right) {
+          value.right = longitude;
+        }
+        if (latitude < value.bottom) {
+          value.bottom = latitude;
+        }
+        if (latitude > value.top) {
+          value.top = latitude;
+        }
+      } else {
+        value.left = longitude;
+        value.right = longitude;
+        value.top = latitude;
+        value.bottom = latitude;
+      }
+      return value;
+    }, _.cloneDeep(tileBoundingBox));
+    return { polygonBoundingBox, tileBoundingBox };
   }
 
   latLng2point(latLng) {
     return {
-      x: (latLng.longitude + 180) * (256 / 360),
-      y: (256 / 2) - (256 * Math.log(Math.tan((Math.PI / 4) + ((latLng.latitude * Math.PI / 180) / 2))) / (2 * Math.PI)),
+      // x: (latLng.longitude + 180) * (256 / 360),
+      x: _.multiply(_.add(latLng.longitude, 180), _.divide(256, 360)),
+      // y: (256 / 2) - (256 * Math.log(Math.tan((Math.PI / 4) + ((latLng.latitude * Math.PI / 180) / 2))) / (2 * Math.PI)),
+      // tslint:disable-next-line:max-line-length
+      y: _.subtract(_.divide(256, 2),
+        _.divide(_.multiply(256, Math.log(Math.tan(_.add(_.divide(Math.PI, 4), _.divide(_.divide(latLng.latitude * Math.PI, 180), 2))))),
+          _.multiply(2, Math.PI),
+        ),
+      ),
     };
   }
 
@@ -148,11 +188,14 @@ export class GoogleMapSvgComponent implements OnInit, AfterViewInit {
   }
 
   tile2long(x: number, z: number) {
-    return (x / Math.pow(2, z)) * 360 - 180;
+    // return (x / Math.pow(2, z)) * 360 - 180;
+    return _.subtract(_.multiply(_.divide(x, Math.pow(2, z)), 360), 180);
   }
 
   tile2lat(y: number, z: number) {
-    const n = Math.PI - (2 * Math.PI * y) / Math.pow(2, z);
-    return (180 / Math.PI) * Math.atan(0.5 * (Math.exp(n) - Math.exp(-n)));
+    // const n = Math.PI - (2 * Math.PI * y) / Math.pow(2, z);
+    const n = _.subtract(Math.PI, _.divide(_.multiply(_.multiply(2, Math.PI), y), Math.pow(2, z)));
+    // return (180 / Math.PI) * Math.atan(0.5 * (Math.exp(n) - Math.exp(-n)));
+    return _.multiply(_.divide(180, Math.PI), Math.atan(_.multiply(0.5, _.subtract(Math.exp(n), Math.exp(-n)))));
   }
 }
