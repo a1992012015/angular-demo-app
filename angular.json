@@ -34,7 +34,7 @@
             "scripts": [
               "src/assets/js/custom-closure-lib.compiled.js"
             ],
-            "webWorkerTsConfig": "tsconfig.worker.json",
+            "webWorkerTsConfig": "tsconfig.worker.json"
           },
           "configurations": {
             "production": {
