@@ -11,6 +11,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatSelectModule } from '@angular/material/select';
 
 const materialModule = [
   MatSidenavModule,
@@ -24,6 +26,8 @@ const materialModule = [
   MatMenuModule,
   MatDialogModule,
   BrowserAnimationsModule,
+  MatAutocompleteModule,
+  MatSelectModule
 ];
 
 /**
@@ -31,11 +35,11 @@ const materialModule = [
  */
 @NgModule({
   imports: [
-    ...materialModule,
+    ...materialModule
   ],
   exports: [
-    ...materialModule,
-  ],
+    ...materialModule
+  ]
 })
 export class MatDesignModule {
 }

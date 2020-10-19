@@ -48,6 +48,10 @@ export class AppComponent implements OnInit {
     {
       routerName: '地图图片',
       routerPath: '/google-map-svg'
+    },
+    {
+      routerName: '过滤选择器',
+      routerPath: '/filter-select'
     }
   ];
   workerStart = 0;

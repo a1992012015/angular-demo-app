@@ -21,6 +21,7 @@ import { TextViewComponent } from './text-view/text-view.component';
 import { DialogInputComponent } from './dialog-input/dialog-input.component';
 import { ShareAdminDialogComponent } from './components/share-admin-dialog/share-admin-dialog.component';
 import { GoogleMapSvgComponent } from './google-map-svg/google-map-svg.component';
+import { FilterSelectComponent } from './filter-select/filter-select.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { GoogleMapSvgComponent } from './google-map-svg/google-map-svg.component
     DialogInputComponent,
     ShareAdminDialogComponent,
     GoogleMapSvgComponent,
+    FilterSelectComponent,
   ],
   imports: [
     BrowserModule,
