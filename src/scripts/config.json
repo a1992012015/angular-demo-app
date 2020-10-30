@@ -1,157 +1,351 @@
 {
   "data": [
     {
-      "attrKey": "start",
-      "decimal": 0,
-      "displayName": {
-        "start": "Fecha de fungicida"
+      "cardType": "keyValueCard",
+      "cardTitle": {
+        "title": "Índice de Productividad de Cultivos",
+        "subtitle": "",
+        "icon": "iconPlantvolume",
+        "color": "#FF8D02"
       },
-      "displayType": "date",
-      "unit": {},
-      "validationRules": {
-        "start": [
-          {
-            "key": "chemicalApplication",
-            "params": [
-              "start"
-            ]
-          }
-        ]
+      "sectionView": [
+        {
+          "sectionTitle": {
+            "title": ""
+          },
+          "extractFunctionName": "extractArrayValueByArraySection",
+          "extractParams": [
+            {
+              "dataPath": [
+                "payload",
+                "crop_productivity_index_data",
+                "productivity_index"
+              ],
+              "dataTrait": [
+                {
+                  "key": "data_type",
+                  "rule": "equal",
+                  "value": [
+                    38
+                  ]
+                }
+              ],
+              "extractKey": [
+                "crop_category",
+                "index"
+              ],
+              "editKey": []
+            }
+          ],
+          "sectionName": "keyValue",
+          "dictionary": [
+            {
+              "attrKey": "crop_category",
+              "order": 1,
+              "editOrder": 1,
+              "requiredKey": [
+                "crop_category"
+              ]
+            },
+            {
+              "attrKey": "index",
+              "order": 2,
+              "editOrder": 2,
+              "requiredKey": [
+                "index"
+              ]
+            }
+          ],
+          "defaultEditKey": [],
+          "showOption": true,
+          "clickEvent": false
+        }
+      ]
+    },
+    {
+      "cardType": "keyValueCard",
+      "cardTitle": {
+        "title": "Frecuencia de inundación",
+        "icon": "iconFlood",
+        "color": "#F23A30"
       },
-      "order": 1,
-      "editOrder": 1,
-      "requiredKey": [
-        "start"
+      "sectionView": [
+        {
+          "sectionTitle": {
+            "title": ""
+          },
+          "extractFunctionName": "extractObjectByArraySection",
+          "extractParams": [
+            {
+              "dataPath": [
+                "payload",
+                "flooding_data"
+              ],
+              "dataTrait": [
+                {
+                  "key": "data_type",
+                  "rule": "equal",
+                  "value": [
+                    36
+                  ]
+                }
+              ],
+              "extractKey": [
+                "dominant_frequency",
+                "max_frequency",
+                "duration"
+              ],
+              "editKey": []
+            }
+          ],
+          "sectionName": "keyValue",
+          "dictionary": [
+            {
+              "attrKey": "dominant_frequency",
+              "order": 1,
+              "editOrder": 1,
+              "requiredKey": [
+                "dominant_frequency"
+              ]
+            },
+            {
+              "attrKey": "max_frequency",
+              "order": 2,
+              "editOrder": 2,
+              "requiredKey": [
+                "max_frequency"
+              ]
+            },
+            {
+              "attrKey": "duration",
+              "order": 3,
+              "editOrder": 3,
+              "requiredKey": [
+                "duration"
+              ]
+            }
+          ],
+          "defaultEditKey": [],
+          "showOption": true,
+          "clickEvent": false
+        }
       ]
     },
     {
-      "attrKey": "type",
-      "decimal": 0,
-      "displayName": {
-        "type": "Tipo de fungicida"
+      "cardType": "soilComponentCard",
+      "cardTitle": {
+        "title": "Suelo",
+        "icon": "iconSoil",
+        "color": "#6E4B3F"
       },
-      "displayType": "string",
-      "unit": {},
-      "validationRules": {
-        "type": [
-          {
-            "key": "chemicalApplication",
-            "params": [
-              "type"
-            ]
-          }
-        ]
-      },
-      "order": 2,
-      "editOrder": 2,
-      "requiredKey": [
-        "type"
-      ]
-    },
-    {
-      "attrKey": "average_dose_per_m2",
-      "order": 3,
-      "editOrder": 3,
-      "requiredKey": [
-        "average_dose_per_m2",
-        "volume_liter",
-        "mass_kg"
-      ]
-    },
-    {
-      "attrKey": "epidemic_type",
-      "order": 4,
-      "editOrder": 4,
-      "requiredKey": [
-        "epidemic_type"
-      ]
-    },
-    {
-      "attrKey": "epidemic_fraction",
-      "order": 5,
-      "editOrder": 5,
-      "requiredKey": [
-        "epidemic_fraction"
-      ]
-    },
-    {
-      "attrKey": "area_ha",
-      "order": 6,
-      "editOrder": 6,
-      "requiredKey": [
-        "area_ha",
-        "target",
-        "result"
-      ]
-    },
-    {
-      "attrKey": "phenological_state",
-      "order": 7,
-      "editOrder": 7,
-      "requiredKey": [
-        "phenological_state"
-      ]
-    },
-    {
-      "attrKey": "application_name",
-      "order": 8,
-      "editOrder": 8,
-      "requiredKey": [
-        "application_name"
-      ]
-    },
-    {
-      "attrKey": "application_type",
-      "order": 9,
-      "editOrder": 9,
-      "requiredKey": [
-        "application_type"
-      ]
-    },
-    {
-      "attrKey": "application_method",
-      "order": 10,
-      "editOrder": 10,
-      "requiredKey": [
-        "application_method"
-      ]
-    },
-    {
-      "attrKey": "material_unit",
-      "order": 11,
-      "editOrder": 11,
-      "requiredKey": [
-        "material_unit"
-      ]
-    },
-    {
-      "attrKey": "total_material",
-      "order": 12,
-      "editOrder": 12,
-      "requiredKey": [
-        "total_material",
-        "target",
-        "result"
-      ]
-    },
-    {
-      "attrKey": "average_material_per_ha",
-      "order": 13,
-      "editOrder": 13,
-      "requiredKey": [
-        "average_material_per_ha",
-        "target",
-        "result"
-      ]
-    },
-    {
-      "attrKey": "average_speed_km_per_hour",
-      "order": 14,
-      "editOrder": 14,
-      "requiredKey": [
-        "average_speed_km_per_hour",
-        "target",
-        "result"
+      "sectionView": [
+        {
+          "sectionTitle": {
+            "title": "",
+            "subtitle": ""
+          },
+          "extractFunctionName": "extractObjectByArraySection",
+          "extractParams": [
+            {
+              "dataPath": [
+                "payload",
+                "soil_component_data"
+              ],
+              "dataTrait": [
+                {
+                  "key": "data_type",
+                  "rule": "equal",
+                  "value": [
+                    31
+                  ]
+                }
+              ],
+              "extractKey": [
+                "soil_texture_type"
+              ],
+              "editKey": []
+            }
+          ],
+          "sectionName": "image",
+          "dictionary": [
+            {
+              "attrKey": "soil_texture_type",
+              "order": 1,
+              "editOrder": 1,
+              "requiredKey": [
+                "soil_texture_type"
+              ]
+            }
+          ],
+          "defaultEditKey": [],
+          "showOption": true,
+          "clickEvent": false
+        },
+        {
+          "sectionTitle": {
+            "title": "",
+            "subtitle": ""
+          },
+          "extractFunctionName": "extractArrayValueByArraySection",
+          "extractParams": [
+            {
+              "dataPath": [
+                "payload",
+                "soil_component_data",
+                "soil_component"
+              ],
+              "dataTrait": [
+                {
+                  "key": "data_type",
+                  "rule": "equal",
+                  "value": [
+                    31
+                  ]
+                }
+              ],
+              "extractKey": [
+                "soil_depth_range",
+                "soil_depth_level",
+                "component_percentage",
+                "sand_fraction",
+                "silt_fraction",
+                "clay_fraction",
+                "ph_level",
+                "nitrogen_in_ppm"
+              ],
+              "editKey": []
+            }
+          ],
+          "sectionName": "keyValue",
+          "dictionary": [
+            {
+              "attrKey": "soil_depth_range",
+              "decimal": 2,
+              "modifier": 1,
+              "displayName": {
+                "soil_depth_range": "Rango de Profundidad del Suelo"
+              },
+              "displayType": "soil_depth_range",
+              "unit": {},
+              "validationRules": {},
+              "order": 1,
+              "editOrder": 1,
+              "requiredKey": [
+                "soil_depth_range"
+              ]
+            },
+            {
+              "attrKey": "soil_depth_level",
+              "decimal": 2,
+              "modifier": 1,
+              "displayName": {
+                "soil_depth_level": "Nivel de Profundidad del Suelo"
+              },
+              "displayType": "string",
+              "unit": {},
+              "validationRules": {},
+              "order": 2,
+              "editOrder": 2,
+              "requiredKey": [
+                "soil_depth_level"
+              ]
+            },
+            {
+              "attrKey": "component_percentage",
+              "order": 3,
+              "editOrder": 3,
+              "requiredKey": [
+                "component_percentage"
+              ]
+            },
+            {
+              "attrKey": "sand_fraction",
+              "order": 4,
+              "editOrder": 4,
+              "requiredKey": [
+                "sand_fraction"
+              ]
+            },
+            {
+              "attrKey": "silt_fraction",
+              "order": 5,
+              "editOrder": 5,
+              "requiredKey": [
+                "silt_fraction"
+              ]
+            },
+            {
+              "attrKey": "clay_fraction",
+              "order": 6,
+              "editOrder": 6,
+              "requiredKey": [
+                "clay_fraction"
+              ]
+            },
+            {
+              "attrKey": "ph_level",
+              "order": 7,
+              "editOrder": 7,
+              "requiredKey": [
+                "ph_level"
+              ]
+            },
+            {
+              "attrKey": "nitrogen_in_ppm",
+              "order": 8,
+              "editOrder": 8,
+              "requiredKey": [
+                "nitrogen_in_ppm"
+              ]
+            }
+          ],
+          "defaultEditKey": [],
+          "showOption": true,
+          "clickEvent": false
+        },
+        {
+          "sectionTitle": {
+            "title": "",
+            "subtitle": ""
+          },
+          "extractFunctionName": "extractArrayValueByArraySection",
+          "extractParams": [
+            {
+              "dataPath": [
+                "payload",
+                "soil_component_data",
+                "soil_component"
+              ],
+              "dataTrait": [
+                {
+                  "key": "data_type",
+                  "rule": "equal",
+                  "value": [
+                    31
+                  ]
+                }
+              ],
+              "extractKey": [
+                "component_name"
+              ],
+              "editKey": []
+            }
+          ],
+          "sectionName": "massage",
+          "dictionary": [
+            {
+              "attrKey": "component_name",
+              "order": 1,
+              "editOrder": 1,
+              "requiredKey": [
+                "component_name"
+              ]
+            }
+          ],
+          "defaultEditKey": [],
+          "showOption": true,
+          "clickEvent": false
+        }
       ]
     }
   ]

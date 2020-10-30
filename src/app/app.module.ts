@@ -22,6 +22,8 @@ import { DialogInputComponent } from './dialog-input/dialog-input.component';
 import { ShareAdminDialogComponent } from './components/share-admin-dialog/share-admin-dialog.component';
 import { GoogleMapSvgComponent } from './google-map-svg/google-map-svg.component';
 import { FilterSelectComponent } from './filter-select/filter-select.component';
+import { MatSelectFilterComponent } from './components/mat-select-filter/mat-select-filter.component';
+import { TabsAnimationComponent } from './tabs-animation/tabs-animation.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { FilterSelectComponent } from './filter-select/filter-select.component';
     ShareAdminDialogComponent,
     GoogleMapSvgComponent,
     FilterSelectComponent,
+    MatSelectFilterComponent,
+    TabsAnimationComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +51,7 @@ import { FilterSelectComponent } from './filter-select/filter-select.component';
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    GoogleChartsModule,
+    GoogleChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

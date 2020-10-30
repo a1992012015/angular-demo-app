@@ -159,9 +159,16 @@ export class GoogleMapSvgComponent implements OnInit, AfterViewInit {
       // x: (latLng.longitude + 180) * (256 / 360),
       x: _.multiply(_.add(latLng.longitude, 180), _.divide(256, 360)),
       // y: (256 / 2) - (256 * Math.log(Math.tan((Math.PI / 4) + ((latLng.latitude * Math.PI / 180) / 2))) / (2 * Math.PI)),
-      // tslint:disable-next-line:max-line-length
-      y: _.subtract(_.divide(256, 2),
-        _.divide(_.multiply(256, Math.log(Math.tan(_.add(_.divide(Math.PI, 4), _.divide(_.divide(latLng.latitude * Math.PI, 180), 2))))),
+      y: _.subtract(
+        _.divide(256, 2),
+        _.divide(
+          _.multiply(
+            256,
+            Math.log(Math.tan(_.add(
+              _.divide(Math.PI, 4),
+              _.divide(_.divide(latLng.latitude * Math.PI, 180), 2),
+            ))),
+          ),
           _.multiply(2, Math.PI),
         ),
       ),

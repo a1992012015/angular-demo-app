@@ -14,7 +14,7 @@ export class DialogInputComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.openShareDialog();
+    // this.openShareDialog();
   }
 
   openShareDialog() {

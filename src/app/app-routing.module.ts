@@ -13,6 +13,7 @@ import { TextViewComponent } from './text-view/text-view.component';
 import { DialogInputComponent } from './dialog-input/dialog-input.component';
 import { GoogleMapSvgComponent } from './google-map-svg/google-map-svg.component';
 import { FilterSelectComponent } from './filter-select/filter-select.component';
+import { TabsAnimationComponent } from './tabs-animation/tabs-animation.component';
 
 const routes: Routes = [
   {
@@ -60,6 +61,10 @@ const routes: Routes = [
     path: 'filter-select',
     component: FilterSelectComponent,
   },
+  {
+    path: 'tabs-animation',
+    component: TabsAnimationComponent
+  }
 ];
 
 @NgModule({

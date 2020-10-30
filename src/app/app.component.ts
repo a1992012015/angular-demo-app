@@ -52,6 +52,10 @@ export class AppComponent implements OnInit {
     {
       routerName: '过滤选择器',
       routerPath: '/filter-select'
+    },
+    {
+      routerName: 'tabs动画效果',
+      routerPath: '/tabs-animation'
     }
   ];
   workerStart = 0;

@@ -1,15 +1,23 @@
 <div class="demo-select">
-  <mat-form-field class="filter-select-form">
+  <mat-form-field appearance="outline" class="filter-select-form">
     <mat-label>Toppings</mat-label>
-    <mat-select [formControl]="custonDropdown" multiple (closed)="onPanelClose()">
+    <mat-select [formControl]="filterControl" multiple>
+      <mat-option *ngFor="let option of variables" [value]="option.value">
+        {{option.view}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
 
-      <mat-form-field class="select-form">
-        <span matPrefix>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <input matInput [formControl]="filterControl" type="text">
-      </mat-form-field>
+<div class="demo-select">
+  <mat-form-field class="filter-select-form">
+    <mat-select placeholder="Basic" multiple>
+      <app-mat-select-filter [array]="variables"
+                             [displayMember]="'view'"
+                             (filteredReturn)="filteredList=$event"></app-mat-select-filter>
 
-      <mat-option *ngFor="let option of filteredOptions | async" [value]="option.name" [ngClass]="{'hide': !option.show}">
-        {{option.name}}
+      <mat-option *ngFor="let option of filteredList" [value]="option.value" [ngClass]="{'hide': !option.show}">
+        {{option.view}}
       </mat-option>
     </mat-select>
   </mat-form-field>

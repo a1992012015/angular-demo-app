@@ -33,6 +33,7 @@ export class ShareAdminDialogComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<ShareAdminDialogComponent>,
+    // tslint:disable-next-line:ban-types
     @Inject(MAT_DIALOG_DATA) public data: Object,
   ) {
   }
