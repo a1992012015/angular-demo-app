@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { interval, of, Subject, timer } from 'rxjs';
+import { of, Subject, timer } from 'rxjs';
 import { map, mergeMap, retryWhen } from 'rxjs/operators';
 
 import BigNumber from 'bignumber.js';
@@ -8,7 +8,7 @@ import BigNumber from 'bignumber.js';
 @Component({
   selector: 'app-base-rem-compute',
   templateUrl: './base-rem-compute.component.html',
-  styleUrls: ['./base-rem-compute.component.scss'],
+  styleUrls: ['./base-rem-compute.component.scss']
 })
 export class BaseRemComputeComponent implements OnInit {
   options: FormGroup;
@@ -20,7 +20,7 @@ export class BaseRemComputeComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
     this.options = fb.group({
-      fontSize: this.fontSizeControl,
+      fontSize: this.fontSizeControl
     });
   }
 
@@ -44,10 +44,10 @@ export class BaseRemComputeComponent implements OnInit {
               console.log('count', count);
               console.log(count > 2);
               return this.delaySub;
-            }),
+            })
           );
-        },
-      ),
+        }
+      )
     );
 
     example.subscribe(val => {

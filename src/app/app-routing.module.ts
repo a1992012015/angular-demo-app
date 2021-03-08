@@ -1,19 +1,14 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { CssSelectorComponent } from './css-selector/css-selector.component';
-import { BaseRemComputeComponent } from './base-rem-compute/base-rem-compute.component';
-import { GoogleChartComponent } from './google-chart/google-chart.component';
+import { DashboardComponent } from './features/dashboard/dashboard.component';
+import { CssSelectorComponent } from './features/css-selector/css-selector.component';
+import { BaseRemComputeComponent } from './features/base-rem-compute/base-rem-compute.component';
+import { GoogleChartComponent } from './features/google-chart/google-chart.component';
 import { GapiReadyResolverGuard } from './guard/gapi-ready-resolver.guard';
-import { HideScrollbarComponent } from './hide-scrollbar/hide-scrollbar.component';
-import { RequestAnimationFrameComponent } from './request-animation-frame/request-animation-frame.component';
-import { ImagesStepComponent } from './images-step/images-step.component';
-import { TextViewComponent } from './text-view/text-view.component';
-import { DialogInputComponent } from './dialog-input/dialog-input.component';
-import { GoogleMapSvgComponent } from './google-map-svg/google-map-svg.component';
-import { FilterSelectComponent } from './filter-select/filter-select.component';
-import { TabsAnimationComponent } from './tabs-animation/tabs-animation.component';
+import { RequestAnimationFrameComponent } from './features/request-animation-frame/request-animation-frame.component';
+import { GoogleMapSvgComponent } from './features/google-map-svg/google-map-svg.component';
+import { FilterSelectComponent } from './features/filter-select/filter-select.component';
 
 const routes: Routes = [
   {
@@ -34,24 +29,8 @@ const routes: Routes = [
     component: GoogleChartComponent,
   },
   {
-    path: 'hide-scrollbar',
-    component: HideScrollbarComponent,
-  },
-  {
     path: 'request-animation-frame',
     component: RequestAnimationFrameComponent,
-  },
-  {
-    path: 'images-step',
-    component: ImagesStepComponent,
-  },
-  {
-    path: 'text-view',
-    component: TextViewComponent,
-  },
-  {
-    path: 'dialog-input',
-    component: DialogInputComponent,
   },
   {
     path: 'google-map-svg',
@@ -60,16 +39,14 @@ const routes: Routes = [
   {
     path: 'filter-select',
     component: FilterSelectComponent,
-  },
-  {
-    path: 'tabs-animation',
-    component: TabsAnimationComponent
   }
 ];
 
+/**
+ * asas
+ */
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule { }

@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component, Input } from '@angular/core';
 
 import { GoogleChartComponent } from './google-chart.component';
-import { Role } from '../modules/google-chart/models/role.model';
+import { Role } from '../../modules/google-chart/models/role.model';
 
 /**
  * search location

@@ -16,6 +16,7 @@ import { debounceTime } from 'rxjs/operators';
 
 import { ChartErrorEvent, ChartEvent } from '../models/events.model';
 import { ScriptLoaderService } from '../script-loader/script-loader.service';
+import VisualizationSelectionArray = google.visualization.VisualizationSelectionArray;
 
 /**
  * RawChartComponent
@@ -46,7 +47,7 @@ export class RawChartComponent implements OnInit, OnChanges, AfterViewInit, OnDe
   ready = new EventEmitter();
 
   @Output()
-  select = new EventEmitter<ChartEvent>();
+  select = new EventEmitter<VisualizationSelectionArray[]>();
 
   @Output()
   mouseenter = new EventEmitter<ChartEvent>();
@@ -210,6 +211,7 @@ export class RawChartComponent implements OnInit, OnChanges, AfterViewInit, OnDe
     this.registerChartEvent('onmouseout', (event: ChartEvent) => this.mouseleave.emit(event));
   }
 
+  // tslint:disable-next-line:ban-types
   private registerChartEvent(eventName: string, callback: Function) {
     google.visualization.events.addListener(this.wrapper, eventName, callback);
   }

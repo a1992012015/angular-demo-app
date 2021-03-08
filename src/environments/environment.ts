@@ -3,8 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  localeId: 'en_US',
-  production: false
+  production: false,
+  localeId: 'en_US'
 };
 
 /*

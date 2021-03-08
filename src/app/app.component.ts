@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { formatDate } from '@angular/common';
-import { GapiLoaderService } from './service/gapi-loader.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
   routerPaths = [
@@ -26,24 +25,8 @@ export class AppComponent implements OnInit {
       routerPath: '/google-chart',
     },
     {
-      routerName: '隐藏滚动条',
-      routerPath: '/hide-scrollbar'
-    },
-    {
       routerName: '高性能动画',
       routerPath: '/request-animation-frame'
-    },
-    {
-      routerName: '添加遮罩',
-      routerPath: '/images-step'
-    },
-    {
-      routerName: '显示更多文本',
-      routerPath: '/text-view'
-    },
-    {
-      routerName: '弹窗样式',
-      routerPath: '/dialog-input'
     },
     {
       routerName: '地图图片',
@@ -52,17 +35,10 @@ export class AppComponent implements OnInit {
     {
       routerName: '过滤选择器',
       routerPath: '/filter-select'
-    },
-    {
-      routerName: 'tabs动画效果',
-      routerPath: '/tabs-animation'
     }
   ];
   workerStart = 0;
   workerEnd = 0;
-
-  constructor(protected gapiLoader: GapiLoaderService) {
-  }
 
   ngOnInit(): void {
     let nowDate: Date;

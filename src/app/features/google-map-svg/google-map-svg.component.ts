@@ -1,10 +1,13 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import * as _ from 'lodash';
 
-import { IGeometry, ILine, IPoint, MaxMinInterface, TileDataInterface } from '../interface/worker.interface';
+import { IGeometry, ILine, IPoint, MaxMinInterface, TileDataInterface } from '../../interface/worker.interface';
 import * as privatePath from './private-path-point.json';
 import * as publicPath from './public-path-point.json';
 
+/**
+ * sda
+ */
 @Component({
   selector: 'app-google-map-svg',
   templateUrl: './google-map-svg.component.html',
@@ -20,21 +23,21 @@ export class GoogleMapSvgComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.init();
   }
 
-  init() {
+  init(): void {
     const publicMaxMin = this.getPointMaxMin(this.publicTileData);
     const publicSvgProps = this.poly_gm2svg(publicPath.data, publicMaxMin);
-    this.drawPoly(publicSvgProps, this.publicTileData, this.publicSvgElement, '../../assets/images/publicTileImage.png');
+    this.drawPoly(publicSvgProps, this.publicTileData, this.publicSvgElement, '../../../assets/images/publicTileImage.png');
 
     const privateMaxMin = this.getPointMaxMin(this.privateTileData);
     const privateSvgProps = this.poly_gm2svg(privatePath.data, privateMaxMin);
-    this.drawPoly(privateSvgProps, this.privateTileData, this.privateSvgElement, '../../assets/images/privateTileImage.png');
+    this.drawPoly(privateSvgProps, this.privateTileData, this.privateSvgElement, '../../../assets/images/privateTileImage.png');
   }
 
-  drawPoly(props, tileData: TileDataInterface, element, url: string) {
+  drawPoly(props, tileData: TileDataInterface, element, url: string): void {
     const node = element.nativeElement;
     const svg = node.cloneNode(false) as HTMLElement;
     const image = document.createElementNS('http://www.w3.org/2000/svg', 'image');

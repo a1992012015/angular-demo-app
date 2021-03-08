@@ -2,8 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { BaseRemComputeComponent } from './base-rem-compute.component';
-import { createMockServices, setDefaultMethodsToMocks } from '../../tests/mock-utilities';
-import { MatDesignModule } from '../modules/mat-design.module';
+import { createMockServices, setDefaultMethodsToMocks } from '../../../tests/mock-utilities';
+import { MatDesignModule } from '../../modules/mat-design.module';
 
 describe('BaseRemComputeComponent', () => {
   let component: BaseRemComputeComponent;
