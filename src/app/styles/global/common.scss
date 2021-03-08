@@ -1,0 +1,154 @@
+@import 'variables/variables';
+
+body {
+  margin: 0;
+  min-width: 1000px;
+  color: $dark-primary-text;
+}
+
+/*format chart to view tooltip*/
+
+.line-chart-tooltip {
+  padding: $fb-base-gap-width * 4;
+  min-width: 7rem;
+
+  .title {
+    font-weight: bold;
+    font-size: .875rem;
+  }
+
+  .label {
+    margin-top: $fb-base-gap-width * 6;
+    margin-bottom: $fb-base-gap-width * 2;
+    color: #757575
+  }
+
+  .value {
+    font-size: 1.25rem;
+  }
+}
+
+/*format effect chart to view tooltip*/
+
+.effect-chart-section-tooltip {
+  padding: $fb-base-gap-width * 3;
+  min-width: $fb-base-gap-width * 50;
+
+  p {
+    padding: 0;
+    margin: 0;
+  }
+
+  .effect-rate {
+    display: flex;
+    align-items: center;
+
+    .rate-info {
+      width: 50%;
+      flex: 1;
+    }
+
+    .rate-date {
+      font-size: $fb-base-gap-width * 3;
+      line-height: $fb-base-gap-width * 3.75;
+      color: $font-color-focused;
+    }
+
+    .reta-title {
+      font-size: $fb-base-gap-width * 2.5;
+      line-height: $fb-base-gap-width * 5;
+      color: $icon-color-unfocused;
+    }
+
+    .rate-value {
+      font-size: $fb-base-gap-width * 5;
+      line-height: $fb-base-gap-width * 6.25;
+      margin-left: $fb-base-gap-width * 10;
+    }
+  }
+}
+
+.timeline-events {
+  white-space: pre-line;
+}
+
+.mat-menu-panel.account-menu {
+  border-radius: .5rem;
+
+  .mat-menu-content {
+    padding: 0;
+  }
+}
+
+app-anomaly-card .mat-expansion-panel-body {
+  padding: 0;
+}
+
+google-chart svg > g > g:last-child,
+.google-visualization-tooltip {
+  pointer-events: none;
+  z-index: 9999;
+}
+
+google-chart.chart-timelines rect {
+  stroke-width: 0;
+}
+
+.fix-top-loading {
+  position: fixed !important;
+  top: 0;
+  z-index: 1;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.admin-level-dropdown {
+
+  &.mat-menu-panel {
+    max-width: none;
+  }
+
+  .cdk-virtual-scroll-viewport {
+    contain: none;
+  }
+}
+
+.badge-status {
+  display: inline-block;
+  padding: .1rem .5rem;
+  margin-right: auto;
+  border-radius: .5rem;
+  line-height: 1.6;
+  color: #fff;
+  font-size: .75rem;
+}
+
+.badge-status-active {
+  background-color: map-get($mat-green, 700);
+  border: 1px solid map-get($accent-color, 700);
+}
+
+.badge-status-disabled {
+  background-color: map-get($primary-color, 500);
+}
+
+.mat-calendar-body-cell {
+
+  &.from {
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    background-color: map-get($accent-color, 100);
+  }
+
+  &.to {
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    background-color: map-get($accent-color, 900);
+  }
+
+  &.between {
+    background-color: map-get($accent-color, 600);
+  }
+}

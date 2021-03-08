@@ -1,0 +1,5 @@
+<div class='dynamic-value' *ngFor='let value of values'>
+  <ng-container [ngSwitch]='value.displayType'>
+    <app-number-value [value]='value'></app-number-value>
+  </ng-container>
+</div>

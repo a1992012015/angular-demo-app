@@ -1,0 +1,37 @@
+@import 'variables/variables';
+
+mat-progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mat-card {
+  box-sizing: border-box;
+  border-radius: 1.25rem;
+  max-width: calc(100vw - 5rem);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .2),
+    0 1px 10px rgba(0, 0, 0, .12),
+    0 4px 5px rgba(0, 0, 0, .14) !important;
+  overflow: hidden;
+}
+
+mat-card-header {
+  align-items: center;
+  justify-content: center;
+}
+
+mat-card-title {
+  font-weight: normal;
+  text-align: center;
+  color: $dark-primary-text;
+}
+
+button.mat-flat-button {
+  min-width: 11.25rem;
+  padding: .725rem 2.5rem;
+  border-radius: .25rem;
+  line-height: 1;
+  font-weight: 500;
+  font-size: 1rem;
+}

@@ -1,0 +1,18 @@
+@import 'variables/variables';
+
+.card-body {
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+}
+
+.card-content {
+  width: 100%;
+  box-sizing: border-box;
+  padding: $fb-base-gap-width * 6 $fb-base-gap-width * 4 $fb-base-gap-width * 5;
+  border-right: 1px solid mat-color($primary-color, 200);
+
+  &:last-child {
+    border-width: 0;
+  }
+}

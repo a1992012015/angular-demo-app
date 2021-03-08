@@ -1,0 +1,49 @@
+@import 'variables/variables';
+
+.card-title {
+  width: 100%;
+  height: $fb-base-gap-width * 13;
+  background: mat-color($primary-color, 100);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: $fb-base-gap-width * 3.5 $fb-base-gap-width * 6 $fb-base-gap-width * 3 $fb-base-gap-width * 3;
+  cursor: pointer;
+  margin-bottom: 1px;
+
+  .title-name {
+    width: 50%;
+    flex-grow: 1;
+    font-weight: 500;
+    font-size: $fb-base-gap-width * 5;
+    line-height: $fb-base-gap-width * 6.25;
+    color: $dark-primary-text;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: $fb-base-gap-width * 2;
+    padding-right: $fb-base-gap-width * 2;
+    display: flex;
+    align-items: center;
+
+    &.clickable {
+      cursor: pointer;
+      color: $linkable-color;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .title-icon {
+    color: mat-color($primary-color, 500);
+    font-size: $fb-base-gap-width * 4.25;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

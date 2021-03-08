@@ -1,0 +1,7 @@
+<div class='dynamic-section' *ngFor='let section of sections'>
+  <ng-container [ngSwitch]='section.sectionName'>
+    <app-key-value-section *ngSwitchCase='sectionName.KEY_VALUE' [section]='section'></app-key-value-section>
+
+    <app-massage-section *ngSwitchCase='sectionName.MASSAGE' [section]='section'></app-massage-section>
+  </ng-container>
+</div>

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { MatDesignModule } from './modules/mat-design.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,8 +14,8 @@ import { RequestAnimationFrameComponent } from './features/request-animation-fra
 import { FilterSelectComponent } from './features/filter-select/filter-select.component';
 import { MatSelectFilterComponent } from './features/filter-select/mat-select-filter/mat-select-filter.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
-import { MatDesignModule } from './modules/mat-design.module';
 import { GoogleChartsModule } from './modules/google-chart/google-charts.module';
+import { DynamicCardModule } from './modules/dynamic-card/dynamic-card.module';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { GoogleChartsModule } from './modules/google-chart/google-charts.module'
     MatDesignModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    GoogleChartsModule
+    GoogleChartsModule,
+    DynamicCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

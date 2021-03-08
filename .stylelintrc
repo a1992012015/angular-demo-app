@@ -1,0 +1,17 @@
+{
+  "rules": {
+    "block-opening-brace-space-before": "always",
+    "block-closing-brace-newline-after": "always-single-line",
+    "color-hex-length": "short",
+    "color-hex-case": "lower",
+    "custom-media-pattern": "^mat?-.+",
+    "custom-property-pattern": "^mat?-.+",
+    "declaration-colon-space-after": "always",
+    "number-leading-zero": "never",
+    "rule-empty-line-before": "always",
+    "string-quotes": "single",
+    "shorthand-property-no-redundant-values": true,
+    "selector-pseudo-element-colon-notation": "double",
+    "selector-list-comma-newline-after": "always"
+  }
+}

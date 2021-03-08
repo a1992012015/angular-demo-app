@@ -1,0 +1,12 @@
+<div class="card-title" (click)="headerClickEvent()">
+  <mat-icon class="title-icon" *ngIf="option?.icon" fontSet="iconfont" [fontIcon]="option?.icon"></mat-icon>
+  <p class="title-name clickable" *ngIf="option?.titleClickable" (click)="titleClickEvent($event)">{{option?.title}}</p>
+  <div class='title-name' *ngIf='!option?.titleClickable'>
+    {{option?.title}}
+    <div class='card-beta' *ngIf='option?.buttonType === buttonType.BATE' i18n="@@card-title-beta">beta</div>
+  </div>
+
+  <ng-content></ng-content>
+
+  <mat-icon *ngIf='isHidden'>{{iconDirection ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}}</mat-icon>
+</div>

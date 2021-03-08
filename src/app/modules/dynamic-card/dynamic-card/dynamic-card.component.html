@@ -1,0 +1,15 @@
+<ng-container *ngIf='metadata'>
+  <div [id]='cardId'></div>
+
+  <ng-container [ngSwitch]='metadata.cardType'>
+    <app-key-value-card *ngSwitchCase='cardType.KEY_VALUE_CARD'
+                        [selected]='selected'
+                        [metadata]='metadata'
+                        [index]='index'></app-key-value-card>
+
+    <app-yield-matrix-card *ngSwitchCase='cardType.YIELD_MATRIX_CARD'
+                           [selected]='selected'
+                           [metadata]='metadata'
+                           [index]='index'></app-yield-matrix-card>
+  </ng-container>
+</ng-container>

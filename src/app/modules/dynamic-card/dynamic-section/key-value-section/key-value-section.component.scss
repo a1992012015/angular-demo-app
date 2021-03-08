@@ -1,0 +1,13 @@
+@import 'variables/variables';
+
+:host {
+  padding-bottom: $fb-base-gap-width * 5;
+  margin-bottom: $fb-base-gap-width * 5;
+  border-bottom: 1px solid mat-color($primary-color, 200);
+
+  &:last-child {
+    padding: 0;
+    margin: 0;
+    border-width: 0;
+  }
+}

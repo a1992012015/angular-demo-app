@@ -1,0 +1,85 @@
+@import 'variables/variables';
+
+$typography-typography: mat-typography-config(
+  $font-family: 'Google Sans'
+);
+
+@include mat-core($typography-typography);
+@include angular-material-theme($app-theme);
+
+
+// Mat Icon
+
+.mat-icon.mat-accent {
+  stroke: map-get($accent-color, 700);
+}
+
+// Mat Buttons
+
+.mat-icon-button,
+.mat-stroked-button {
+
+  &:not([disabled]):hover {
+    @include _mat-button-theme-property($app-theme, 'color', 800);
+  }
+
+  &:not([disabled]):active {
+    @include _mat-button-theme-property($app-theme, 'color', 900);
+  }
+}
+
+.mat-stroked-button:not([disabled]) {
+  @include _mat-button-theme-property($app-theme, 'border-color', 700);
+
+  &:hover {
+    @include _mat-button-theme-property($app-theme, 'border-color', 800);
+  }
+
+  &:active {
+    @include _mat-button-theme-property($app-theme, 'border-color', 900);
+  }
+}
+
+.mat-flat-button,
+.mat-raised-button,
+.mat-fab,
+.mat-mini-fab {
+
+  &:not([disabled]):hover {
+    @include _mat-button-theme-property($app-theme, 'background-color', 800);
+  }
+
+  &:not([disabled]):active {
+    @include _mat-button-theme-property($app-theme, 'background-color', 900);
+  }
+}
+
+// Snackbar
+
+.snack-bar-panel-error {
+  background-color: map-get($mat-red, 700);
+  color: $light-primary-text;
+}
+
+.snack-bar-panel-notice {
+  background-color: map-get($accent-color, 700);
+  color: $light-primary-text;
+}
+
+.component-section {
+
+  .mat-progress-bar-background {
+    visibility: hidden;
+  }
+
+  .mat-progress-bar-buffer {
+    opacity: .7;
+  }
+}
+
+// Tabs
+
+.mat-tab-group.mat-accent .mat-tab-label.mat-tab-label-active {
+  opacity: 1;
+  color: map-get($accent-color, 700);
+}

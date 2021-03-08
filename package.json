@@ -23,8 +23,11 @@
     "@angular/router": "~11.2.4",
     "@types/google.visualization": "^0.0.60",
     "bignumber.js": "^9.0.1",
-    "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21",
+    "protobufjs": "^6.10.2",
     "rxjs": "~6.6.0",
+    "stylelint": "^13.12.0",
+    "stylelint-config-recommended": "^4.0.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },

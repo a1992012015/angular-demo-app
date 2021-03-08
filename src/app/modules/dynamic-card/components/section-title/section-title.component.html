@@ -1,0 +1,16 @@
+<div class="section-title" *ngIf="title.title || title.subtitle">
+  <div class="title-info">
+    <div class='info-icon' *ngIf='title.icon'>
+      <img *ngIf='title.icon' [src]='title.icon' alt='icon'>
+    </div>
+
+    <p class="info-title">
+      {{title.title}}
+      <span class="info-subtitle" *ngIf="title.subtitle">{{title.subtitle}}</span>
+    </p>
+  </div>
+
+  <mat-icon class="title-tooltip" *ngIf="title.tooltip" [matTooltip]="title.tooltip">info</mat-icon>
+
+  <ng-content></ng-content>
+</div>
