@@ -1,0 +1,65 @@
+@import 'variables/variables';
+
+.select-container {
+  min-width: $fb-base-gap-width * 60;
+  max-width: $fb-base-gap-width * 80;
+  display: flex;
+  flex-direction: column;
+  background: map-get($primary-color, 50);
+}
+
+.select-option {
+  width: 100%;
+  position: relative;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+  max-height: $fb-base-gap-width * 80;
+
+  &.selected {
+    border-bottom: solid map-get($primary-color, 200) 1px;
+
+    > li {
+      color: $linkable-color;
+    }
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    padding: $fb-base-gap-width * 2 $fb-base-gap-width * 4;
+    line-height: $fb-base-gap-width * 6;
+    margin: 0;
+    cursor: pointer;
+
+    > span {
+      flex: 1 1 auto;
+    }
+
+    > .mat-icon {
+      flex-shrink: 0;
+      flex-grow: 0;
+      color: $linkable-color;
+    }
+
+    &:hover {
+      background-color: map-get($primary-color, 100);
+    }
+
+    &.disabled {
+      pointer-events: none;
+    }
+  }
+}
+
+.select-icon-thumb {
+  width: $fb-base-gap-width * 4;
+  height: $fb-base-gap-width * 4;
+  margin-right: $fb-base-gap-width * 2;
+  vertical-align: middle;
+}
+
+.hide {
+  display: none !important;
+}

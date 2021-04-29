@@ -1,0 +1,11 @@
+<mat-form-field>
+  <input matInput [min]='min' [max]='max' type='number' [value]='displayValue' (change)='inputChange($event)'/>
+</mat-form-field>
+
+<button mat-stroked-button [disabled]='disabled || originalValue <= min' (click)='move(-1)'>
+  <mat-icon aria-hidden='false'>arrow_left</mat-icon>
+</button>
+
+<button mat-stroked-button [disabled]='disabled || originalValue >= max' (click)='move(1)'>
+  <mat-icon aria-hidden='false'>arrow_right</mat-icon>
+</button>

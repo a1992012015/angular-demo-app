@@ -1,18 +1,21 @@
+@import 'variables/variables';
+
+.container {
+  height: 3000px;
+}
+
 .demo-select {
   display: flex;
   justify-content: center;
   padding: 20px 0;
+  width: 500px;
+  margin: 0 auto;
 }
 
 .filter-select-form {
-  width: 300px;
-}
-
-.select-form {
   width: 100%;
 }
 
-/** No CSS for this example */
-.hide {
-  display: none !important;
+.template-bg {
+  background: transparent;
 }

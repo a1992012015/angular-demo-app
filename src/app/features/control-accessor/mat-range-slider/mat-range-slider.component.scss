@@ -1,0 +1,129 @@
+@import 'variables/variables';
+
+.input-container {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+
+  > app-mat-range-input {
+    flex: 1 1 40%;
+  }
+
+  > div {
+    flex: 1 1 20%;
+    min-width: 10%;
+  }
+}
+
+.slider-container {
+  position: relative;
+  min-height: 48px;
+  margin-top: -$fb-base-gap-width * 2;
+
+  &::after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+  }
+
+  > mat-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    &:first-child {
+      left: -1px;
+    }
+  }
+}
+
+app-mat-range-slider {
+  display: inline-block;
+  width: 100%;
+
+  .mat-slider-track-wrapper {
+    height: 4px !important;
+    border-radius: 2px
+  }
+
+  .mat-slider-wrapper,
+  .mat-slider-track-background,
+  .mat-slider-track-fill {
+    height: 4px !important;
+  }
+
+  .mat-slider-track-wrapper {
+    width: calc(100% + 14px) !important;
+    margin: 0 -7px;
+  }
+
+  .mat-slider-thumb-container {
+    z-index: 3;
+  }
+
+  .mat-slider-thumb {
+    transform: scale(.7) !important;
+  }
+
+  .mat-slider-thumb-label {
+    box-sizing: border-box;
+    display: block !important;
+    transform: none !important;
+    right: -.4375rem !important;
+    width: auto;
+    height: auto;
+    margin-top: 12px;
+    border-radius: 0;
+    background-color: white !important;
+    text-align: right;
+  }
+
+  .mat-slider-thumb-label-text {
+    opacity: 1;
+    transform: none !important;
+    white-space: nowrap;
+    font-size: .75rem;
+    color: $dark-disabled-text !important;
+  }
+
+  .mat-slider-min-value .mat-slider-thumb {
+    border-color: transparent;
+    background-color: mat-color(map-get($app-theme, accent), default) !important;
+
+    &:hover,
+    &.cdk-focused {
+      border-color: transparent;
+    }
+  }
+
+  mat-slider:first-child {
+
+    .mat-slider-thumb-label {
+      right: auto !important;
+      left: calc(100% - .4375rem);
+      text-align: left;
+    }
+
+    .mat-slider-track-fill {
+      background-color: mat-color(map-get($app-theme, foreground), slider-off) !important;
+      z-index: 1;
+    }
+  }
+
+  &.temperature {
+
+    mat-slider:first-child .mat-slider-thumb {
+      background-color: $linkable-color !important;
+    }
+
+    mat-slider:last-child .mat-slider-thumb {
+      background-color: #ea4335 !important;
+    }
+  }
+}

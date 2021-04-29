@@ -1,3 +1,4 @@
+@import 'variables/variables';
 
 .mat-filter {
   position: sticky;
@@ -9,15 +10,17 @@
   font-size: inherit;
   box-shadow: none;
   border-radius: 0;
-  padding: 16px 16px 16px 16px;
-  -webkit-box-sizing: border-box;
+  padding: $fb-base-gap-width * 4;
   box-sizing: border-box;
-  background: #ffffff;
+  background: mat-color($primary-color, 50);
+}
+
+.mat-filter-box {
+  display: flex;
+  position: relative;
 }
 
 .mat-filter-input {
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   outline: none;
   border: 0;
@@ -28,12 +31,12 @@
 
 .spinner {
   position: absolute;
-  right: 16px;
-  top: calc(50% - 8px);
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .noResultsMessage {
-  margin-top: 10px;
-  font-family: Roboto,"Helvetica Neue",sans-serif;
-  font-size: 16px;
+  margin-top: $fb-base-gap-width * 2.5;
+  font-size: $fb-base-gap-width * 4;
 }

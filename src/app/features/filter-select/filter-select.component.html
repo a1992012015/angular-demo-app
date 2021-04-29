@@ -1,24 +1,29 @@
-<div class="demo-select">
-  <mat-form-field appearance="outline" class="filter-select-form">
-    <mat-label>Toppings</mat-label>
-    <mat-select [formControl]="filterControl" multiple>
-      <mat-option *ngFor="let option of variables" [value]="option.value">
-        {{option.view}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-</div>
+<div class='container'>
+  <div class='demo-select'>
+    <mat-form-field appearance='outline' class='filter-select-form'>
+      <mat-label>Toppings</mat-label>
+      <mat-select [formControl]='filterControl' multiple>
+        <mat-option *ngFor='let option of variables' [value]='option.value'>
+          {{option.view}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
 
-<div class="demo-select">
-  <mat-form-field class="filter-select-form">
-    <mat-select placeholder="Basic" multiple>
-      <app-mat-select-filter [array]="variables"
-                             [displayMember]="'view'"
-                             (filteredReturn)="filteredList=$event"></app-mat-select-filter>
+  <div class='demo-select'>
+    <button mat-stroked-button cdkOverlayOrigin (click)='togglePanel()' #trigger='cdkOverlayOrigin'>
+      {{isOpen ? "Close" : "Open"}}
+    </button>
+  </div>
 
-      <mat-option *ngFor="let option of filteredList" [value]="option.value" [ngClass]="{'hide': !option.show}">
-        {{option.view}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+  <!-- This template displays the overlay content and is connected to the button -->
+  <ng-template cdkConnectedOverlay
+               (backdropClick)='togglePanel()'
+               [cdkConnectedOverlayBackdropClass]='"template-bg"'
+               [cdkConnectedOverlayHasBackdrop]='true'
+               [cdkConnectedOverlayOrigin]='trigger'
+               [cdkConnectedOverlayOpen]='isOpen'>
+    <app-mat-select-container [filteredOptions]='filteredOptions'
+                              (toggleOption)='changeValue($event)'></app-mat-select-container>
+  </ng-template>
 </div>

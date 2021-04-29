@@ -1,4 +1,4 @@
-import { SectionInterface } from '../interfaces/extract-config.interface';
+import { SectionInterface } from './extract-config.interface';
 
 /**
  * jump to
@@ -23,6 +23,9 @@ export interface YieldMatrixInterface {
  * select option
  */
 export interface SelectOptionInterface {
-  value: number;
+  value: object | string | number;
   view: string;
+  icon?: string;
+  show?: boolean;
+  selected?: boolean;
 }

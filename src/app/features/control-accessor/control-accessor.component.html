@@ -1,0 +1,13 @@
+<div class='container'>
+  <p>range input 控件测试</p>
+  <app-mat-range-slider [min]='rangeValue.start'
+                        [max]='rangeValue.end'
+                        [step]='filterConfig.step'
+                        [unit]='filterConfig.unit'
+                        [decimal]='filterConfig.precision'
+                        [rangeForm]='filterConfig.filterValue.form'></app-mat-range-slider>
+  <div>
+    <div>start: {{filterConfig.filterValue.form.get('start').value}}</div>
+    <div>end: {{filterConfig.filterValue.form.get('end').value}}</div>
+  </div>
+</div>

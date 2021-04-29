@@ -9,6 +9,8 @@ import { GapiReadyResolverGuard } from './guard/gapi-ready-resolver.guard';
 import { RequestAnimationFrameComponent } from './features/request-animation-frame/request-animation-frame.component';
 import { GoogleMapSvgComponent } from './features/google-map-svg/google-map-svg.component';
 import { FilterSelectComponent } from './features/filter-select/filter-select.component';
+import { ViewCardComponent } from './features/view-card/view-card.component';
+import { ControlAccessorComponent } from './features/control-accessor/control-accessor.component';
 
 const routes: Routes = [
   {
@@ -39,6 +41,14 @@ const routes: Routes = [
   {
     path: 'filter-select',
     component: FilterSelectComponent,
+  },
+  {
+    path: 'control-accessor',
+    component: ControlAccessorComponent
+  },
+  {
+    path: 'view-card',
+    component: ViewCardComponent
   }
 ];
 

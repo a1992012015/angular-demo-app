@@ -1,12 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
+import { CdkAccordionItem } from '@angular/cdk/accordion';
 
+import { SelectOptionInterface } from '../../modules/dynamic-card/interfaces/dynamic-card.interface';
+
+/**
+ * filter select
+ */
 @Component({
   selector: 'app-filter-select',
   templateUrl: './filter-select.component.html',
-  styleUrls: ['./filter-select.component.scss'],
+  styleUrls: ['./filter-select.component.scss']
 })
-export class FilterSelectComponent implements OnInit {
+export class FilterSelectComponent extends CdkAccordionItem implements OnInit {
   filterControl = new FormControl();
 
   variables = [
@@ -148,11 +154,21 @@ export class FilterSelectComponent implements OnInit {
     { value: 206, view: 'MEADOW FESCUE', show: true },
     { value: 207, view: 'WHEAT', show: true },
     { value: 208, view: 'FABA BEANS', show: true },
-    { value: 209, view: 'CLOVER', show: true },
+    { value: 209, view: 'CLOVER', show: true }
   ];
 
-  public filteredList = this.variables.slice();
+  filteredOptions: SelectOptionInterface[] = [];
+  isOpen = false;
 
   ngOnInit() {
+    this.filteredOptions = this.variables.slice();
+  }
+
+  togglePanel() {
+    this.isOpen = !this.isOpen;
+  }
+
+  changeValue(selected: SelectOptionInterface[]) {
+    console.log('selected', selected);
   }
 }

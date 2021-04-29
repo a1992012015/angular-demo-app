@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatDesignModule } from './modules/mat-design.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GoogleMapSvgComponent } from './features/google-map-svg/google-map-svg.component';
 import { CssSelectorComponent } from './features/css-selector/css-selector.component';
 import { GoogleChartComponent } from './features/google-chart/google-chart.component';
@@ -16,7 +16,16 @@ import { MatSelectFilterComponent } from './features/filter-select/mat-select-fi
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { GoogleChartsModule } from './modules/google-chart/google-charts.module';
 import { DynamicCardModule } from './modules/dynamic-card/dynamic-card.module';
+import { ViewCardComponent } from './features/view-card/view-card.component';
+import { PublicCropMetadataService } from './service/public-crop-metadata.service';
+import { MatSelectContainerComponent } from './features/filter-select/mat-select-container/mat-select-container.component';
+import { ControlAccessorComponent } from './features/control-accessor/control-accessor.component';
+import { MatRangeInputComponent } from './features/control-accessor/mat-range-input/mat-range-input.component';
+import { MatRangeSliderComponent } from './features/control-accessor/mat-range-slider/mat-range-slider.component';
 
+/**
+ * app
+ */
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,19 +36,25 @@ import { DynamicCardModule } from './modules/dynamic-card/dynamic-card.module';
     RequestAnimationFrameComponent,
     GoogleMapSvgComponent,
     FilterSelectComponent,
-    MatSelectFilterComponent
+    MatSelectFilterComponent,
+    ViewCardComponent,
+    MatSelectContainerComponent,
+    ControlAccessorComponent,
+    MatRangeInputComponent,
+    MatRangeSliderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NoopAnimationsModule,
     MatDesignModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     GoogleChartsModule,
-    DynamicCardModule
+    DynamicCardModule,
+    FormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [PublicCropMetadataService],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

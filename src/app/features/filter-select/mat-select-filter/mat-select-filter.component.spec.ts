@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { MatSelectFilterComponent } from './mat-select-filter.component';
 
@@ -6,12 +6,13 @@ describe('MatSelectFilterComponent', () => {
   let component: MatSelectFilterComponent;
   let fixture: ComponentFixture<MatSelectFilterComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ MatSelectFilterComponent ]
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [MatSelectFilterComponent]
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(MatSelectFilterComponent);

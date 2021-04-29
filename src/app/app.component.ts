@@ -35,6 +35,14 @@ export class AppComponent implements OnInit {
     {
       routerName: '过滤选择器',
       routerPath: '/filter-select'
+    },
+    {
+      routerName: '自定义表单控件',
+      routerPath: '/control-accessor'
+    },
+    {
+      routerName: '动态Card',
+      routerPath: '/view-card'
     }
   ];
   workerStart = 0;

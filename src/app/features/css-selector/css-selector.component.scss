@@ -1,7 +1,18 @@
 .selector-1:nth-child(even):nth-last-child(-n+3) ~ .selector-1 {
-  background: #ff0000;
+  background: #f00;
 }
 
 .selector-2:nth-child(3n) {
-  background: #ff0000;
+  background: #f00;
+}
+
+.selector-3:nth-child(3n):nth-last-child(-n+4) ~ .selector-3 {
+  background: #f00;
+}
+
+.text {
+  margin-top: 30px;
+  width: 200px;
+  overflow: hidden;
+  text-overflow: fade(10px);
 }

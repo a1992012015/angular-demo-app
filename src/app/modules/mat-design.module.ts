@@ -15,8 +15,12 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
+import { MatSliderModule } from '@angular/material/slider';
 
 const materialModule = [
+  CdkAccordionModule,
   MatTabsModule,
   MatSidenavModule,
   MatListModule,
@@ -24,6 +28,7 @@ const materialModule = [
   MatInputModule,
   OverlayModule,
   MatButtonModule,
+  MatSliderModule,
   MatIconModule,
   MatChipsModule,
   MatMenuModule,
@@ -31,7 +36,8 @@ const materialModule = [
   BrowserAnimationsModule,
   MatAutocompleteModule,
   MatSelectModule,
-  MatProgressSpinnerModule,
+  MatTooltipModule,
+  MatProgressSpinnerModule
 ];
 
 /**
@@ -39,11 +45,11 @@ const materialModule = [
  */
 @NgModule({
   imports: [
-    ...materialModule,
+    ...materialModule
   ],
   exports: [
-    ...materialModule,
-  ],
+    ...materialModule
+  ]
 })
 export class MatDesignModule {
 }
