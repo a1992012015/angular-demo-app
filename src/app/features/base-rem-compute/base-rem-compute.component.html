@@ -1,12 +1,9 @@
-<form class="example-container" [formGroup]="options">
+<form class="example-container" [formGroup]="options" autocomplete="off">
   <mat-form-field appearance="fill">
     <mat-label>Font size</mat-label>
-    <input matInput type="number" (input)="getFontRem()" [formControl]="fontSizeControl">
+    <input matInput type="number" (input)="getFontRem()" formControlName="fontSize">
     <span matSuffix>px</span>
   </mat-form-field>
 </form>
 
 <p>计算得到rem:{{fontRem}}</p>
-
-<button mat-raised-button color="primary" (click)="setDelaySub(1)">setDelaySub 1</button>
-<button mat-raised-button color="primary" (click)="setDelaySub(0)">setDelaySub 0</button>

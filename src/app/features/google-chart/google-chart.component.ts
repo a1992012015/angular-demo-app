@@ -150,6 +150,7 @@ export class GoogleChartComponent implements OnInit {
 
   ngOnInit(): void {
     this.barFormatValue.rawData = this.barData;
+    console.log('barFormatValue', this.barFormatValue);
 
     this.lineFormatValue.rawData = this.lineData;
 
