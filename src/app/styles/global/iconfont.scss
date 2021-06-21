@@ -1,47 +1,240 @@
 .iconfont {
-  font-family: 'iconfont' !important;
+  font-family: 'iconfont', serif !important;
   font-size: 24px;
   font-style: normal;
-  font-weight: normal;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.iconwarning::before {
+  content: '\e69f';
+}
+
+.iconprompt::before {
+  content: '\e6a0';
+}
+
+.iconcheck::before {
+  content: '\e60b';
+}
+
+.iconnotes::before {
+  content: '\e66c';
+}
+
+.iconsetting::before {
+  content: '\e619';
+}
+
+.iconnotification::before {
+  content: '\e69b';
+}
+
+.iconlayoutgrid::before {
+  content: '\e69c';
+}
+
+.iconrefresh::before {
+  content: '\e69d';
+}
+
+.iconbox::before {
+  content: '\e69e';
+}
+
+.iconcalendar::before {
+  content: '\e635';
+}
+
+.iconpaper::before {
+  content: '\e60a';
+}
+
+.icondeleteoutlined::before {
+  content: '\e69a';
+}
+
+.iconeditoutlined::before {
+  content: '\e699';
+}
+
+.iconmore::before {
+  content: '\e683';
+}
+
+.iconsort::before {
+  content: '\e684';
+}
+
+.iconclose::before {
+  content: '\e685';
+}
+
+.iconplaylistadd::before {
+  content: '\e686';
+}
+
+.iconplaylistcheck::before {
+  content: '\e687';
+}
+
+.iconsend::before {
+  content: '\e688';
+}
+
+.iconbookmark::before {
+  content: '\e689';
+}
+
+.iconlaunch::before {
+  content: '\e68a';
+}
+
+.iconlogout::before {
+  content: '\e68b';
+}
+
+.iconlocation::before {
+  content: '\e68c';
+}
+
+.iconexit::before {
+  content: '\e68d';
+}
+
+.iconreduction::before {
+  content: '\e68e';
+}
+
+.iconactivity::before {
+  content: '\e68f';
+}
+
+.iconposition::before {
+  content: '\e690';
+}
+
+.iconsearch::before {
+  content: '\e691';
+}
+
+.iconimage::before {
+  content: '\e692';
+}
+
+.iconshielddone::before {
+  content: '\e693';
+}
+
+.iconfilterreset::before {
+  content: '\e694';
+}
+
+.iconphotocamera::before {
+  content: '\e695';
+}
+
+.iconmenu::before {
+  content: '\e696';
+}
+
+.iconsettingoutlined::before {
+  content: '\e697';
+}
+
+.iconadd::before {
+  content: '\e698';
+}
+
+.icondropright::before {
+  content: '\e675';
+}
+
+.iconarrowdown::before {
+  content: '\e676';
+}
+
+.iconfirstpage::before {
+  content: '\e677';
+}
+
+.iconlastpage::before {
+  content: '\e678';
+}
+
+.iconarrowright::before {
+  content: '\e679';
+}
+
+.icondropdown::before {
+  content: '\e67a';
+}
+
+.icondown::before {
+  content: '\e67b';
+}
+
+.icondropleft::before {
+  content: '\e67c';
+}
+
+.iconarrowup::before {
+  content: '\e67d';
+}
+
+.iconup::before {
+  content: '\e67e';
+}
+
+.icondropup::before {
+  content: '\e67f';
+}
+
+.iconright::before {
+  content: '\e680';
+}
+
+.iconarrowleft::before {
+  content: '\e681';
+}
+
+.iconleft::before {
+  content: '\e682';
+}
+
+.iconirrigation::before {
+  content: '\e674';
+}
+
+.iconempty::before {
+  content: '\e621';
 }
 
 .iconfilterfield::before {
   content: '\e670';
 }
 
-.iconSimilarFields::before {
+.iconsimilarfields::before {
   content: '\e671';
 }
 
-.iconCustomArea::before {
+.iconcustomarea::before {
   content: '\e672';
 }
 
-.iconCompareFields::before {
+.iconcomparefields::before {
   content: '\e673';
 }
 
-.icondelete_24px_rounded::before {
+.icondelete::before {
   content: '\e66f';
 }
 
-.iconshare1::before {
-  content: '\e66c';
-}
-
-.iconedit2::before {
+.iconedit::before {
   content: '\e66e';
 }
 
-.iconSOC::before {
+.iconsoc::before {
   content: '\e66b';
 }
 
@@ -49,7 +242,7 @@
   content: '\e669';
 }
 
-.iconPeas::before {
+.iconpeas::before {
   content: '\e667';
 }
 
@@ -61,31 +254,23 @@
   content: '\e66a';
 }
 
-.iconjiantoushang::before {
-  content: '\e61d';
-}
-
-.icongengduo::before {
-  content: '\e60b';
-}
-
-.iconBenchmark::before {
+.iconbenchmark::before {
   content: '\e664';
 }
 
-.iconDownload::before {
+.icondownload::before {
   content: '\e665';
 }
 
-.iconShare::before {
+.iconshare::before {
   content: '\e666';
 }
 
-.iconAnomaly::before {
+.iconanomaly::before {
   content: '\e663';
 }
 
-.iconCoverCrop::before {
+.iconcovercrop::before {
   content: '\e662';
 }
 
@@ -93,15 +278,15 @@
   content: '\e661';
 }
 
-.iconTillage::before {
+.icontillage::before {
   content: '\e65f';
 }
 
-.iconLivestock::before {
+.iconlivestock::before {
   content: '\e660';
 }
 
-.iconOwnership::before {
+.iconownership::before {
   content: '\e65e';
 }
 
@@ -113,27 +298,27 @@
   content: '\e65d';
 }
 
-.iconChart::before {
+.iconchart::before {
   content: '\e639';
 }
 
-.iconDistance::before {
+.icondistance::before {
   content: '\e63a';
 }
 
-.iconElevation::before {
+.iconelevation::before {
   content: '\e65a';
 }
 
-.iconFlood::before {
+.iconflood::before {
   content: '\e65b';
 }
 
-.iconAZE::before {
+.iconaez::before {
   content: '\e659';
 }
 
-.iconseason::before {
+.iconseasonoutlined::before {
   content: '\e656';
 }
 
@@ -145,11 +330,11 @@
   content: '\e658';
 }
 
-.iconCroprotation::before {
+.iconcroprotation::before {
   content: '\e652';
 }
 
-.iconNDVI::before {
+.iconndvi::before {
   content: '\e653';
 }
 
@@ -169,63 +354,63 @@
   content: '\e64f';
 }
 
-.iconformat_shapes_24px::before {
+.iconformatshapes::before {
   content: '\e650';
 }
 
-.iconadd_box_24px::before {
+.iconaddbox::before {
   content: '\e651';
 }
 
-.iconScore::before {
+.iconscore::before {
   content: '\e63f';
 }
 
-.iconFertilizer::before {
+.iconfertilizer::before {
   content: '\e640';
 }
 
-.iconPlantvolume::before {
+.iconplantvolume::before {
   content: '\e641';
 }
 
-.iconLeafarea::before {
+.iconleafarea::before {
   content: '\e642';
 }
 
-.iconPesticide::before {
+.iconpesticide::before {
   content: '\e643';
 }
 
-.iconGreen-brown::before {
+.icongreenbrown::before {
   content: '\e644';
 }
 
-.iconSeason::before {
+.iconseason::before {
   content: '\e645';
 }
 
-.iconSoil::before {
+.iconsoil::before {
   content: '\e646';
 }
 
-.iconHarvest::before {
+.iconharvest::before {
   content: '\e647';
 }
 
-.iconYieldDrivers::before {
+.iconyielddrivers::before {
   content: '\e648';
 }
 
-.iconFungicide::before {
+.iconfungicide::before {
   content: '\e649';
 }
 
-.iconSeeding::before {
+.iconseeding::before {
   content: '\e64a';
 }
 
-.iconBreeycount::before {
+.iconbreeycount::before {
   content: '\e64d';
 }
 
@@ -233,95 +418,66 @@
   content: '\e64e';
 }
 
-.iconAdversity::before {
+.iconadversity::before {
   content: '\e63c';
 }
 
-.iconAmbients::before {
+.iconambients::before {
   content: '\e63d';
 }
 
-.iconBreeysize::before {
+.iconbreeysize::before {
   content: '\e63e';
 }
 
-.iconcancel_24px::before {
+.iconcancel::before {
   content: '\e634';
 }
 
-.icontune_24px::before {
+.icontune::before {
   content: '\e632';
 }
 
-.iconvertical_align_top_24px::before {
+.iconverticalaligntop::before {
   content: '\e62f';
 }
 
-.iconformat_list_bulleted_24px::before {
+.iconformatlistbulleted::before {
   content: '\e630';
 }
 
-.iconreport_problem_24px::before {
-  content: '\e622';
-}
-
-.iconmenu::before {
-  content: '\e623';
-}
-
-.iconassignment_24px::before {
-  content: '\e625';
-}
-
-.iconedit1::before {
-  content: '\e629';
-}
-
-.iconDxuanzhuan::before {
+.icon3dspin::before {
   content: '\e64c';
 }
 
-.iconiconfonttubiao_zhexian::before {
+.iconpolyline::before {
   content: '\e606';
 }
 
-.iconyuanxing::before {
+.iconround::before {
   content: '\e626';
 }
 
-.iconcaozuojiemiantubiao---_yuanxinhuayuanhu::before {
+.iconarc::before {
   content: '\e66d';
 }
 
-.iconchexiao::before {
-  content: '\e603';
-}
-
-.icon7chexiao::before {
-  content: '\e618';
-}
-
-.iconchexiao1::before {
+.iconrevoke::before {
   content: '\eaf0';
 }
 
-.iconshanchu1::before {
-  content: '\e70f';
-}
-
-.iconiconfont_xiangpica::before {
+.iconerase::before {
   content: '\e609';
 }
 
-.iconlocation-arrow-o::before {
+.iconlocationarrow::before {
   content: '\e64b';
 }
 
-.iconedit::before {
+.icondraw::before {
   content: '\e610';
 }
 
-.iconln_hengxiangzhankai::before {
+.iconhorizontal::before {
   content: '\e600';
 }
-

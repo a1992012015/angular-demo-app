@@ -11,6 +11,7 @@ import { GoogleMapSvgComponent } from './features/google-map-svg/google-map-svg.
 import { FilterSelectComponent } from './features/filter-select/filter-select.component';
 import { ViewCardComponent } from './features/view-card/view-card.component';
 import { ControlAccessorComponent } from './features/control-accessor/control-accessor.component';
+import { ToastViewComponent } from './features/toast-view/toast-view.component';
 
 const routes: Routes = [
   {
@@ -49,6 +50,10 @@ const routes: Routes = [
   {
     path: 'view-card',
     component: ViewCardComponent
+  },
+  {
+    path: 'toast-view',
+    component: ToastViewComponent
   }
 ];
 

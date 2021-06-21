@@ -43,6 +43,10 @@ export class AppComponent implements OnInit {
     {
       routerName: '动态Card',
       routerPath: '/view-card'
+    },
+    {
+      routerName: '提示信息',
+      routerPath: '/toast-view'
     }
   ];
   workerStart = 0;

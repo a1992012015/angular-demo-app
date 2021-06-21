@@ -22,6 +22,8 @@ import { MatSelectContainerComponent } from './features/filter-select/mat-select
 import { ControlAccessorComponent } from './features/control-accessor/control-accessor.component';
 import { MatRangeInputComponent } from './features/control-accessor/mat-range-input/mat-range-input.component';
 import { MatRangeSliderComponent } from './features/control-accessor/mat-range-slider/mat-range-slider.component';
+import { ToastViewComponent } from './features/toast-view/toast-view.component';
+import { ToastModule } from './modules/toast/toast.module';
 
 /**
  * app
@@ -42,6 +44,7 @@ import { MatRangeSliderComponent } from './features/control-accessor/mat-range-s
     ControlAccessorComponent,
     MatRangeInputComponent,
     MatRangeSliderComponent,
+    ToastViewComponent
   ],
   imports: [
     BrowserModule,
@@ -51,10 +54,12 @@ import { MatRangeSliderComponent } from './features/control-accessor/mat-range-s
     ReactiveFormsModule,
     GoogleChartsModule,
     DynamicCardModule,
-    FormsModule
+    FormsModule,
+    ToastModule.forRoot()
   ],
   providers: [PublicCropMetadataService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule { }
+export class AppModule {
+}
