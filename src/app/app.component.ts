@@ -47,6 +47,10 @@ export class AppComponent implements OnInit {
     {
       routerName: '提示信息',
       routerPath: '/toast-view'
+    },
+    {
+      routerName: '多个实例',
+      routerPath: '/multiple-instance'
     }
   ];
   workerStart = 0;

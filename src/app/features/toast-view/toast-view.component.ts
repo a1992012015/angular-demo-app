@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ToastService } from '../../modules/toast/services/toast.service';
 import { ToastType } from '../../modules/toast/services/toast.interface';
+import { HeroCacheService } from '../multiple-instance/services/hero-cache.service';
 
 /**
  * toast-view
@@ -14,9 +15,16 @@ import { ToastType } from '../../modules/toast/services/toast.interface';
 export class ToastViewComponent implements OnInit {
   private count = 1;
 
-  constructor(private toastService: ToastService) { }
+  constructor(
+    private toastService: ToastService,
+    private heroCache: HeroCacheService
+  ) { }
 
   ngOnInit() {
+  }
+
+  get hero() {
+    return this.heroCache.hero;
   }
 
   showToast() {

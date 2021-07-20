@@ -24,6 +24,12 @@ import { MatRangeInputComponent } from './features/control-accessor/mat-range-in
 import { MatRangeSliderComponent } from './features/control-accessor/mat-range-slider/mat-range-slider.component';
 import { ToastViewComponent } from './features/toast-view/toast-view.component';
 import { ToastModule } from './modules/toast/toast.module';
+import { MultipleInstanceComponent } from './features/multiple-instance/multiple-instance.component';
+import { HeroBioComponent } from './features/multiple-instance/hero-bio/hero-bio.component';
+import { HeroContactComponent } from './features/multiple-instance/hero-contact/hero-contact.component';
+import { HeroCacheService } from './features/multiple-instance/services/hero-cache.service';
+import { HeroService } from './features/multiple-instance/services/hero.service';
+import { HeroItemComponent } from './features/multiple-instance/hero-item/hero-item.component';
 
 /**
  * app
@@ -44,7 +50,11 @@ import { ToastModule } from './modules/toast/toast.module';
     ControlAccessorComponent,
     MatRangeInputComponent,
     MatRangeSliderComponent,
-    ToastViewComponent
+    ToastViewComponent,
+    MultipleInstanceComponent,
+    HeroBioComponent,
+    HeroContactComponent,
+    HeroItemComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +67,7 @@ import { ToastModule } from './modules/toast/toast.module';
     FormsModule,
     ToastModule.forRoot()
   ],
-  providers: [PublicCropMetadataService],
+  providers: [PublicCropMetadataService, HeroCacheService, HeroService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

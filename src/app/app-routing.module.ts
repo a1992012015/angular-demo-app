@@ -12,6 +12,7 @@ import { FilterSelectComponent } from './features/filter-select/filter-select.co
 import { ViewCardComponent } from './features/view-card/view-card.component';
 import { ControlAccessorComponent } from './features/control-accessor/control-accessor.component';
 import { ToastViewComponent } from './features/toast-view/toast-view.component';
+import { MultipleInstanceComponent } from './features/multiple-instance/multiple-instance.component';
 
 const routes: Routes = [
   {
@@ -54,6 +55,10 @@ const routes: Routes = [
   {
     path: 'toast-view',
     component: ToastViewComponent
+  },
+  {
+    path: 'multiple-instance',
+    component: MultipleInstanceComponent
   }
 ];
 

@@ -1,13 +1,45 @@
-<div class='container'>
-  <p>range input 控件测试</p>
-  <app-mat-range-slider [min]='rangeValue.start'
-                        [max]='rangeValue.end'
-                        [step]='filterConfig.step'
-                        [unit]='filterConfig.unit'
-                        [decimal]='filterConfig.precision'
-                        [rangeForm]='filterConfig.filterValue.form'></app-mat-range-slider>
-  <div>
-    <div>start: {{filterConfig.filterValue.form.get('start').value}}</div>
-    <div>end: {{filterConfig.filterValue.form.get('end').value}}</div>
+<button mat-raised-button color="primary" (click)="accordionItem.toggle()">Toggle</button>
+
+<cdk-accordion-item #accordionItem="cdkAccordionItem">
+  <div class="example-accordion-item-body"
+       role="region"
+       [style.display]="accordionItem.expanded ? '' : 'none'">
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis
+    excepturi incidunt ipsum deleniti labore, tempore non nam doloribus blanditiis
+    veritatis illo autem iure aliquid ullam rem tenetur deserunt velit culpa?
   </div>
-</div>
+</cdk-accordion-item>
+
+<cdk-accordion class="example-accordion">
+  <cdk-accordion-item
+    *ngFor="let item of items; let index = index;"
+    #accordionItem="cdkAccordionItem"
+    class="example-accordion-item"
+    role="button"
+    tabindex="0"
+    [attr.id]="'accordion-header-' + index"
+    [attr.aria-expanded]="accordionItem.expanded"
+    [attr.aria-controls]="'accordion-body-' + index">
+    <div class="example-accordion-item-header">
+      {{ item }}
+      <span class="example-accordion-item-description">
+        Click to {{ accordionItem.expanded ? 'close' : 'open' }}
+      </span>
+    </div>
+    <div
+      class="example-accordion-item-body"
+      role="region"
+      [style.display]="accordionItem.expanded ? '' : 'none'"
+      [attr.id]="'accordion-body-' + index"
+      [attr.aria-labelledby]="'accordion-header-' + index">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis
+      excepturi incidunt ipsum deleniti labore, tempore non nam doloribus blanditiis
+      veritatis illo autem iure aliquid ullam rem tenetur deserunt velit culpa?
+    </div>
+  </cdk-accordion-item>
+</cdk-accordion>
+
+
+<!-- Copyright 2021 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
