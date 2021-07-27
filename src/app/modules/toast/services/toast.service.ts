@@ -12,8 +12,11 @@ import { ToastRef } from './toast-ref';
  */
 @Injectable()
 export class ToastService {
+  private isAttachToast = false;
   private toastRefs: ToastRef[] = [];
+  private toastList: ToastData[] = [];
   private toastCloseSub: Subject<OverlayRef> = new Subject();
+  private toastAttachedSub: Subject<OverlayRef> = new Subject();
 
   constructor(
     private overlay: Overlay,
@@ -27,21 +30,34 @@ export class ToastService {
         ref.updatePosition(positionStrategy);
       });
     });
+
+    this.toastAttachedSub.subscribe(() => {
+      const toastData = this.toastList.shift();
+      if (toastData) {
+        this.creatOverlay(toastData);
+      } else {
+        this.isAttachToast = false;
+      }
+    });
   }
 
   show(data: ToastData) {
+    if (this.isAttachToast) {
+      this.toastList.push(data);
+    } else {
+      this.isAttachToast = true;
+      this.creatOverlay(data);
+    }
+  }
+
+  private creatOverlay(data: ToastData) {
     const positionStrategy = this.getPositionStrategy(this.toastRefs.length - 1);
     const overlayRef = this.overlay.create({ positionStrategy });
-
-    const toastRef = new ToastRef(overlayRef, this.toastCloseSub);
+    const toastRef = new ToastRef(overlayRef, this.toastCloseSub, this.toastAttachedSub);
     this.toastRefs.push(toastRef);
-
     const injector = this.getInjector(data, toastRef);
     const toastPortal = new ComponentPortal(ToastComponent, null, injector);
-
     overlayRef.attach(toastPortal);
-
-    return toastRef;
   }
 
   private getPositionStrategy(index: number) {

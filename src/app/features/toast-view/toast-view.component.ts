@@ -13,14 +13,16 @@ import { HeroCacheService } from '../multiple-instance/services/hero-cache.servi
   styleUrls: ['./toast-view.component.scss']
 })
 export class ToastViewComponent implements OnInit {
-  private count = 1;
 
   constructor(
     private toastService: ToastService,
     private heroCache: HeroCacheService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
+    this.showToast();
+    this.showToast();
     this.showToast();
     this.showToast();
   }
@@ -32,9 +34,7 @@ export class ToastViewComponent implements OnInit {
   showToast() {
     this.toastService.show({
       text: `作为一个不同且可能会更简洁的方案，你可以创建一个单独的 overlay 以及将要展示在这个 overlay 中的 container component`,
-      type: ToastType.SUCCESS,
+      type: ToastType.SUCCESS
     });
-
-    this.count += 1;
   }
 }

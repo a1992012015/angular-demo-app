@@ -44,20 +44,23 @@ export class ToastComponent implements OnInit, OnDestroy {
     clearTimeout(this.intervalId);
   }
 
-  close() {
-    this.ref.close();
-  }
-
   onFadeFinished(event: AnimationEvent) {
     const { toState } = event;
     const isFadeOut = (toState as ToastAnimationState) === 'closing';
     const itFinished = this.animationState === 'closing';
-    console.log('onFadeFinished');
     if (isFadeOut && itFinished) {
       this.close();
-    } else {
-
+    } else if (!isFadeOut && !isFadeOut) {
+      this.animationDone();
     }
+  }
+
+  private close() {
+    this.ref.close();
+  }
+
+  private animationDone() {
+    this.ref.animationDone();
   }
 
   protected getIconTypeName(type: ToastType): string {

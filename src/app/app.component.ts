@@ -41,10 +41,6 @@ export class AppComponent implements OnInit {
       routerPath: '/control-accessor'
     },
     {
-      routerName: '动态Card',
-      routerPath: '/view-card'
-    },
-    {
       routerName: '提示信息',
       routerPath: '/toast-view'
     },

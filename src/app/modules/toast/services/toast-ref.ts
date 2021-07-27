@@ -8,7 +8,8 @@ import { Subject } from 'rxjs';
 export class ToastRef {
   constructor(
     private readonly overlay: OverlayRef,
-    private readonly closeSub: Subject<OverlayRef>
+    private readonly closeSub: Subject<OverlayRef>,
+    private readonly attachedSub: Subject<OverlayRef>,
   ) {
   }
 
@@ -19,6 +20,10 @@ export class ToastRef {
   close() {
     this.overlay.dispose();
     this.closeSub.next(this.overlay);
+  }
+
+  animationDone() {
+    this.attachedSub.next(this.overlay);
   }
 
   updatePosition(strategy: PositionStrategy) {
