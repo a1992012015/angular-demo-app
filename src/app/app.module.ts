@@ -15,9 +15,6 @@ import { FilterSelectComponent } from './features/filter-select/filter-select.co
 import { MatSelectFilterComponent } from './features/filter-select/mat-select-filter/mat-select-filter.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { GoogleChartsModule } from './modules/google-chart/google-charts.module';
-import { DynamicCardModule } from './modules/dynamic-card/dynamic-card.module';
-import { ViewCardComponent } from './features/view-card/view-card.component';
-import { PublicCropMetadataService } from './service/public-crop-metadata.service';
 import { MatSelectContainerComponent } from './features/filter-select/mat-select-container/mat-select-container.component';
 import { ControlAccessorComponent } from './features/control-accessor/control-accessor.component';
 import { MatRangeInputComponent } from './features/control-accessor/mat-range-input/mat-range-input.component';
@@ -30,6 +27,7 @@ import { HeroContactComponent } from './features/multiple-instance/hero-contact/
 import { HeroCacheService } from './features/multiple-instance/services/hero-cache.service';
 import { HeroService } from './features/multiple-instance/services/hero.service';
 import { HeroItemComponent } from './features/multiple-instance/hero-item/hero-item.component';
+import { GoogleMapComponent } from './features/google-map/google-map.component';
 
 /**
  * app
@@ -45,7 +43,6 @@ import { HeroItemComponent } from './features/multiple-instance/hero-item/hero-i
     GoogleMapSvgComponent,
     FilterSelectComponent,
     MatSelectFilterComponent,
-    ViewCardComponent,
     MatSelectContainerComponent,
     ControlAccessorComponent,
     MatRangeInputComponent,
@@ -54,7 +51,8 @@ import { HeroItemComponent } from './features/multiple-instance/hero-item/hero-i
     MultipleInstanceComponent,
     HeroBioComponent,
     HeroContactComponent,
-    HeroItemComponent
+    HeroItemComponent,
+    GoogleMapComponent
   ],
   imports: [
     BrowserModule,
@@ -63,11 +61,10 @@ import { HeroItemComponent } from './features/multiple-instance/hero-item/hero-i
     BrowserAnimationsModule,
     ReactiveFormsModule,
     GoogleChartsModule,
-    DynamicCardModule,
     FormsModule,
     ToastModule.forRoot()
   ],
-  providers: [PublicCropMetadataService, HeroCacheService, HeroService],
+  providers: [HeroCacheService, HeroService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

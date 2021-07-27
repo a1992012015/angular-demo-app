@@ -1,10 +1,6 @@
 {
-  "extends": "tslint:recommended",
-  "rulesDirectory": [
-    "codelyzer"
-  ],
+  "extends": ["tslint-config-prettier"],
   "rules": {
-    "ban-types": [false],
     "array-type": [true, "array-simple"],
     "arrow-return-shorthand": true,
     "arrow-parens": false,
@@ -120,5 +116,13 @@
     "no-output-rename": true,
     "use-life-cycle-interface": true,
     "use-pipe-transform-interface": true
+  },
+  "rulesDirectory": ["codelyzer"],
+  "linterOptions": {
+    "exclude": [
+      "src/app/**/*_spec.ts",
+      "src/tests/*.ts",
+      "src/app/utilities/protobuf/defines.d.ts"
+    ]
   }
 }

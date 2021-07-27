@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { CdkAccordionItem } from '@angular/cdk/accordion';
 
-import { SelectOptionInterface } from '../../modules/dynamic-card/interfaces/dynamic-card.interface';
+import { SelectOptionInterface } from '../../interface/select.interface';
 
 /**
  * filter select

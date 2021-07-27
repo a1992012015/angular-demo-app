@@ -1,5 +1,0 @@
-<mat-form-field *ngIf='options.length' (click)="noBubbling($event)" class="title-select">
-  <mat-select (selectionChange)="selectChangeEvent($event)" [value]="defaultSelect">
-    <mat-option *ngFor="let option of options" [value]="option.value">{{option.view}}</mat-option>
-  </mat-select>
-</mat-form-field>

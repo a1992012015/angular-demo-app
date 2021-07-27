@@ -49,6 +49,10 @@ export class AppComponent implements OnInit {
       routerPath: '/toast-view'
     },
     {
+      routerName: '谷歌地图',
+      routerPath: '/google-map'
+    },
+    {
       routerName: '多个实例',
       routerPath: '/multiple-instance'
     }

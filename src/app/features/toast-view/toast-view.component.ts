@@ -21,6 +21,8 @@ export class ToastViewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.showToast();
+    this.showToast();
   }
 
   get hero() {

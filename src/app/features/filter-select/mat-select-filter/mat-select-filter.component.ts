@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { SelectOptionInterface } from '../../../modules/dynamic-card/interfaces/dynamic-card.interface';
+import { SelectOptionInterface } from '../../../interface/select.interface';
 
 /**
  * mat select filter

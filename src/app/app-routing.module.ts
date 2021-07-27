@@ -9,10 +9,10 @@ import { GapiReadyResolverGuard } from './guard/gapi-ready-resolver.guard';
 import { RequestAnimationFrameComponent } from './features/request-animation-frame/request-animation-frame.component';
 import { GoogleMapSvgComponent } from './features/google-map-svg/google-map-svg.component';
 import { FilterSelectComponent } from './features/filter-select/filter-select.component';
-import { ViewCardComponent } from './features/view-card/view-card.component';
 import { ControlAccessorComponent } from './features/control-accessor/control-accessor.component';
 import { ToastViewComponent } from './features/toast-view/toast-view.component';
 import { MultipleInstanceComponent } from './features/multiple-instance/multiple-instance.component';
+import { GoogleMapComponent } from './features/google-map/google-map.component';
 
 const routes: Routes = [
   {
@@ -49,8 +49,8 @@ const routes: Routes = [
     component: ControlAccessorComponent
   },
   {
-    path: 'view-card',
-    component: ViewCardComponent
+    path: 'google-map',
+    component: GoogleMapComponent
   },
   {
     path: 'toast-view',

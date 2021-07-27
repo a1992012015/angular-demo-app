@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { SelectOptionInterface } from '../../../modules/dynamic-card/interfaces/dynamic-card.interface';
+
+import { SelectOptionInterface } from '../../../interface/select.interface';
 
 /**
  * mat select container
