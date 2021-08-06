@@ -63,7 +63,7 @@ export class AppComponent implements OnInit {
     let nowDate: Date;
     if (typeof Worker !== 'undefined') {
       // Create a new
-      const worker = new Worker('./workers/worker-test.worker', { type: 'module' });
+      const worker = new Worker(new URL('./workers/worker-test.worker', import.meta.url), { type: 'module' });
       worker.onmessage = ({ data }) => {
         nowDate = new Date();
         const end = formatDate(nowDate, 'yyyy-MM-dd HH:mm:ss:SSS', 'en-US', 'UTC');

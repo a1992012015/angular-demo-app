@@ -1,13 +1,13 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import cloneDeep from 'lodash-es/cloneDeep';
-import subtract from 'lodash-es/cloneDeep';
-import multiply from 'lodash-es/cloneDeep';
-import divide from 'lodash-es/cloneDeep';
-import add from 'lodash-es/cloneDeep';
+import subtract from 'lodash-es/subtract';
+import multiply from 'lodash-es/multiply';
+import divide from 'lodash-es/divide';
+import add from 'lodash-es/add';
 
 import { IGeometry, ILine, IPoint, MaxMinInterface, TileDataInterface } from '../../interface/worker.interface';
-import * as privatePath from './private-path-point.json';
-import * as publicPath from './public-path-point.json';
+import privatePath from './private-path-point.json';
+import publicPath from './public-path-point.json';
 
 /**
  * sda
@@ -33,11 +33,11 @@ export class GoogleMapSvgComponent implements OnInit, AfterViewInit {
 
   init(): void {
     const publicMaxMin = this.getPointMaxMin(this.publicTileData);
-    const publicSvgProps = this.poly_gm2svg(publicPath.data, publicMaxMin);
+    const publicSvgProps = this.poly_gm2svg(publicPath, publicMaxMin);
     this.drawPoly(publicSvgProps, this.publicTileData, this.publicSvgElement, '../../../assets/images/publicTileImage.png');
 
     const privateMaxMin = this.getPointMaxMin(this.privateTileData);
-    const privateSvgProps = this.poly_gm2svg(privatePath.data, privateMaxMin);
+    const privateSvgProps = this.poly_gm2svg(privatePath, privateMaxMin);
     this.drawPoly(privateSvgProps, this.privateTileData, this.privateSvgElement, '../../../assets/images/privateTileImage.png');
   }
 

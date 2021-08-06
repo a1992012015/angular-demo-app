@@ -1,3 +1,4 @@
+@use '~@angular/material' as mat;
 @import 'variables/variables_share';
 
 .toast {
@@ -22,7 +23,7 @@
 
   .toast-icon,
   .toast-text {
-    color: mat-color($fb-chart-color, c-green);
+    color: mat.get-color-from-palette($fb-chart-color, c-green);
   }
 }
 
@@ -31,7 +32,7 @@
 
   .toast-icon,
   .toast-text {
-    color: mat-color($fb-chart-color, c-blue);
+    color: mat.get-color-from-palette($fb-chart-color, c-blue);
   }
 }
 
@@ -49,6 +50,6 @@
 
   .toast-icon,
   .toast-text {
-    color: mat-color($fb-chart-color, c-red);
+    color: mat.get-color-from-palette($fb-chart-color, c-red);
   }
 }

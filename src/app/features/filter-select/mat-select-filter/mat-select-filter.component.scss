@@ -1,3 +1,4 @@
+@use '~@angular/material' as mat;
 @import 'variables/variables';
 
 .mat-filter {
@@ -12,7 +13,7 @@
   border-radius: 0;
   padding: $fb-base-gap-width * 4;
   box-sizing: border-box;
-  background: mat-color($primary-color, 50);
+  background: mat.get-color-from-palette($primary-color, 50);
 }
 
 .mat-filter-box {

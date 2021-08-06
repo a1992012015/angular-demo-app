@@ -1,3 +1,4 @@
+@use '~@angular/material' as mat;
 @import '../variables/variables';
 
 .breeder {
@@ -20,8 +21,8 @@
 // breeder card section common style
 
 .breeder-header {
-  @include mat-elevation-transition;
-  @include mat-elevation(2);
+  @include mat.elevation-transition;
+  @include mat.elevation(2);
   padding: $fb-base-gap-width * 4 $fb-base-gap-width * 6;
   padding-bottom: 0;
   position: relative;

@@ -1,5 +1,5 @@
+@use '~@angular/material' as mat;
 @use 'sass:map';
-@import '~@angular/material/theming';
 
 $fb-base-gap-width: .25rem;
 
@@ -26,20 +26,20 @@ $primary-color: (
   A400: #25dce9,
   A700: #009ca6,
   contrast: (
-    50: $dark-primary-text,
-    100: $dark-primary-text,
-    200: $dark-primary-text,
-    300: $dark-primary-text,
-    400: $dark-primary-text,
-    500: $dark-primary-text,
-    600: $light-primary-text,
-    700: $light-primary-text,
-    800: $light-primary-text,
-    900: $light-primary-text,
-    A100: $dark-primary-text,
-    A200: $light-primary-text,
-    A400: $light-primary-text,
-    A700: $light-primary-text,
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: rgba(black, 0.87),
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: rgba(black, 0.87),
+    A200: white,
+    A400: white,
+    A700: white,
   )
 );
 
@@ -59,32 +59,32 @@ $accent-color: (
   A400: #aaa,
   A700: #575757,
   contrast: (
-    50: $dark-primary-text,
-    100: $dark-primary-text,
-    200: $dark-primary-text,
-    300: $dark-primary-text,
-    400: $dark-primary-text,
-    500: $dark-primary-text,
-    600: $light-primary-text,
-    700: $light-primary-text,
-    800: $light-primary-text,
-    900: $light-primary-text,
-    A100: $dark-primary-text,
-    A200: $light-primary-text,
-    A400: $light-primary-text,
-    A700: $light-primary-text,
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: rgba(black, 0.87),
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: rgba(black, 0.87),
+    A200: white,
+    A400: white,
+    A700: white,
   )
 );
 
 $fb-background-color: (
   bg-green: #dff4f5,
-  bg-light-green: mat-color($primary-color, 50),
+  bg-light-green: mat.get-color-from-palette($primary-color, 50),
   bg-light-dark: #f5f5f5,
-  bg-grey-100: mat-color($accent-color, 100),
-  bg-grey-200: mat-color($accent-color, 200),
-  bg-grey-300: mat-color($accent-color, 300),
-  bg-grey-400: mat-color($accent-color, 400),
-  bg-grey-500: mat-color($accent-color, 500),
+  bg-grey-100: mat.get-color-from-palette($accent-color, 100),
+  bg-grey-200: mat.get-color-from-palette($accent-color, 200),
+  bg-grey-300: mat.get-color-from-palette($accent-color, 300),
+  bg-grey-400: mat.get-color-from-palette($accent-color, 400),
+  bg-grey-500: mat.get-color-from-palette($accent-color, 500),
 );
 
 $fb-chart-color: (
@@ -97,12 +97,12 @@ $fb-chart-color: (
 );
 
 $fb-interactive-color: (
-  hover-bg: mat-color($accent-color, 100),
-  hover-bd: mat-color($primary-color, 700),
-  white: mat-color($accent-color, 50),
-  main: mat-color($primary-color, 700),
-  blue-1: mat-color($primary-color, 800),
-  blue-2: mat-color($primary-color, 900),
+  hover-bg: mat.get-color-from-palette($accent-color, 100),
+  hover-bd: mat.get-color-from-palette($primary-color, 700),
+  white: mat.get-color-from-palette($accent-color, 50),
+  main: mat.get-color-from-palette($primary-color, 700),
+  blue-1: mat.get-color-from-palette($primary-color, 800),
+  blue-2: mat.get-color-from-palette($primary-color, 900),
   link: #1a73e8,
   error: #ea4335,
   waring: #ffb800,
@@ -215,7 +215,7 @@ $fb-icon-color: (
   line-height: $fb-base-gap-width * 3.25;
 }
 
-@mixin fb-mat-elevation($zValue, $color: $mat-elevation-color) {
+@mixin fb-mat-elevation($zValue, $color: #000) {
   @if type-of($zValue) != number or not unitless($zValue) {
     @error '$zValue must be a unitless number';
   }
