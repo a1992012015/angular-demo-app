@@ -1,3 +1,4 @@
+@use '~@angular/material' as mat;
 @import 'variables/variables';
 
 .input-container {
@@ -94,7 +95,7 @@ app-mat-range-input {
 
   .mat-slider-min-value .mat-slider-thumb {
     border-color: transparent;
-    background-color: mat-color(map-get($app-theme, accent), default) !important;
+    background-color: mat.get-color-from-palette(map-get($app-theme, accent), default) !important;
 
     &:hover,
     &.cdk-focused {
@@ -111,7 +112,7 @@ app-mat-range-input {
     }
 
     .mat-slider-track-fill {
-      background-color: mat-color(map-get($app-theme, foreground), slider-off) !important;
+      background-color: mat.get-color-from-palette(map-get($app-theme, foreground), slider-off) !important;
       z-index: 1;
     }
   }
