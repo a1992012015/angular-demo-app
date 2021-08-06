@@ -1,5 +1,9 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import * as _ from 'lodash';
+import cloneDeep from 'lodash-es/cloneDeep';
+import subtract from 'lodash-es/cloneDeep';
+import multiply from 'lodash-es/cloneDeep';
+import divide from 'lodash-es/cloneDeep';
+import add from 'lodash-es/cloneDeep';
 
 import { IGeometry, ILine, IPoint, MaxMinInterface, TileDataInterface } from '../../interface/worker.interface';
 import * as privatePath from './private-path-point.json';
@@ -110,8 +114,8 @@ export class GoogleMapSvgComponent implements OnInit, AfterViewInit {
       path: svgPaths,
       x: minX,
       y: minY,
-      width: _.subtract(maxX, minX),
-      height: _.subtract(maxY, minY),
+      width: subtract(maxX, minX),
+      height: subtract(maxY, minY),
     };
   }
 
@@ -132,7 +136,7 @@ export class GoogleMapSvgComponent implements OnInit, AfterViewInit {
       bottom: maxMin.min.latitude,
     };
     const polygonBoundingBox = point.reduce((value, current) => {
-      const { longitude, latitude } = _.cloneDeep(current);
+      const { longitude, latitude } = cloneDeep(current);
       if (Object.keys(value).length) {
         if (longitude < value.left) {
           value.left = longitude;
@@ -153,26 +157,26 @@ export class GoogleMapSvgComponent implements OnInit, AfterViewInit {
         value.bottom = latitude;
       }
       return value;
-    }, _.cloneDeep(tileBoundingBox));
+    }, cloneDeep(tileBoundingBox));
     return { polygonBoundingBox, tileBoundingBox };
   }
 
   latLng2point(latLng) {
     return {
       // x: (latLng.longitude + 180) * (256 / 360),
-      x: _.multiply(_.add(latLng.longitude, 180), _.divide(256, 360)),
+      x: multiply(add(latLng.longitude, 180), divide(256, 360)),
       // y: (256 / 2) - (256 * Math.log(Math.tan((Math.PI / 4) + ((latLng.latitude * Math.PI / 180) / 2))) / (2 * Math.PI)),
-      y: _.subtract(
-        _.divide(256, 2),
-        _.divide(
-          _.multiply(
+      y: subtract(
+        divide(256, 2),
+        divide(
+          multiply(
             256,
-            Math.log(Math.tan(_.add(
-              _.divide(Math.PI, 4),
-              _.divide(_.divide(latLng.latitude * Math.PI, 180), 2),
+            Math.log(Math.tan(add(
+              divide(Math.PI, 4),
+              divide(divide(latLng.latitude * Math.PI, 180), 2),
             ))),
           ),
-          _.multiply(2, Math.PI),
+          multiply(2, Math.PI),
         ),
       ),
     };
@@ -199,13 +203,13 @@ export class GoogleMapSvgComponent implements OnInit, AfterViewInit {
 
   tile2long(x: number, z: number) {
     // return (x / Math.pow(2, z)) * 360 - 180;
-    return _.subtract(_.multiply(_.divide(x, Math.pow(2, z)), 360), 180);
+    return subtract(multiply(divide(x, Math.pow(2, z)), 360), 180);
   }
 
   tile2lat(y: number, z: number) {
     // const n = Math.PI - (2 * Math.PI * y) / Math.pow(2, z);
-    const n = _.subtract(Math.PI, _.divide(_.multiply(_.multiply(2, Math.PI), y), Math.pow(2, z)));
+    const n = subtract(Math.PI, divide(multiply(multiply(2, Math.PI), y), Math.pow(2, z)));
     // return (180 / Math.PI) * Math.atan(0.5 * (Math.exp(n) - Math.exp(-n)));
-    return _.multiply(_.divide(180, Math.PI), Math.atan(_.multiply(0.5, _.subtract(Math.exp(n), Math.exp(-n)))));
+    return multiply(divide(180, Math.PI), Math.atan(multiply(0.5, subtract(Math.exp(n), Math.exp(-n)))));
   }
 }

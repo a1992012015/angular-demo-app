@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { formatDate } from '@angular/common';
 
+/**
+ * app root
+ */
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

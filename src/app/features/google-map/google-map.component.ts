@@ -44,7 +44,11 @@ export class GoogleMapComponent implements OnInit {
   ngOnInit(): void {
     this.map = new google.maps.Map(this.gMap.nativeElement, {
       zoom: 15,
-      center: { lat: 24.886, lng: -70.268 }
+      center: { lat: 24.886, lng: -70.268 },
+      mapTypeId: google.maps.MapTypeId.HYBRID,
+      mapTypeControl: false,
+      streetViewControl: false,
+      fullscreenControl: false
     });
 
     const bounds = new google.maps.LatLngBounds(
@@ -58,7 +62,7 @@ export class GoogleMapComponent implements OnInit {
       strokeColor: '#FF0000',
       // strokeOpacity: 0.8,
       strokeWeight: 3,
-      fillColor: '#FF0000',
+      fillColor: '#FF0000'
       // fillOpacity: 0.35
     });
     bermudaTriangle.setMap(this.map);
