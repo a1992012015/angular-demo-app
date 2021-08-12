@@ -1,13 +1,19 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
+import { otherRoute } from '../../interfaces/routing-interface';
 import { OthersComponent } from './others.component';
+import { PrintTestComponent } from './print-test/print-test.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: otherRoute.other.init,
     component: OthersComponent,
+    children: [
+      { path: otherRoute.other.children.printTest, component: PrintTestComponent }
+    ]
   },
+  { path: '**', redirectTo: otherRoute.other.init, pathMatch: 'full' }
 ];
 
 /**
