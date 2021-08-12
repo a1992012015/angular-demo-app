@@ -1,9 +1,10 @@
 /**
- * routing dictionary
+ * feature routing dictionary
  */
-export const routeDictionary = {
+export const featureRoute = {
   features: {
-    root: 'core',
+    root: 'features',
+    init: 'core',
     children: {
       dashboard: 'dashboard',
       remCompute: 'rem-compute',
@@ -14,7 +15,19 @@ export const routeDictionary = {
       selectFilter: 'select-filter',
       toastMassage: 'toast-massage',
       googleMap: 'google-map',
-      multipleInstance: 'multiple-instance',
+      multipleInstance: 'multiple-instance'
+    }
+  }
+};
+
+/**
+ * other routing dictionary
+ */
+export const otherRoute = {
+  other: {
+    root: 'other',
+    init: 'core',
+    children: {
       printTest: 'print-test'
     }
   }

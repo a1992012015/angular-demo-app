@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { routeDictionary } from './interfaces/routing-interface';
+import { Router } from '@angular/router';
+
+import { featureRoute, otherRoute } from '../../interfaces/routing-interface';
 
 /**
  * features component
@@ -13,50 +15,104 @@ export class FeaturesComponent implements OnInit {
   routerPaths = [
     {
       routerName: 'Dashboard',
-      routerPath: routeDictionary.features.children.dashboard
+      routerPath: [
+        featureRoute.features.root,
+        featureRoute.features.init,
+        featureRoute.features.children.dashboard
+      ]
     },
     {
       routerName: 'Rem计算工具',
-      routerPath: routeDictionary.features.children.remCompute
+      routerPath: [
+        featureRoute.features.root,
+        featureRoute.features.init,
+        featureRoute.features.children.remCompute
+      ]
     },
     {
       routerName: 'Css选择器',
-      routerPath: routeDictionary.features.children.cssSelector
+      routerPath: [
+        featureRoute.features.root,
+        featureRoute.features.init,
+        featureRoute.features.children.cssSelector
+      ]
     },
     {
       routerName: 'Google Chart',
-      routerPath: routeDictionary.features.children.googleChart
+      routerPath: [
+        featureRoute.features.root,
+        featureRoute.features.init,
+        featureRoute.features.children.googleChart
+      ]
     },
     {
       routerName: '高性能动画',
-      routerPath: routeDictionary.features.children.animationFrame
+      routerPath: [
+        featureRoute.features.root,
+        featureRoute.features.init,
+        featureRoute.features.children.animationFrame
+      ]
     },
     {
       routerName: '地图图片',
-      routerPath: routeDictionary.features.children.mapSvgCut
+      routerPath: [
+        featureRoute.features.root,
+        featureRoute.features.init,
+        featureRoute.features.children.mapSvgCut
+      ]
     },
     {
       routerName: '过滤选择器',
-      routerPath: routeDictionary.features.children.selectFilter
+      routerPath: [
+        featureRoute.features.root,
+        featureRoute.features.init,
+        featureRoute.features.children.selectFilter
+      ]
     },
     {
       routerName: '提示信息',
-      routerPath: routeDictionary.features.children.toastMassage
+      routerPath: [
+        featureRoute.features.root,
+        featureRoute.features.init,
+        featureRoute.features.children.toastMassage
+      ]
     },
     {
       routerName: '谷歌地图',
-      routerPath: routeDictionary.features.children.googleMap
+      routerPath: [
+        featureRoute.features.root,
+        featureRoute.features.init,
+        featureRoute.features.children.googleMap
+      ]
     },
     {
       routerName: '多个实例',
-      routerPath: routeDictionary.features.children.multipleInstance
+      routerPath: [
+        featureRoute.features.root,
+        featureRoute.features.init,
+        featureRoute.features.children.multipleInstance
+      ]
     },
     {
       routerName: '打印测试',
-      routerPath: routeDictionary.features.children.printTest
+      routerPath: [
+        otherRoute.other.root,
+        otherRoute.other.init,
+        otherRoute.other.children.printTest
+      ]
     }
   ];
 
+  constructor(private router: Router) {
+  }
+
   ngOnInit(): void {
+  }
+
+  goToPathRoute(index: number) {
+    console.log(this.routerPaths[index].routerPath);
+    this.router.navigate(this.routerPaths[index].routerPath).then((navigate) => {
+      console.log('navigate', navigate);
+    });
   }
 }

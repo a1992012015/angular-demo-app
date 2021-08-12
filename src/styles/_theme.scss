@@ -8,20 +8,20 @@ $icon-text: rgba(0, 0, 0, .54);
 $note-text: rgba(0, 0, 0, .38);
 
 $primary-color: (
-  50: #f6fcf9,
-  100: #6af3fd,
-  200: #50f2fd,
-  300: #32edfa,
-  400: #25dce9,
-  500: #1dc8d4,
-  600: #16b6c0,
-  700: #009ca6,
-  800: #008891,
-  900: #007279,
-  A100: #6af3fd,
-  A200: #50f2fd,
-  A400: #25dce9,
-  A700: #009ca6,
+  50: #e6f6eb,
+  100: #c4e7cd,
+  200: #9ed8ad,
+  300: #75cabd,
+  400: #55be74,
+  500: #32b35c,
+  600: #29a352,
+  700: #1e9146,
+  800: #14803c,
+  900: #006128,
+  A100: #c4e7cd,
+  A200: #9ed8ad,
+  A400: #55be74,
+  A700: #32b35c,
   contrast: (
     50: rgba(black, .87),
     100: rgba(black, .87),
@@ -251,7 +251,3 @@ $fb-border-radius-map: (
   }
   border-radius: #{map-get($fb-border-radius-map, $value)};
 }
-
-$typography-typography: mat.define-typography-config(
-  $font-family: 'Google Sans'
-);

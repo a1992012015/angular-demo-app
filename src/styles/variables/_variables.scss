@@ -1,5 +1,7 @@
 @import 'theme';
 
+$fb-body-min-width: $fb-base-gap-width * 250;
+
 * {
   margin: 0;
   padding: 0;

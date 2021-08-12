@@ -1,7 +1,7 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
-import { routeDictionary } from './interfaces/routing-interface';
+import { featureRoute } from '../../interfaces/routing-interface';
 
 import { FeaturesComponent } from './features.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -17,23 +17,23 @@ import { ToastViewComponent } from './toast-view/toast-view.component';
 
 const routes: Routes = [
   {
-    path: routeDictionary.features.root,
+    path: featureRoute.features.init,
     component: FeaturesComponent,
     children: [
-      { path: routeDictionary.features.children.dashboard, component: DashboardComponent },
-      { path: routeDictionary.features.children.remCompute, component: RemComputeComponent },
-      { path: routeDictionary.features.children.cssSelector, component: CssSelectorComponent },
-      { path: routeDictionary.features.children.googleChart, component: GoogleChartTestComponent },
-      { path: routeDictionary.features.children.animationFrame, component: AnimationFrameComponent },
-      { path: routeDictionary.features.children.mapSvgCut, component: MapSvgCutComponent },
-      { path: routeDictionary.features.children.selectFilter, component: FilterSelectComponent },
-      { path: routeDictionary.features.children.googleMap, component: GoogleMapComponent },
-      { path: routeDictionary.features.children.multipleInstance, component: MultipleInstanceComponent },
-      { path: routeDictionary.features.children.toastMassage, component: ToastViewComponent },
-      { path: '**', redirectTo: routeDictionary.features.children.dashboard, pathMatch: 'full' }
+      { path: featureRoute.features.children.dashboard, component: DashboardComponent },
+      { path: featureRoute.features.children.remCompute, component: RemComputeComponent },
+      { path: featureRoute.features.children.cssSelector, component: CssSelectorComponent },
+      { path: featureRoute.features.children.googleChart, component: GoogleChartTestComponent },
+      { path: featureRoute.features.children.animationFrame, component: AnimationFrameComponent },
+      { path: featureRoute.features.children.mapSvgCut, component: MapSvgCutComponent },
+      { path: featureRoute.features.children.selectFilter, component: FilterSelectComponent },
+      { path: featureRoute.features.children.googleMap, component: GoogleMapComponent },
+      { path: featureRoute.features.children.multipleInstance, component: MultipleInstanceComponent },
+      { path: featureRoute.features.children.toastMassage, component: ToastViewComponent },
+      { path: '**', redirectTo: featureRoute.features.children.dashboard, pathMatch: 'full' }
     ]
   },
-  { path: '**', redirectTo: 'core', pathMatch: 'full' }
+  { path: '**', redirectTo: featureRoute.features.init, pathMatch: 'full' }
 ];
 
 /**
