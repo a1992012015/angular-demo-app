@@ -26,7 +26,7 @@ export class HeroService {
     new Hero(3, 'Dr Nice', 'The name says it all', '111-222-3333')
   ];
 
-  getHeroById(id: number): Hero {
+  getHeroById(id: number): Hero | undefined {
     return this.heroes.find(hero => hero.id === id);
   }
 

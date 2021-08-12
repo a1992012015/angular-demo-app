@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { SelectOptionInterface } from '../../../interface/select.interface';
+import { SelectOptionInterface } from '../../interfaces/select.interface';
 
 /**
  * mat select container

@@ -42,7 +42,7 @@ export class GoogleMapComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    this.map = new google.maps.Map(this.gMap.nativeElement, {
+    this.map = new google.maps.Map(this.gMap?.nativeElement, {
       zoom: 15,
       center: { lat: 24.886, lng: -70.268 },
       mapTypeId: google.maps.MapTypeId.HYBRID,

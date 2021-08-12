@@ -1,72 +1,24 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-
-import { DashboardComponent } from './features/dashboard/dashboard.component';
-import { CssSelectorComponent } from './features/css-selector/css-selector.component';
-import { BaseRemComputeComponent } from './features/base-rem-compute/base-rem-compute.component';
-import { GoogleChartComponent } from './features/google-chart/google-chart.component';
-import { GapiReadyResolverGuard } from './guard/gapi-ready-resolver.guard';
-import { RequestAnimationFrameComponent } from './features/request-animation-frame/request-animation-frame.component';
-import { GoogleMapSvgComponent } from './features/google-map-svg/google-map-svg.component';
-import { FilterSelectComponent } from './features/filter-select/filter-select.component';
-import { ControlAccessorComponent } from './features/control-accessor/control-accessor.component';
-import { ToastViewComponent } from './features/toast-view/toast-view.component';
-import { MultipleInstanceComponent } from './features/multiple-instance/multiple-instance.component';
-import { GoogleMapComponent } from './features/google-map/google-map.component';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
-    component: DashboardComponent,
+    path: 'features',
+    loadChildren: () => import('./features/features.module').then(m => m.FeaturesModule)
   },
   {
-    path: 'css-selector',
-    component: CssSelectorComponent,
+    path: 'others',
+    loadChildren: () => import('./others/others.module').then((m) => m.OthersModule)
   },
-  {
-    path: 'rem-compute',
-    component: BaseRemComputeComponent,
-  },
-  {
-    path: 'google-chart',
-    resolve: { gapi: GapiReadyResolverGuard },
-    component: GoogleChartComponent,
-  },
-  {
-    path: 'request-animation-frame',
-    component: RequestAnimationFrameComponent,
-  },
-  {
-    path: 'google-map-svg',
-    component: GoogleMapSvgComponent,
-  },
-  {
-    path: 'filter-select',
-    component: FilterSelectComponent,
-  },
-  {
-    path: 'control-accessor',
-    component: ControlAccessorComponent
-  },
-  {
-    path: 'google-map',
-    component: GoogleMapComponent
-  },
-  {
-    path: 'toast-view',
-    component: ToastViewComponent
-  },
-  {
-    path: 'multiple-instance',
-    component: MultipleInstanceComponent
-  }
+  { path: '**', redirectTo: 'features', pathMatch: 'full' }
 ];
 
 /**
- * asas
+ * app routing module
  */
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

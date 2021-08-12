@@ -27,6 +27,6 @@ export class HeroContactComponent {
   }
 
   get phoneNumber() {
-    return this.heroCache.hero.phone;
+    return this.heroCache.hero?.phone;
   }
 }

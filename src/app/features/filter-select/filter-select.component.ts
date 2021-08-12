@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { CdkAccordionItem } from '@angular/cdk/accordion';
 
-import { SelectOptionInterface } from '../../interface/select.interface';
+import { SelectOptionInterface } from '../interfaces/select.interface';
 
 /**
  * filter select

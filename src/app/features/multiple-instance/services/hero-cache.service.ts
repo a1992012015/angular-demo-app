@@ -6,7 +6,7 @@ import { Hero, HeroService } from './hero.service';
  */
 @Injectable()
 export class HeroCacheService {
-  hero!: Hero;
+  hero!: Hero | undefined;
 
   constructor(private heroService: HeroService) {
     console.log('HeroCacheService');

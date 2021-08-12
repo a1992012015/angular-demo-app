@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ToastService } from '../../modules/toast/services/toast.service';
-import { ToastType } from '../../modules/toast/services/toast.interface';
 import { HeroCacheService } from '../multiple-instance/services/hero-cache.service';
+import { ToastType } from '../../shares/toast/services/toast.interface';
+import { ToastService } from '../../shares/toast/services/toast.service';
 
 /**
- * toast-view
+ * toast view component
  */
 @Component({
   selector: 'app-toast-view',

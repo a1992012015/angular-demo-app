@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 /**
  * Logger
  */
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class LoggerService {
   logs: string[] = [];
 

@@ -1,3 +1,4 @@
+@use '~@angular/material' as mat;
 @import 'variables/variables';
 
 .select-container {
@@ -21,7 +22,7 @@
     border-bottom: solid map-get($primary-color, 200) 1px;
 
     > li {
-      color: $linkable-color;
+      color: mat.get-color-from-palette($fb-interactive-color, link);
     }
   }
 
@@ -40,7 +41,7 @@
     > .mat-icon {
       flex-shrink: 0;
       flex-grow: 0;
-      color: $linkable-color;
+      color: mat.get-color-from-palette($fb-interactive-color, link);
     }
 
     &:hover {

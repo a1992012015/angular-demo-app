@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { SelectOptionInterface } from '../../../interface/select.interface';
+import { SelectOptionInterface } from '../../interfaces/select.interface';
 
 /**
  * mat select filter
@@ -21,10 +21,10 @@ import { SelectOptionInterface } from '../../../interface/select.interface';
   styleUrls: ['./mat-select-filter.component.scss']
 })
 export class MatSelectFilterComponent implements OnInit, OnDestroy {
-  @ViewChild('input', { static: true }) input: ElementRef;
+  @ViewChild('input', { static: true }) input?: ElementRef;
   @Input() searchForm = new FormGroup({ value: new FormControl() });
-  @Input() array: SelectOptionInterface[];
-  @Input() displayMember: string;
+  @Input() array: SelectOptionInterface[] = [];
+  @Input() displayMember?: 'view';
   @Input() showSpinner = true;
   @Output() filteredReturn = new EventEmitter<SelectOptionInterface[]>();
   noResults = false;
@@ -38,7 +38,10 @@ export class MatSelectFilterComponent implements OnInit, OnDestroy {
       }
       if (value.value) {
         this.filteredItems = this.array.map((item) => {
-          item.show = item[this.displayMember].toLowerCase().includes(value.value.toLowerCase());
+          if (this.displayMember) {
+            item.show = item[this.displayMember].toLowerCase().includes(value.value.toLowerCase());
+
+          }
           return item;
         });
       } else {
@@ -57,7 +60,7 @@ export class MatSelectFilterComponent implements OnInit, OnDestroy {
     });
 
     setTimeout(() => {
-      this.input.nativeElement.focus();
+      this.input?.nativeElement?.focus();
     }, 500);
   }
 

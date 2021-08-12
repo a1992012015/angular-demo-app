@@ -122,7 +122,7 @@
     "exclude": [
       "src/app/**/*_spec.ts",
       "src/tests/*.ts",
-      "src/app/utilities/protobuf/defines.d.ts"
+      "src/app/interface/protobuf/defines.d.ts"
     ]
   }
 }

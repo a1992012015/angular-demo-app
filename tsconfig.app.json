@@ -6,7 +6,8 @@
     "types": [
       "googlemaps",
       "google.visualization",
-      "Long"
+      "Long",
+      "node"
     ]
   },
   "files": [
