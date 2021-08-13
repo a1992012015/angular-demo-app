@@ -1,7 +1,7 @@
-@import 'variables/variables';
+@use 'variables/variables' as v;
 
 .print-container {
-  width: $fb-body-min-width;
+  width: v.$app-base-gap-width * 250;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -11,7 +11,7 @@
   width: 100%;
   border: 1px solid #000;
   box-sizing: border-box;
-  padding: $fb-base-gap-width * 3 $fb-base-gap-width * 2;
+  padding: v.$app-base-gap-width * 3 v.$app-base-gap-width * 2;
 
   & > div {
     background: #1a73e8;
@@ -29,22 +29,22 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: $fb-base-gap-width * 5;
+    padding: v.$app-base-gap-width * 5;
     box-sizing: border-box;
-    margin-bottom: $fb-base-gap-width * 4;
+    margin-bottom: v.$app-base-gap-width * 4;
 
     &:nth-child(odd) {
-      padding-right: $fb-base-gap-width * 8;
+      padding-right: v.$app-base-gap-width * 8;
     }
 
     &:nth-child(even) {
-      padding-left: $fb-base-gap-width * 8;
+      padding-left: v.$app-base-gap-width * 8;
     }
 
     .image-span {
       width: 100%;
       box-sizing: border-box;
-      padding: $fb-base-gap-width * 3 $fb-base-gap-width * 2;
+      padding: v.$app-base-gap-width * 3 v.$app-base-gap-width * 2;
 
       & > div {
         background: #f00;

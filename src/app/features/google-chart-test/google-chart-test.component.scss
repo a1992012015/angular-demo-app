@@ -1,4 +1,4 @@
-$fb-base-gap-width: 0.25rem;
+@use 'variables/variables' as v;
 
 .chart {
   margin: 20px;
@@ -6,17 +6,17 @@ $fb-base-gap-width: 0.25rem;
 }
 
 :host::ng-deep .line-chart-tooltip {
-  padding: $fb-base-gap-width * 4;
+  padding: v.$app-base-gap-width * 4;
   min-width: 7rem;
 
   .title {
     font-weight: bold;
-    font-size: 0.875rem;
+    font-size: .875rem;
   }
 
   .label {
-    margin-top: $fb-base-gap-width * 6;
-    margin-bottom: $fb-base-gap-width * 2;
+    margin-top: v.$app-base-gap-width * 6;
+    margin-bottom: v.$app-base-gap-width * 2;
     color: #757575
   }
 
