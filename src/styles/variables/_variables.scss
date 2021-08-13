@@ -2,7 +2,7 @@
 
 @forward 'theme';
 
-$fb-body-min-width: t.$app-base-gap-width * 250;
+$app-body-min-width: t.$app-base-gap-width * 250;
 
 * {
   margin: 0;

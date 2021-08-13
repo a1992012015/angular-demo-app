@@ -12,6 +12,12 @@ $typography-typography: v.define-typography-config(
   $font-family: v.$app-global-font-family
 );
 
+@import 'theme';
+
+$typography-typography: v.define-typography-config(
+  $font-family: v.$app-global-font-family
+);
+
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
