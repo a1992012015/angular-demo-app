@@ -110,9 +110,8 @@ export class FeaturesComponent implements OnInit {
   }
 
   goToPathRoute(index: number) {
-    console.log(this.routerPaths[index].routerPath);
     this.router.navigate(this.routerPaths[index].routerPath).then((navigate) => {
-      console.log('navigate', navigate);
+      console.log(this.routerPaths[index].routerPath, navigate);
     });
   }
 }

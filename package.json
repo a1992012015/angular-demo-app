@@ -8,7 +8,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "extract-i18n": "ng extract-i18n angular-test-app --output-path src/i18n && ng run angular-test-app:xliffmerge"
+    "extract-i18n": "ng extract-i18n --output-path src/i18n && ng run angular-test-app:xliffmerge"
   },
   "private": true,
   "dependencies": {

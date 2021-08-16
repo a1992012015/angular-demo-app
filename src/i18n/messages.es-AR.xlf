@@ -2,7 +2,13 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template" target-language="es-AR">
     <body>
-      <trans-unit id="mat-select-filter-search" datatype="html">
+      <trans-unit id="css-selector-last" datatype="html">
+        <source>单数选最后一个，双数选最后两个</source><target state="html">Choose the last one for the odd number, choose the last two for the even number</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/css-selector/css-selector.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit><trans-unit id="mat-select-filter-search" datatype="html">
         <source>Search...</source><target state="final">Búsqueda...</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/filter-select/mat-select-filter/mat-select-filter.component.html</context>

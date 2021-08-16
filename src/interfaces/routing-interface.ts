@@ -28,6 +28,7 @@ export const otherRoute = {
     root: 'other',
     init: 'core',
     children: {
+      dashboard: 'dashboard',
       printTest: 'print-test'
     }
   }

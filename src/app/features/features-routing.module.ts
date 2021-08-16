@@ -37,7 +37,7 @@ const routes: Routes = [
 ];
 
 /**
- * features routing modulez
+ * features routing module
  */
 @NgModule({
   imports: [RouterModule.forChild(routes)],
