@@ -13,6 +13,14 @@
           "strict": true
         }
       },
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "es-AR": {
+            "translation": "src/i18n/messages.es-AR.xlf"
+          }
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -20,6 +28,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "localize": true,
+            "aot": true,
             "outputPath": "dist/angular-test-app",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -68,12 +78,20 @@
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
+              "localize": false,
+              "aot": true,
               "optimization": false,
-              "vendorChunk": true,
-              "extractLicenses": false,
+              "outputHashing": "none",
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "extractLicenses": false,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            },
+            "development-es-AR": {
+              "localize": [
+                "es-AR"
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -89,6 +107,9 @@
             },
             "development": {
               "browserTarget": "angular-test-app:build:development"
+            },
+            "es-AR": {
+              "browserTarget": "angular-test-app:build:development-es-AR"
             }
           },
           "defaultConfiguration": "development"
@@ -115,6 +136,21 @@
               "src/styles.scss"
             ],
             "scripts": []
+          }
+        },
+        "xliffmerge": {
+          "builder": "@ngx-i18nsupport/tooling:xliffmerge",
+          "options": {
+            "xliffmergeOptions": {
+              "i18nFormat": "xlf",
+              "srcDir": "src/i18n",
+              "genDir": "src/i18n",
+              "defaultLanguage": "en-US",
+              "languages": [
+                "en-US",
+                "es-AR"
+              ]
+            }
           }
         }
       }
