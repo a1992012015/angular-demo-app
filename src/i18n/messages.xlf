@@ -2,12 +2,21 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="css-selector-last" datatype="html">
+      <trans-unit id="6850225070623729793" datatype="html">
         <source>单数选最后一个，双数选最后两个</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/css-selector/css-selector.component.html</context>
           <context context-type="linenumber">1</context>
         </context-group>
+        <note priority="1" from="description">css-selector-last</note>
+      </trans-unit>
+      <trans-unit id="4133518132441646738" datatype="html">
+        <source>每三个选择一个</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/css-selector/css-selector.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <note priority="1" from="description">css-selector-three</note>
       </trans-unit>
       <trans-unit id="mat-select-filter-search" datatype="html">
         <source>Search...</source>
@@ -16,19 +25,21 @@
           <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="mat-select-filter-result" datatype="html">
+      <trans-unit id="7839102902838664367" datatype="html">
         <source>No results</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/filter-select/mat-select-filter/mat-select-filter.component.html</context>
           <context context-type="linenumber">13</context>
         </context-group>
+        <note priority="1" from="description">mat-select-filter-result</note>
       </trans-unit>
-      <trans-unit id="rem-compute-value" datatype="html">
+      <trans-unit id="4239786534792660957" datatype="html">
         <source>计算得到rem</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/rem-compute/rem-compute.component.html</context>
           <context context-type="linenumber">9</context>
         </context-group>
+        <note priority="1" from="description">rem-compute-value</note>
       </trans-unit>
     </body>
   </file>

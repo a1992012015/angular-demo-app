@@ -149,7 +149,8 @@
               "languages": [
                 "en-US",
                 "es-AR"
-              ]
+              ],
+              "beautifyOutput": true
             }
           }
         }
