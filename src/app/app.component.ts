@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     let nowDate: Date;
+    console.log('ngOnInit', Worker);
     if (typeof Worker !== 'undefined') {
       // Create a new
       const worker = new Worker(new URL('../workers/fibonacci.worker', import.meta.url));

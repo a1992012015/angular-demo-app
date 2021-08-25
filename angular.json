@@ -52,9 +52,7 @@
                 "src/styles"
               ]
             },
-            "scripts": [
-              "src/assets/js/custom-closure-lib.compiled.js"
-            ],
+            "scripts": [],
             "serviceWorker": true,
             "ngswConfigPath": "ngsw-config.json",
             "webWorkerTsConfig": "tsconfig.worker.json"
@@ -140,7 +138,14 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
+            "scripts": [
+              "src/tests/mock.js"
+            ],
             "webWorkerTsConfig": "tsconfig.worker.json"
           }
         },

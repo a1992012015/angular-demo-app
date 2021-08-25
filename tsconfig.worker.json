@@ -7,9 +7,10 @@
       "es2018",
       "webworker"
     ],
-    "types": []
+    "types": ["Long"]
   },
   "include": [
-    "src/**/*.worker.ts"
+    "src/**/*.worker.ts",
+    "src/**/*.d.ts"
   ]
 }

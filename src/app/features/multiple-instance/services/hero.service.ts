@@ -19,6 +19,10 @@ export class Hero {
 @Injectable()
 export class HeroService {
 
+  constructor() {
+    console.log('HeroService constructor', Worker);
+  }
+
   // TODO: move to database
   private heroes: Hero[] = [
     new Hero(1, 'RubberMan', 'Hero of many talents', '123-456-7899'),
