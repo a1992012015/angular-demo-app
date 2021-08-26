@@ -143,8 +143,6 @@ export class GoogleChartTestComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('barFormatValue', this.barFormatValue);
-
     const rawData = this.data.map((date) => {
       const first = new Date(date.first_frost_time.seconds * 1000);
       const last = new Date(date.last_frost_time.seconds * 1000);

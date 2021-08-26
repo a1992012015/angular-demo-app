@@ -73,14 +73,3 @@ export interface ILine {
   /** Line point */
   point?: IPoint[] | null;
 }
-
-/**
- * Props
- */
-export interface Props {
-  path: SVGPathElement[];
-  x: number;
-  y: number;
-  width: number;
-  height: number;
-}

@@ -1,19 +1,14 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import cloneDeep from 'lodash-es/cloneDeep';
-import subtract from 'lodash-es/subtract';
-import multiply from 'lodash-es/multiply';
-import divide from 'lodash-es/divide';
-import add from 'lodash-es/add';
-
-import privatePath from './private-path-point.json';
 import publicPath from './public-path-point.json';
+import privatePath from './private-path-point.json';
+
 import {
-  IGeometry,
-  ILine,
-  IPoint,
-  MaxMinInterface, Props,
-  TileDataInterface
+  NDVIImageTileInterface,
+  TileDataInterface,
+  WorkerResponseInterface
 } from '../interfaces/chart-polygon.interface';
+import { createAllTileImageSvg } from '../../../workers/private-ndvi-workeflow';
 
 /**
  * map svg cut component
@@ -23,214 +18,131 @@ import {
   templateUrl: './map-svg-cut.component.html',
   styleUrls: ['./map-svg-cut.component.scss']
 })
-export class MapSvgCutComponent implements OnInit, AfterViewInit {
-  @ViewChild('publicSvgElement', { static: false }) publicSvgElement?: ElementRef<HTMLElement>;
+export class MapSvgCutComponent implements OnInit {
   @ViewChild('privateSvgElement', { static: false }) privateSvgElement?: ElementRef<HTMLElement>;
+  @ViewChild('publicSvgElement', { static: true }) publicSvgElement?: ElementRef<HTMLElement>;
 
   publicTileData: TileDataInterface = { coord: { x: 928, y: 1542 }, zoom: 12 };
   privateTileData: TileDataInterface = { coord: { x: 1347, y: 2493 }, zoom: 12 };
 
+  private workerJobSequence = 0;
+  private ndviImageWorker?: Worker;
+  private tileImageList: { [key: string]: NDVIImageTileInterface } = {
+    publicTile: {
+      feature: cloneDeep(publicPath).shift(),
+      tileData: cloneDeep(this.publicTileData)
+    },
+    privateTile: {
+      feature: cloneDeep(privatePath).shift(),
+      tileData: cloneDeep(this.privateTileData)
+    }
+  };
+
   ngOnInit(): void {
-  }
-
-  ngAfterViewInit(): void {
-    this.init();
-  }
-
-  init(): void {
-    const publicMaxMin = this.getPointMaxMin(this.publicTileData);
-    const publicSvgProps = this.poly_gm2svg(publicPath, publicMaxMin);
-    if (this.publicSvgElement) {
-      this.drawPoly(
-        publicSvgProps,
-        this.publicTileData,
-        this.publicSvgElement,
-        '../../../assets/images/publicTileImage.png'
+    console.log('undefined');
+    if (typeof Worker !== 'undefined') {
+      console.log(new URL('../../../workers/private-ndvi-worker.worker', import.meta.url));
+      this.ndviImageWorker = new Worker(
+        new URL('../../../workers/private-ndvi-worker.worker', import.meta.url),
+        { type: 'module' }
       );
-    }
 
-    const privateMaxMin = this.getPointMaxMin(this.privateTileData);
-    const privateSvgProps = this.poly_gm2svg(privatePath, privateMaxMin);
-    if (this.privateSvgElement) {
-      this.drawPoly(
-        privateSvgProps,
-        this.privateTileData,
-        this.privateSvgElement,
-        '../../../assets/images/privateTileImage.png'
-      );
+      this.ndviImageWorker.onmessage = ({ data }) => {
+        console.log('onmessage imageList', data.imageList);
+        this.addImageToDom(data.imageList);
+      };
+
+      this.ndviImageWorker.onerror = (error) => {
+        console.log('onmessage error', error);
+      };
+
+      this.handleImageCutChange();
+    } else {
+      // Web workers are not supported in this environment.
+      // You should add a fallback so that your program still executes correctly.
+      this.handleImageCutChange();
     }
   }
 
-  drawPoly(props: Props, tileData: TileDataInterface, element: ElementRef<HTMLElement>, url: string): void {
-    const node = element.nativeElement;
-    const svg = node.cloneNode(false) as HTMLElement;
-    const image = document.createElementNS('http://www.w3.org/2000/svg', 'image');
-    const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
-    const clipPath = document.createElementNS('http://www.w3.org/2000/svg', 'clipPath');
-    const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-    clipPath.setAttribute('id', `polygon-path-${tileData.coord.x}-${tileData.coord.y}`);
-    rect.setAttribute('x', String(props.x));
-    rect.setAttribute('y', String(props.y));
-    rect.setAttribute('width', String(props.width));
-    rect.setAttribute('height', String(props.height));
-    rect.setAttribute('fill', 'red');
-    rect.setAttribute('clip-path', `url(#polygon-path-${tileData.coord.x}-${tileData.coord.y})`);
-    image.setAttribute('x', String(props.x));
-    image.setAttribute('y', String(props.y));
-    image.setAttribute('height', String(props.height));
-    image.setAttribute('width', String(props.width));
-    image.setAttribute('clip-path', `url(#polygon-path-${tileData.coord.x}-${tileData.coord.y})`);
-    image.setAttribute('href', url);
-    node?.parentNode?.replaceChild(svg, node);
-    props.path.forEach((p) => {
-      clipPath.appendChild(p);
-    });
-    defs.appendChild(clipPath);
-    svg.appendChild(defs);
-    svg.appendChild(image);
-    // svg.appendChild(rect);
-    svg.setAttribute('viewBox', [props.x, props.y, props.width, props.height].join(' '));
-  }
+  handleImageCutChange() {
+    Promise.all([
+      this.convertImgToBase64('../../../assets/images/publicTileImage.png'),
+      this.convertImgToBase64('../../../assets/images/privateTileImage.png')
+    ]).then(([img1, img2]) => {
+      this.tileImageList['publicTile'].image = img1 as Blob;
+      this.tileImageList['privateTile'].image = img2 as Blob;
 
-  poly_gm2svg(pathData: IGeometry[][][][], maxMin: MaxMinInterface): Props {
-    const svgPaths: SVGPathElement[] = [];
-    const { x: minX, y: maxY } = this.latLng2point(maxMin.min);
-    const { x: maxX, y: minY } = this.latLng2point(maxMin.max);
-
-    // const pointPath = [[pathData[0][1]]];
-    const pointPath = [...pathData];
-    pointPath.forEach((tile) => {
-      tile.forEach((multipolygon) => {
-        multipolygon.forEach((geometry) => {
-          geometry.forEach((polygon) => {
-            polygon?.polygon?.forEach((loops) => {
-              const result = this.checkPointPosition(loops.loop as ILine[], maxMin);
-              if (loops?.loop?.length && result) {
-                const paths: string[] = [];
-                loops.loop.forEach((points, index) => {
-                  const svgPath: string[] = [];
-                  points?.point?.forEach((point) => {
-                    const p = this.latLng2point(point);
-                    if (index === 0) {
-                      svgPath.push([p.x, p.y].join(','));
-                    } else {
-                      svgPath.unshift([p.x, p.y].join(','));
-                    }
-                  });
-                  paths.push(`M${svgPath.join(' ')}z`);
-                });
-                const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-                path.setAttribute('fill-rule', 'evenodd');
-                path.setAttribute('d', paths.join(' '));
-                svgPaths.push(path);
-              }
-            });
-          });
+      console.log('hImage', this.ndviImageWorker);
+      if (typeof Worker !== 'undefined' && this.ndviImageWorker) {
+        this.ndviImageWorker?.postMessage({
+          workerJobSequence: this.workerJobSequence,
+          tileImageList: this.tileImageList
         });
-      });
+      } else {
+        const imageList = createAllTileImageSvg(this.tileImageList);
+        console.log('imageList', imageList);
+        this.addImageToDom(imageList);
+      }
     });
 
-    return {
-      path: svgPaths,
-      x: minX,
-      y: minY,
-      width: subtract(maxX, minX),
-      height: subtract(maxY, minY)
-    };
   }
 
-  checkPointPosition(points: ILine[], maxMin: MaxMinInterface) {
-    const outerBorder = points[0] || { point: [] };
-    const { polygonBoundingBox, tileBoundingBox } = this.getBoundingBox(outerBorder.point as IPoint[], maxMin);
-    return tileBoundingBox.right < polygonBoundingBox.left ||
-      tileBoundingBox.left > polygonBoundingBox.right ||
-      tileBoundingBox.bottom < polygonBoundingBox.top ||
-      tileBoundingBox.top > polygonBoundingBox.bottom;
-  }
-
-  getBoundingBox(point: IPoint[], maxMin: MaxMinInterface) {
-    const tileBoundingBox = {
-      left: maxMin.min.longitude,
-      right: maxMin.max.longitude,
-      top: maxMin.max.latitude,
-      bottom: maxMin.min.latitude
-    };
-    const polygonBoundingBox = point.reduce((value, current) => {
-      const { longitude, latitude } = cloneDeep(current);
-      if (Object.keys(value).length) {
-        if (longitude < value.left) {
-          value.left = longitude;
-        }
-        if (longitude > value.right) {
-          value.right = longitude;
-        }
-        if (latitude < value.bottom) {
-          value.bottom = latitude;
-        }
-        if (latitude > value.top) {
-          value.top = latitude;
-        }
+  addImageToDom(imageList: WorkerResponseInterface[]) {
+    imageList.forEach((svg, index) => {
+      const doc = new DOMParser().parseFromString(svg.svgElement, 'text/xml');
+      if (index === 0) {
+        this.publicSvgElement?.nativeElement.appendChild(doc.documentElement);
       } else {
-        value.left = longitude;
-        value.right = longitude;
-        value.top = latitude;
-        value.bottom = latitude;
+        this.privateSvgElement?.nativeElement.appendChild(doc.documentElement);
       }
-      return value;
-    }, cloneDeep(tileBoundingBox));
-    return { polygonBoundingBox, tileBoundingBox };
+    });
   }
 
-  latLng2point(latLng: IPoint) {
-    return {
-      // x: (latLng.longitude + 180) * (256 / 360),
-      x: multiply(add(latLng.longitude, 180), divide(256, 360)),
-      // y: (256 / 2) - (256 * Math.log(Math.tan((Math.PI / 4) + ((latLng.latitude * Math.PI / 180) / 2))) / (2 * Math.PI)),
-      y: subtract(
-        divide(256, 2),
-        divide(
-          multiply(
-            256,
-            Math.log(Math.tan(add(
-              divide(Math.PI, 4),
-              divide(divide(latLng.latitude * Math.PI, 180), 2)
-            )))
-          ),
-          multiply(2, Math.PI)
-        )
-      )
-    };
+  base64ToBlob({ b64data = '', contentType = '', sliceSize = 512 } = {}) {
+    return new Promise((resolve) => {
+      // 使用 atob() 方法将数据解码
+      const byteCharacters = atob(b64data);
+      const byteArrays = [];
+      for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+        const slice = byteCharacters.slice(offset, offset + sliceSize);
+        const byteNumbers = [];
+        for (let i = 0; i < slice.length; i++) {
+          byteNumbers.push(slice.charCodeAt(i));
+        }
+        // 8 位无符号整数值的类型化数组。内容将初始化为 0。
+        // 如果无法分配请求数目的字节，则将引发异常。
+        byteArrays.push(new Uint8Array(byteNumbers));
+      }
+      let result = new Blob(byteArrays, {
+        type: contentType
+      });
+      result = Object.assign(result, {
+        // 这里一定要处理一下 URL.createObjectURL
+        preview: URL.createObjectURL(result),
+        name: `XXX.png`
+      });
+      resolve(result);
+    });
   }
 
-  getPointMaxMin(tileData: TileDataInterface) {
-    const min = this.calculateLatLngFromCoords(
-      { x: tileData.coord.x, y: tileData.coord.y + 1 },
-      tileData.zoom
-    );
-    const max = this.calculateLatLngFromCoords(
-      { x: tileData.coord.x + 1, y: tileData.coord.y },
-      tileData.zoom
-    );
-    return { max, min };
-  }
-
-  calculateLatLngFromCoords(coords: { x: number; y: number }, zoom: number) {
-    return {
-      latitude: this.tile2lat(coords.y, zoom),
-      longitude: this.tile2long(coords.x, zoom)
-    };
-  }
-
-  tile2long(x: number, z: number) {
-    // return (x / Math.pow(2, z)) * 360 - 180;
-    return subtract(multiply(divide(x, Math.pow(2, z)), 360), 180);
-  }
-
-  tile2lat(y: number, z: number) {
-    // const n = Math.PI - (2 * Math.PI * y) / Math.pow(2, z);
-    const n = subtract(Math.PI, divide(multiply(multiply(2, Math.PI), y), Math.pow(2, z)));
-    // return (180 / Math.PI) * Math.atan(0.5 * (Math.exp(n) - Math.exp(-n)));
-    return multiply(divide(180, Math.PI),
-      Math.atan(multiply(0.5, subtract(Math.exp(n), Math.exp(-n)))));
+// url转base64
+  convertImgToBase64(url: string) {
+    return new Promise((resolve) => {
+      const canvas = document.createElement('CANVAS') as HTMLCanvasElement;
+      const ctx = canvas.getContext('2d');
+      const img = new Image;
+      img.crossOrigin = 'Anonymous'; // 图片跨域
+      img.onload = () => {
+        canvas.height = img.height;
+        canvas.width = img.width;
+        ctx?.drawImage(img, 0, 0);
+        const dataURL = canvas.toDataURL('image/base64');
+        const base64 = dataURL.split(',')[1];
+        this.base64ToBlob({ b64data: base64, contentType: 'image/png' }).then((image) => {
+          resolve(image);
+        });
+      };
+      img.src = url;
+    });
   }
 }

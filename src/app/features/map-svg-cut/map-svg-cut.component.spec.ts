@@ -8,9 +8,8 @@ describe('MapSvgCutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MapSvgCutComponent ]
-    })
-    .compileComponents();
+      declarations: [MapSvgCutComponent]
+    }).compileComponents();
   });
 
   beforeEach(() => {

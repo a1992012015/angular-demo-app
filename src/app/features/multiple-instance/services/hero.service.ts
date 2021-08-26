@@ -20,7 +20,6 @@ export class Hero {
 export class HeroService {
 
   constructor() {
-    console.log('HeroService constructor', Worker);
   }
 
   // TODO: move to database

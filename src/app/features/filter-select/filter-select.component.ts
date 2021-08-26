@@ -169,6 +169,6 @@ export class FilterSelectComponent extends CdkAccordionItem implements OnInit {
   }
 
   changeValue(selected: SelectOptionInterface[]) {
-    console.log('selected', selected);
+    // console.log('selected', selected);
   }
 }

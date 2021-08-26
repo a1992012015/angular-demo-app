@@ -22,7 +22,6 @@ export class MatSelectContainerComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('filteredOptions', this.filteredOptions);
     this.filteredList = this.filteredOptions.slice();
   }
 

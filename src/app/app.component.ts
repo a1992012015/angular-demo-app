@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { formatDate } from '@angular/common';
 
+import { fibonacci } from '../workers/fibonacci-workeflow';
+
 /**
  * root component
  */
@@ -16,7 +18,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     let nowDate: Date;
-    console.log('ngOnInit', Worker);
     if (typeof Worker !== 'undefined') {
       // Create a new
       const worker = new Worker(new URL('../workers/fibonacci.worker', import.meta.url));
@@ -32,10 +33,13 @@ export class AppComponent implements OnInit {
       const start = formatDate(nowDate, 'yyyy-MM-dd HH:mm:ss:SSS', 'en-US', 'UTC');
       console.log(`%c start => ${start}`, 'color: blue;');
       this.workerStart = nowDate.getTime();
+      console.log('worker', worker);
       worker.postMessage(45);
     } else {
       // Web workers are not supported in this environment.
       // You should add a fallback so that your program still executes correctly.
+
+      console.log(`%c page got message: ${fibonacci(45)}`, 'color: red;');
     }
   }
 }

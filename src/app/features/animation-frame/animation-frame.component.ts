@@ -18,7 +18,6 @@ export class AnimationFrameComponent implements OnInit {
   }
 
   animationWidth(timestamp: number) {
-    console.log('timestamp', timestamp);
     const div = this.box?.nativeElement;
     const width = div.style.width ? div.style.width : 10;
     div.style.width = parseInt(width, 10) + 1 + 'px';
