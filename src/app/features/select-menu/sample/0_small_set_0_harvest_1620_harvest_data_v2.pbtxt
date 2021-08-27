@@ -1,0 +1,64 @@
+data {
+  data_source_tag: DERIVED
+  data_type: HARVEST_DATA_V2
+  dataset_name: "mbold-regen-agdata-huc-12"
+  domain_key: "5fba8441a6f04b2d033f3911cfa7e1c0"
+  time_range {
+    start {
+      seconds: 1451610000
+    }
+    end {
+      seconds: 1609376400
+    }
+  }
+  location {
+    s2_cellid: 5960066057896344759
+    centroid {
+      latitude: 46.3765
+      longitude: -94.805
+    }
+  }
+  payload {
+    harvest_data_v2 {
+      harvest {
+        crop_type: CORN
+        yield_as_volume {
+          average: 154.41356
+          unit: BUSHEL_PER_ACRE
+          aggregation_window: AGGREGATION_WINDOW_YEARLY
+        }
+      }
+      harvest {
+        crop_type: SOYBEANS
+        yield_as_volume {
+          average: 37.708218
+          unit: BUSHEL_PER_ACRE
+          aggregation_window: AGGREGATION_WINDOW_YEARLY
+        }
+      }
+      harvest {
+        crop_type: WHEAT
+        yield_as_volume {
+          average: 0.0
+          unit: BUSHEL_PER_ACRE
+          aggregation_window: AGGREGATION_WINDOW_YEARLY
+        }
+      }
+      harvest {
+        crop_type: SUGARBEETS
+        yield_as_volume {
+          average: 0.0
+          unit: BUSHEL_PER_ACRE
+          aggregation_window: AGGREGATION_WINDOW_YEARLY
+        }
+      }
+    }
+  }
+  last_update_time {
+    seconds: 1632263475
+  }
+  administration_level {
+    administration_level: "07/01/01/06/11/01"
+    num_level: 6
+  }
+}

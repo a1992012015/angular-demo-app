@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 import { FeaturesRoutingModule } from './features-routing.module';
 import { MatDesignModule } from '../mat-design/mat-design.module';
-import { GoogleChartsModule } from '../google-chart/google-charts.module';
 import { SharesModule } from '../shares/shares.module';
 
 import { FeaturesComponent } from './features.component';
@@ -27,6 +27,7 @@ import { ToastViewComponent } from './toast-view/toast-view.component';
 import { HeroService } from './multiple-instance/services/hero.service';
 import { HeroCacheService } from './multiple-instance/services/hero-cache.service';
 import { LoggerService } from './multiple-instance/services/logger.service';
+import { SelectMenuComponent } from './select-menu/select-menu.component';
 
 /**
  * features module
@@ -48,14 +49,15 @@ import { LoggerService } from './multiple-instance/services/logger.service';
     HeroBioComponent,
     HeroContactComponent,
     HeroItemComponent,
-    ToastViewComponent
+    ToastViewComponent,
+    SelectMenuComponent
   ],
   imports: [
     CommonModule,
+    GoogleChartsModule,
     FeaturesRoutingModule,
     MatDesignModule,
     ReactiveFormsModule,
-    GoogleChartsModule,
     FormsModule,
     SharesModule.forRoot()
   ],

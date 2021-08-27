@@ -15,6 +15,7 @@ export const featureRoute = {
       selectFilter: 'select-filter',
       toastMassage: 'toast-massage',
       googleMap: 'google-map',
+      multipleSelect: 'multiple-select',
       multipleInstance: 'multiple-instance'
     }
   }

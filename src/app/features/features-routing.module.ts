@@ -14,6 +14,7 @@ import { FilterSelectComponent } from './filter-select/filter-select.component';
 import { GoogleMapComponent } from './google-map/google-map.component';
 import { MultipleInstanceComponent } from './multiple-instance/multiple-instance.component';
 import { ToastViewComponent } from './toast-view/toast-view.component';
+import { SelectMenuComponent } from './select-menu/select-menu.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,7 @@ const routes: Routes = [
       { path: featureRoute.features.children.googleMap, component: GoogleMapComponent },
       { path: featureRoute.features.children.multipleInstance, component: MultipleInstanceComponent },
       { path: featureRoute.features.children.toastMassage, component: ToastViewComponent },
+      { path: featureRoute.features.children.multipleSelect, component: SelectMenuComponent },
       { path: '**', redirectTo: featureRoute.features.children.dashboard, pathMatch: 'full' }
     ]
   },

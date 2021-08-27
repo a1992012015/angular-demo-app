@@ -1,0 +1,64 @@
+data {
+  data_source_tag: DERIVED
+  data_type: SOIL_ORGANIC_MATTER_DATA
+  dataset_name: "mbold-regen-agdata-huc-12"
+  domain_key: "5fba8441a6f04b2d033f3911cfa7e1c0"
+  time_range {
+    start {
+      seconds: 1136077200
+    }
+    end {
+      seconds: 1293757200
+    }
+  }
+  location {
+    s2_cellid: 5960066057896344759
+    centroid {
+      latitude: 46.3765
+      longitude: -94.805
+    }
+  }
+  payload {
+    soil_organic_matter {
+      soil_organic_matter {
+        organic_carbon_gc_per_m2 {
+          average: 33928.664
+          unit: GRAM_PER_SQUARE_METER
+          aggregation_window: AGGREGATION_WINDOW_YEARLY
+        }
+        nitrogen_leaching {
+          average: 1.7369126
+          unit: GRAM_PER_SQUARE_METER
+          aggregation_window: AGGREGATION_WINDOW_YEARLY
+        }
+        ch4_flux {
+          average: -0.22752337
+          unit: GRAM_PER_SQUARE_METER
+          aggregation_window: AGGREGATION_WINDOW_YEARLY
+        }
+        co2_flux {
+          average: -85.39202
+          unit: GRAM_PER_SQUARE_METER
+          aggregation_window: AGGREGATION_WINDOW_YEARLY
+        }
+        n2o_flux {
+          average: 0.06641599
+          unit: GRAM_PER_SQUARE_METER
+          aggregation_window: AGGREGATION_WINDOW_YEARLY
+        }
+        eco2_flux {
+          average: -169.58102
+          unit: GRAM_PER_SQUARE_METER
+          aggregation_window: AGGREGATION_WINDOW_YEARLY
+        }
+      }
+    }
+  }
+  last_update_time {
+    seconds: 1632263474
+  }
+  administration_level {
+    administration_level: "07/01/01/06/11/01"
+    num_level: 6
+  }
+}

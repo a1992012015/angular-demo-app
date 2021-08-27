@@ -9,6 +9,7 @@ import {
   WorkerResponseInterface
 } from '../interfaces/chart-polygon.interface';
 import { createAllTileImageSvg } from '../../../workers/private-ndvi-workeflow';
+import { CommonService } from '../../shares/common.service';
 
 /**
  * map svg cut component
@@ -38,6 +39,9 @@ export class MapSvgCutComponent implements OnInit {
     }
   };
 
+  constructor(private commonService: CommonService) {
+  }
+
   ngOnInit(): void {
     console.log('undefined');
     if (typeof Worker !== 'undefined') {
@@ -66,11 +70,11 @@ export class MapSvgCutComponent implements OnInit {
 
   handleImageCutChange() {
     Promise.all([
-      this.convertImgToBase64('../../../assets/images/publicTileImage.png'),
-      this.convertImgToBase64('../../../assets/images/privateTileImage.png')
+      this.commonService.convertImgToBase64('../../../assets/images/publicTileImage.png'),
+      this.commonService.convertImgToBase64('../../../assets/images/privateTileImage.png')
     ]).then(([img1, img2]) => {
-      this.tileImageList['publicTile'].image = img1 as Blob;
-      this.tileImageList['privateTile'].image = img2 as Blob;
+      this.tileImageList['publicTile'].image = img1;
+      this.tileImageList['privateTile'].image = img2;
 
       console.log('hImage', this.ndviImageWorker);
       if (typeof Worker !== 'undefined' && this.ndviImageWorker) {
@@ -95,54 +99,6 @@ export class MapSvgCutComponent implements OnInit {
       } else {
         this.privateSvgElement?.nativeElement.appendChild(doc.documentElement);
       }
-    });
-  }
-
-  base64ToBlob({ b64data = '', contentType = '', sliceSize = 512 } = {}) {
-    return new Promise((resolve) => {
-      // 使用 atob() 方法将数据解码
-      const byteCharacters = atob(b64data);
-      const byteArrays = [];
-      for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-        const slice = byteCharacters.slice(offset, offset + sliceSize);
-        const byteNumbers = [];
-        for (let i = 0; i < slice.length; i++) {
-          byteNumbers.push(slice.charCodeAt(i));
-        }
-        // 8 位无符号整数值的类型化数组。内容将初始化为 0。
-        // 如果无法分配请求数目的字节，则将引发异常。
-        byteArrays.push(new Uint8Array(byteNumbers));
-      }
-      let result = new Blob(byteArrays, {
-        type: contentType
-      });
-      result = Object.assign(result, {
-        // 这里一定要处理一下 URL.createObjectURL
-        preview: URL.createObjectURL(result),
-        name: `XXX.png`
-      });
-      resolve(result);
-    });
-  }
-
-// url转base64
-  convertImgToBase64(url: string) {
-    return new Promise((resolve) => {
-      const canvas = document.createElement('CANVAS') as HTMLCanvasElement;
-      const ctx = canvas.getContext('2d');
-      const img = new Image;
-      img.crossOrigin = 'Anonymous'; // 图片跨域
-      img.onload = () => {
-        canvas.height = img.height;
-        canvas.width = img.width;
-        ctx?.drawImage(img, 0, 0);
-        const dataURL = canvas.toDataURL('image/base64');
-        const base64 = dataURL.split(',')[1];
-        this.base64ToBlob({ b64data: base64, contentType: 'image/png' }).then((image) => {
-          resolve(image);
-        });
-      };
-      img.src = url;
     });
   }
 }

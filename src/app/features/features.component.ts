@@ -100,6 +100,14 @@ export class FeaturesComponent implements OnInit {
         otherRoute.other.init,
         otherRoute.other.children.printTest
       ]
+    },
+    {
+      routerName: '双重选择',
+      routerPath: [
+        featureRoute.features.root,
+        featureRoute.features.init,
+        featureRoute.features.children.multipleSelect
+      ]
     }
   ];
 

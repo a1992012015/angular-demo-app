@@ -6,6 +6,7 @@ import { MatDesignModule } from '../mat-design/mat-design.module';
 import { ToastComponent } from './toast/toast.component';
 import { ToastService } from './toast/services/toast.service';
 import { defaultToastConfig, TOAST_CONFIG_TOKEN } from './toast/services/toast.interface';
+import { CommonService } from './common.service';
 
 /**
  * share module
@@ -19,7 +20,7 @@ import { defaultToastConfig, TOAST_CONFIG_TOKEN } from './toast/services/toast.i
     MatDesignModule
   ],
   exports: [],
-  providers: [ToastService]
+  providers: [ToastService, CommonService]
 })
 export class SharesModule {
   static forRoot(config = defaultToastConfig): ModuleWithProviders<SharesModule> {

@@ -2,25 +2,11 @@
 
 .chart {
   margin: 20px;
-  width: 600px;
+  display: flex;
+  justify-content: space-around;
 }
 
-:host::ng-deep .line-chart-tooltip {
-  padding: v.$app-base-gap-width * 4;
-  min-width: 7rem;
-
-  .title {
-    font-weight: bold;
-    font-size: .875rem;
-  }
-
-  .label {
-    margin-top: v.$app-base-gap-width * 6;
-    margin-bottom: v.$app-base-gap-width * 2;
-    color: #757575
-  }
-
-  .value {
-    font-size: 1.25rem;
-  }
+.google-chart {
+  width: 600px;
+  height: 300px;
 }

@@ -8,7 +8,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "extract-i18n": "ng extract-i18n --output-path src/i18n && ng run angular-test-app:xliffmerge"
+    "extract-i18n": "ng extract-i18n --output-path src/i18n && ng run angular-test-app:xliffmerge",
+    "postinstall": "ngcc --properties es5 browser module main --first-only --create-ivy-entry-points"
   },
   "private": true,
   "dependencies": {
@@ -24,11 +25,14 @@
     "@angular/router": "~12.2.0",
     "@angular/service-worker": "~12.2.0",
     "@ngx-i18nsupport/tooling": "^8.0.3",
-    "@types/google.visualization": "^0.0.67",
+    "angular-google-charts": "^2.2.2",
     "bignumber.js": "^9.0.1",
     "lodash-es": "^4.17.21",
+    "parsimmon": "^1.18.0",
     "protobufjs": "^6.11.2",
+    "random-js": "^2.1.0",
     "rxjs": "~6.6.0",
+    "save-svg-as-png": "^1.4.17",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
@@ -43,6 +47,7 @@
     "@types/jasmine": "~3.8.0",
     "@types/lodash-es": "^4.17.4",
     "@types/node": "^12.11.1",
+    "@types/parsimmon": "^1.10.6",
     "codelyzer": "^6.0.2",
     "jasmine-core": "~3.8.0",
     "karma": "~6.3.0",

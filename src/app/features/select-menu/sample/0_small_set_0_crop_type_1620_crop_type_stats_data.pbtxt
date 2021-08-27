@@ -1,0 +1,52 @@
+data {
+  data_source_tag: DERIVED
+  data_type: CROP_TYPE_STATS_DATA
+  dataset_name: "mbold-regen-agdata-huc-12"
+  domain_key: "5fba8441a6f04b2d033f3911cfa7e1c0"
+  time_range {
+    start {
+      seconds: 1451610000
+    }
+    end {
+      seconds: 1609376400
+    }
+  }
+  location {
+    s2_cellid: 5960066057896344759
+    centroid {
+      latitude: 46.3765
+      longitude: -94.805
+    }
+  }
+  payload {
+    crop_type_stats_data {
+      crop_type_stats {
+        crop_type: CORN
+        composition: 0.07475036
+      }
+      crop_type_stats {
+        crop_type: SOYBEANS
+        composition: 0.0660485
+      }
+      crop_type_stats {
+        crop_type: WHEAT
+        composition: 0.005563481
+      }
+      crop_type_stats {
+        crop_type: FOREST
+        composition: 0.5741797
+      }
+      crop_type_stats {
+        crop_type: SUGARBEETS
+        composition: 0.0
+      }
+    }
+  }
+  last_update_time {
+    seconds: 1632263466
+  }
+  administration_level {
+    administration_level: "07/01/01/06/11/01"
+    num_level: 6
+  }
+}

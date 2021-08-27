@@ -72,6 +72,7 @@ export interface ILine {
  * Generate images
  */
 export const createAllTileImageSvg = (tileImageList: { [key: string]: NDVIImageTileInterface }) => {
+  console.log('============================createAllTileImageSvg============================');
   const polygonPoint = getPolygonPointList(tileImageList);
   return Object.keys(tileImageList).map((key) => {
     const { image, tileData } = tileImageList[key];
