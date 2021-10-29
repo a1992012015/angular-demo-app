@@ -1,5 +1,11 @@
 @use 'variables/variables' as v;
 
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
 .chart {
   margin: 20px;
   display: flex;
