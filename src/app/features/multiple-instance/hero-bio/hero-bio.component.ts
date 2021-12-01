@@ -10,7 +10,7 @@ import { LoggerService } from '../services/logger.service';
   selector: 'app-hero-bio',
   templateUrl: './hero-bio.component.html',
   styleUrls: ['./hero-bio.component.scss'],
-  providers: [HeroCacheService, LoggerService]
+  providers: [LoggerService, HeroCacheService]
 })
 export class HeroBioComponent implements OnInit {
   @Input() heroId = 0;

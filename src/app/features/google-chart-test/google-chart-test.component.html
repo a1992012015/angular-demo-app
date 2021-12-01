@@ -12,4 +12,11 @@
                   [columns]="pieChart.columnNames"
                   [options]="pieChart.options"></google-chart>
   </div>
+
+  <div class="chart">
+    <google-chart class="google-chart" [type]="lineChart.type"
+                  [data]="lineChart.rawData"
+                  [columns]="lineChart.columnNames"
+                  [options]="lineChart.options"></google-chart>
+  </div>
 </div>

@@ -34,3 +34,13 @@ graph TD
   C -->|Tow| E[Lef2]
   C -->|Three| F[Lef3]
 ```
+
+```flow
+st=>start: 开始
+op=>operation: My Operation
+cond=>condition: Yes or No?
+e=>end
+st->op->cond
+cond(yes)->e
+cond(no)->op
+```

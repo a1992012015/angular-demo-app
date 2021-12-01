@@ -14,7 +14,6 @@ export class HeroContactComponent {
   hasLogger = false;
 
   constructor(
-    @Host() // limit to the host component's instance of the HeroCacheService
     private heroCache: HeroCacheService,
     @Host()     // limit search for logger; hides the application-wide logger
     @Optional() // ok if the logger doesn't exist
@@ -24,6 +23,7 @@ export class HeroContactComponent {
       this.hasLogger = true;
       loggerService.logInfo('HeroContactComponent can log!');
     }
+    console.log('heroCache', this.heroCache.hero);
   }
 
   get phoneNumber() {
