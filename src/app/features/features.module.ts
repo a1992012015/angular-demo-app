@@ -28,6 +28,10 @@ import { HeroService } from './multiple-instance/services/hero.service';
 import { HeroCacheService } from './multiple-instance/services/hero-cache.service';
 import { LoggerService } from './multiple-instance/services/logger.service';
 import { SelectMenuComponent } from './select-menu/select-menu.component';
+import { DynamicLoadComponent } from './dynamic-load/dynamic-load.component';
+import { DynamicContainerComponent } from './dynamic-load/dynamic-container/dynamic-container.component';
+import { DynamicDefaultComponent } from './dynamic-load/dynamic-default/dynamic-default.component';
+import { AddHostDirective } from './dynamic-load/add-host.directive';
 
 /**
  * features module
@@ -50,7 +54,11 @@ import { SelectMenuComponent } from './select-menu/select-menu.component';
     HeroContactComponent,
     HeroItemComponent,
     ToastViewComponent,
-    SelectMenuComponent
+    SelectMenuComponent,
+    DynamicLoadComponent,
+    DynamicContainerComponent,
+    DynamicDefaultComponent,
+    AddHostDirective
   ],
   imports: [
     CommonModule,

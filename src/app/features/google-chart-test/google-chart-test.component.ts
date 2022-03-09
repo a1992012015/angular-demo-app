@@ -13,7 +13,7 @@ import { formatDate } from '@angular/common';
   styleUrls: ['./google-chart-test.component.scss']
 })
 export class GoogleChartTestComponent implements OnInit {
-  barConfig = {
+  public barConfig = {
     type: ChartType.ColumnChart,
     rawData: [
       [
@@ -71,7 +71,7 @@ export class GoogleChartTestComponent implements OnInit {
     }
   };
 
-  pieChart = {
+  public pieChart = {
     'type': ChartType.PieChart,
     'rawData': [
       ['N/A', { v: 0.9790347218513489, f: '73,945.7 ac' }],
@@ -93,7 +93,7 @@ export class GoogleChartTestComponent implements OnInit {
     }
   };
 
-  lineChart = {
+  public lineChart = {
     type: ChartType.LineChart,
     rawData: [
       [
@@ -157,7 +157,7 @@ export class GoogleChartTestComponent implements OnInit {
           { v: new Date(Date.UTC(1970, 3, 1)), f: '04/01' },
           { v: new Date(Date.UTC(1970, 6, 1)), f: '07/01' },
           { v: new Date(Date.UTC(1970, 9, 1)), f: '10/01' },
-          { v: new Date(Date.UTC(1970, 11, 31)), f: '12/31' },
+          { v: new Date(Date.UTC(1970, 11, 31)), f: '12/31' }
         ]
         // ticks: [
         //   { v: 0, f: '01/01' },
@@ -180,7 +180,7 @@ export class GoogleChartTestComponent implements OnInit {
   constructor(@Inject(LOCALE_ID) private localeId: LocaleIdType) {
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     const ticks = [];
     for (let i = 1; i <= 366; i++) {
       const time = new Date(Date.UTC(1970, 0, i));

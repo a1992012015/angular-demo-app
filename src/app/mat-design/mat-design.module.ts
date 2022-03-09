@@ -17,6 +17,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 const materialModule = [
   CdkAccordionModule,
@@ -35,6 +36,7 @@ const materialModule = [
   MatAutocompleteModule,
   MatSelectModule,
   MatTooltipModule,
+  MatExpansionModule,
   MatProgressSpinnerModule
 ];
 

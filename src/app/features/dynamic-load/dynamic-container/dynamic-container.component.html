@@ -1,0 +1,10 @@
+<p>dynamic-container works!</p>
+
+<mat-expansion-panel [expanded]="true">
+  <div class="card-content">
+    <ng-template #header=addHost appAddHost></ng-template>
+  </div>
+</mat-expansion-panel>
+
+
+<button mat-raised-button color="primary" (click)="componentClear()">Clear</button>

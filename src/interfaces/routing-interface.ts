@@ -16,7 +16,8 @@ export const featureRoute = {
       toastMassage: 'toast-massage',
       googleMap: 'google-map',
       multipleSelect: 'multiple-select',
-      multipleInstance: 'multiple-instance'
+      multipleInstance: 'multiple-instance',
+      dynamicLoad: 'dynamic-load',
     }
   }
 };

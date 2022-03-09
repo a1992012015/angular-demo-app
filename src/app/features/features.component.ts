@@ -108,6 +108,14 @@ export class FeaturesComponent implements OnInit {
         featureRoute.features.init,
         featureRoute.features.children.multipleSelect
       ]
+    },
+    {
+      routerName: '动态卡片',
+      routerPath: [
+        featureRoute.features.root,
+        featureRoute.features.init,
+        featureRoute.features.children.dynamicLoad
+      ]
     }
   ];
 
