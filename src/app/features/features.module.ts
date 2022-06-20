@@ -32,6 +32,7 @@ import { DynamicLoadComponent } from './dynamic-load/dynamic-load.component';
 import { DynamicContainerComponent } from './dynamic-load/dynamic-container/dynamic-container.component';
 import { DynamicDefaultComponent } from './dynamic-load/dynamic-default/dynamic-default.component';
 import { AddHostDirective } from './dynamic-load/add-host.directive';
+import { TypescriptTestComponent } from './typescript-test/typescript-test.component';
 
 /**
  * features module
@@ -58,7 +59,8 @@ import { AddHostDirective } from './dynamic-load/add-host.directive';
     DynamicLoadComponent,
     DynamicContainerComponent,
     DynamicDefaultComponent,
-    AddHostDirective
+    AddHostDirective,
+    TypescriptTestComponent
   ],
   imports: [
     CommonModule,

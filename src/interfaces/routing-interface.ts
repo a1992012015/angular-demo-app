@@ -18,6 +18,7 @@ export const featureRoute = {
       multipleSelect: 'multiple-select',
       multipleInstance: 'multiple-instance',
       dynamicLoad: 'dynamic-load',
+      typescriptTest: 'typescript-test',
     }
   }
 };

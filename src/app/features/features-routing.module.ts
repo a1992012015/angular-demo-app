@@ -16,6 +16,8 @@ import { MultipleInstanceComponent } from './multiple-instance/multiple-instance
 import { ToastViewComponent } from './toast-view/toast-view.component';
 import { SelectMenuComponent } from './select-menu/select-menu.component';
 import { DynamicLoadComponent } from 'app/features/dynamic-load/dynamic-load.component';
+import { TypescriptTestComponent } from 'app/features/typescript-test/typescript-test.component';
+import { MatDesignModule } from 'app/mat-design/mat-design.module';
 
 const routes: Routes = [
   {
@@ -34,6 +36,7 @@ const routes: Routes = [
       { path: featureRoute.features.children.toastMassage, component: ToastViewComponent },
       { path: featureRoute.features.children.multipleSelect, component: SelectMenuComponent },
       { path: featureRoute.features.children.dynamicLoad, component: DynamicLoadComponent },
+      { path: featureRoute.features.children.typescriptTest, component: TypescriptTestComponent },
       { path: '**', redirectTo: featureRoute.features.children.dashboard, pathMatch: 'full' }
     ]
   },
@@ -45,7 +48,7 @@ const routes: Routes = [
  */
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class FeaturesRoutingModule {
 }

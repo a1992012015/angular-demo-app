@@ -1,9 +1,36 @@
-<form class="example-container" [formGroup]="options" autocomplete="off">
-  <mat-form-field appearance="fill">
-    <mat-label>Font size</mat-label>
-    <input matInput type="number" (input)="getFontRem()" formControlName="fontSize">
-    <span matSuffix>px</span>
-  </mat-form-field>
-</form>
+<div class="container">
+  <form class="compute-content" [formGroup]="options" autocomplete="off">
+    <mat-form-field appearance="outline" class="compute-field">
+      <mat-label>Font size</mat-label>
+      <input matInput type="number" (input)="getFontRem()" formControlName="fontSize">
+      <span matSuffix>px</span>
+    </mat-form-field>
 
-<p><span i18n="rem-compute-value">计算得到rem</span>:{{fontRem}}</p>
+    <p><span i18n="rem-compute-value">计算得到rem</span>:{{fontRem}}</p>
+
+    <mat-form-field appearance="outline" class="compute-field">
+      <mat-label>Outline form field</mat-label>
+      <input matInput placeholder="Placeholder" formControlName="fieldId">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+
+      <mat-error *ngIf="options.get('fieldId').hasError('required')" i18n="@@private-form-error-required">
+        Value is required
+      </mat-error>
+
+      <mat-error *ngIf="options.get('fieldId').hasError('pattern')" i18n="@@private-form-error-pattern">
+        Field Name can only contain letters, digits, underscores, and spaces in between.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+      <mat-label>Enter a date range</mat-label>
+      <mat-date-range-input [formGroup]="rangeDate" [rangePicker]="picker">
+        <input matStartDate formControlName="start" placeholder="Start date">
+        <input matEndDate formControlName="end" placeholder="End date">
+      </mat-date-range-input>
+      <mat-hint>MM/DD/YY – MM/DD/YY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+  </form>
+</div>

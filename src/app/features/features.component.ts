@@ -116,6 +116,14 @@ export class FeaturesComponent implements OnInit {
         featureRoute.features.init,
         featureRoute.features.children.dynamicLoad
       ]
+    },
+    {
+      routerName: 'typescript 测试',
+      routerPath: [
+        featureRoute.features.root,
+        featureRoute.features.init,
+        featureRoute.features.children.typescriptTest
+      ]
     }
   ];
 
