@@ -1,10 +1,207 @@
-@use 'theme' as t;
+@use '@angular/material' as mat;
+@use 'theme';
 
-@forward 'theme';
+$app-base-gap-width: .25rem;
+$app-global-font-family: 'Google Sans';
 
-$app-body-min-width: t.$app-base-gap-width * 250;
+$app-primary-text: theme.$app-primary-text;
+$app-secondary-text: theme.$app-secondary-text;
+$app-icon-text: theme.$app-icon-text;
+$app-note-text: theme.$app-note-text;
 
-* {
-  margin: 0;
-  padding: 0;
+$app-primary-color: theme.$app-primary-color;
+
+$app-accent-color: theme.$app-accent-color;
+
+$app-background-color: (
+  bg-primary: #dff4f5,
+  bg-light: mat.get-color-from-palette($app-primary-color, 50),
+  bg-light-grey: #f5f5f5,
+  bg-grey-100: mat.get-color-from-palette($app-accent-color, 100),
+  bg-grey-200: mat.get-color-from-palette($app-accent-color, 200),
+  bg-grey-300: mat.get-color-from-palette($app-accent-color, 300),
+  bg-grey-400: mat.get-color-from-palette($app-accent-color, 400),
+  bg-grey-500: mat.get-color-from-palette($app-accent-color, 500),
+);
+
+$app-chart-color: (
+  c-red: #ea4335,
+  c-green: #34a853,
+  c-yellow: #ffb800,
+  c-light-green: #2ed47a,
+  c-purple-red: #ad1457,
+  c-blue: #4688f1,
+);
+
+$app-interactive-color: theme.$app-interactive-color;
+
+$app-icon-color: (
+  b1: #659cf8,
+  b2: #11b8f6,
+  b3: #4db8c8,
+  b4: #009ca6,
+  g1: #27b374,
+  g2: #67b860,
+  g3: #55cb99,
+  g4: #97d17d,
+  y1: #ffd12d,
+  y2: #ffaa43,
+  y3: #b0745f,
+  y4: #f48759,
+  r1: #f3738a,
+  r2: #f591b3,
+  r3: #f5635b,
+  r4: #dc5959,
+  p1: #fa65b2,
+  p2: #bb80ea,
+  p3: #887ef9,
+  p4: #9272b4,
+);
+
+$app-border-radius-map: (
+  4: .25rem,
+  8: .5rem,
+  12: .75rem,
+  16: 1rem,
+  20: 1.25rem
+);
+
+@mixin app-h4() {
+  font-size: 34px;
+  line-height: 43px;
 }
+
+@mixin app-h5() {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 28px;
+}
+
+@mixin app-h6() {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 25px;
+}
+
+@mixin app-title1() {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 23px;
+}
+
+@mixin app-title2() {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+@mixin app-subtitle1() {
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: uppercase;
+}
+
+@mixin app-subtitle2() {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+@mixin app-body1() {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+@mixin app-body2() {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+@mixin app-body3() {
+  font-size: 13px;
+  line-height: 17px;
+}
+
+@mixin app-body4() {
+  font-size: 20px;
+  line-height: 36px;
+}
+
+@mixin app-button() {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+@mixin app-note() {
+  font-size: 12px;
+  line-height: 15px;
+}
+
+@mixin app-overline() {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+@mixin app-small1() {
+  font-size: 10px;
+  line-height: 13px;
+}
+
+@mixin app-small2() {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 13px;
+}
+
+@mixin app-mat-elevation($zValue, $color: #000) {
+  @if type-of($zValue) != number or not unitless($zValue) {
+    @error '$zValue must be a unitless number';
+  }
+  @if $zValue < 12 or $zValue > 24 {
+    @error '$zValue must be between 12 and 24';
+  }
+
+  box-shadow: #{map-get(app-get-umbra-map($color), $zValue)};
+}
+
+@function app-get-umbra-map($color) {
+  @return (
+    12: '3px 0px 12px 0px #{if(type-of($color) == color, rgba($color, .06), $color)}',
+    16: '2px 2px 12px 0px #{if(type-of($color) == color, rgba($color, .08), $color)}',
+    18: '0px 3px 31px 0px #{if(type-of($color) == color, rgba($color, .06), $color)}',
+    20: '0px -3px 31px 0px #{if(type-of($color) == color, rgba($color, .06), $color)}',
+    22: '3px 4px 31px 0px #{if(type-of($color) == color, rgba($color, .08), $color)}',
+    24: '3px 4px 31px 0px #{if(type-of($color) == color, rgba($color, .15), $color)}',
+  );
+}
+
+@mixin app-border-radius($value) {
+  @if type-of($value) != number or not unitless($value) {
+    @error '$value must be a unitless number';
+  }
+  @if $value < 4 or $value > 20 {
+    @error '$value must be between 4 and 20';
+  }
+
+  border-radius: #{map-get($app-border-radius-map, $value)};
+}
+
+$app-primary: theme.$app-primary;
+$app-accent: mat.define-palette($app-accent-color);
+
+$app-drawer-transition-timing: 400ms cubic-bezier(.25, .8, .25, 1);
+$app-control-size-base: 2rem;
+$app-map-ctrl-size: $app-control-size-base;
+$app-top-gap: 1.125rem;
+$app-edge-gap: 1.25rem;
+$app-panel-width: $app-base-gap-width * 132;
+$app-body-min-width: $app-base-gap-width * 250;
+
+$app-theme: mat.define-light-theme((
+  color: (
+    primary: $app-primary,
+    accent: $app-accent
+  )
+));

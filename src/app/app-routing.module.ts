@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
+import {NgModule} from '@angular/core';
 
-import { featureRoute, otherRoute } from '../interfaces/routing-interface';
+import {featureRoute, otherRoute} from "../interfaces/routing-interface";
 
 const routes: Routes = [
   {
@@ -12,12 +12,9 @@ const routes: Routes = [
     path: otherRoute.other.root,
     loadChildren: () => import('./others/others.module').then((m) => m.OthersModule)
   },
-  { path: '**', redirectTo: featureRoute.features.root, pathMatch: 'full' }
+  {path: '**', redirectTo: featureRoute.features.root, pathMatch: 'full'}
 ];
 
-/**
- * app routing module
- */
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

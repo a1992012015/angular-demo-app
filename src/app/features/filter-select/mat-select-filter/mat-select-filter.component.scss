@@ -1,4 +1,5 @@
-@use 'variables/variables' as v;
+@use '@angular/material' as mat;
+@use 'variables/variables' as *;
 
 .mat-filter {
   position: sticky;
@@ -10,9 +11,9 @@
   font-size: inherit;
   box-shadow: none;
   border-radius: 0;
-  padding: v.$app-base-gap-width * 4;
+  padding: $app-base-gap-width * 4;
   box-sizing: border-box;
-  background: v.get-color-from-palette(v.$app-primary-color, 50);
+  background: mat.get-color-from-palette($app-primary-color, 50);
 }
 
 .mat-filter-box {
@@ -37,6 +38,6 @@
 }
 
 .noResultsMessage {
-  margin-top: v.$app-base-gap-width * 2.5;
-  font-size: v.$app-base-gap-width * 4;
+  margin-top: $app-base-gap-width * 2.5;
+  font-size: $app-base-gap-width * 4;
 }

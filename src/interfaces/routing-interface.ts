@@ -9,7 +9,7 @@ export const featureRoute = {
       dashboard: 'dashboard',
       remCompute: 'rem-compute',
       cssSelector: 'css-selector',
-      googleChart: 'google-chart',
+      chartTest: 'chart-test',
       animationFrame: 'animation-frame',
       mapSvgCut: 'map-svg-cut',
       selectFilter: 'select-filter',
@@ -17,8 +17,6 @@ export const featureRoute = {
       googleMap: 'google-map',
       multipleSelect: 'multiple-select',
       multipleInstance: 'multiple-instance',
-      dynamicLoad: 'dynamic-load',
-      typescriptTest: 'typescript-test',
     }
   }
 };

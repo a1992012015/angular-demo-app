@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import {SelectOptionInterface} from "../../../../interfaces/select.interface";
 
-import { SelectOptionInterface } from '../../interfaces/select.interface';
 
 /**
  * mat select container
@@ -16,7 +16,7 @@ export class MatSelectContainerComponent implements OnInit, OnChanges {
   @Output() toggleOption = new EventEmitter<SelectOptionInterface[]>();
 
   filteredList: SelectOptionInterface[] = [];
-  searchForm = new FormGroup({ value: new FormControl() });
+  searchForm = new UntypedFormGroup({ value: new UntypedFormControl() });
 
   ngOnInit(): void {
   }

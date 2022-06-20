@@ -13,11 +13,11 @@
       <input matInput placeholder="Placeholder" formControlName="fieldId">
       <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
 
-      <mat-error *ngIf="options.get('fieldId').hasError('required')" i18n="@@private-form-error-required">
+      <mat-error *ngIf="options.get('fieldId')?.hasError('required')" i18n="@@private-form-error-required">
         Value is required
       </mat-error>
 
-      <mat-error *ngIf="options.get('fieldId').hasError('pattern')" i18n="@@private-form-error-pattern">
+      <mat-error *ngIf="options.get('fieldId')?.hasError('pattern')" i18n="@@private-form-error-pattern">
         Field Name can only contain letters, digits, underscores, and spaces in between.
       </mat-error>
     </mat-form-field>

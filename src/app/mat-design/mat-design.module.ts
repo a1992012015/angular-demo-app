@@ -1,26 +1,25 @@
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { OverlayModule } from '@angular/cdk/overlay';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatChipsModule } from '@angular/material/chips';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { MatSelectModule } from '@angular/material/select';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { CdkAccordionModule } from '@angular/cdk/accordion';
-import { MatSliderModule } from '@angular/material/slider';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
-import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {OverlayModule} from '@angular/cdk/overlay';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatSelectModule} from '@angular/material/select';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {CdkAccordionModule} from '@angular/cdk/accordion';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatMomentDateModule} from '@angular/material-moment-adapter';
 
 const materialModule = [
   CdkAccordionModule,
@@ -41,7 +40,6 @@ const materialModule = [
   MatTooltipModule,
   MatExpansionModule,
   MatDatepickerModule,
-  // MatNativeDateModule,
   MatMomentDateModule,
   MatProgressSpinnerModule
 ];
@@ -50,12 +48,8 @@ const materialModule = [
  * Material design module
  */
 @NgModule({
-  imports: [
-    ...materialModule
-  ],
-  exports: [
-    ...materialModule
-  ]
+  imports: [...materialModule],
+  exports: [...materialModule]
 })
 export class MatDesignModule {
 }

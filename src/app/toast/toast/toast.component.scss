@@ -1,0 +1,56 @@
+@use '@angular/material' as mat;
+@use 'variables/variables' as *;
+
+.toast {
+  width: $app-base-gap-width * 79;
+  display: flex;
+  border-radius: 12px;
+}
+
+.toast-icon {
+  margin: $app-base-gap-width * 4;
+}
+
+.toast-text {
+  @include app-subtitle2();
+  align-self: center;
+  flex: 1;
+  margin: $app-base-gap-width * 4 0;
+  word-break: break-word;
+}
+
+.SUCCESS {
+  background: rgba(240, 254, 246, .9);
+
+  .toast-icon,
+  .toast-text {
+    color: mat.get-color-from-palette($app-chart-color, c-green);
+  }
+}
+
+.INFO {
+  background: rgba(231, 240, 255, .9);
+
+  .toast-icon,
+  .toast-text {
+    color: mat.get-color-from-palette($app-chart-color, c-blue);
+  }
+}
+
+.WARNING {
+  background: rgba(251, 243, 225, .9);
+
+  .toast-icon,
+  .toast-text {
+    color: #ddac00;
+  }
+}
+
+.ERROR {
+  background: rgba(250, 232, 231, .9);
+
+  .toast-icon,
+  .toast-text {
+    color: mat.get-color-from-palette($app-chart-color, c-red);
+  }
+}

@@ -42,7 +42,7 @@ export class FeaturesComponent implements OnInit {
       routerPath: [
         featureRoute.features.root,
         featureRoute.features.init,
-        featureRoute.features.children.googleChart
+        featureRoute.features.children.chartTest
       ]
     },
     {
@@ -109,22 +109,22 @@ export class FeaturesComponent implements OnInit {
         featureRoute.features.children.multipleSelect
       ]
     },
-    {
-      routerName: '动态卡片',
-      routerPath: [
-        featureRoute.features.root,
-        featureRoute.features.init,
-        featureRoute.features.children.dynamicLoad
-      ]
-    },
-    {
-      routerName: 'typescript 测试',
-      routerPath: [
-        featureRoute.features.root,
-        featureRoute.features.init,
-        featureRoute.features.children.typescriptTest
-      ]
-    }
+    // {
+    //   routerName: '动态卡片',
+    //   routerPath: [
+    //     featureRoute.features.root,
+    //     featureRoute.features.init,
+    //     featureRoute.features.children.dynamicLoad
+    //   ]
+    // },
+    // {
+    //   routerName: 'typescript 测试',
+    //   routerPath: [
+    //     featureRoute.features.root,
+    //     featureRoute.features.init,
+    //     featureRoute.features.children.typescriptTest
+    //   ]
+    // }
   ];
 
   constructor(private router: Router) {

@@ -1,11 +1,12 @@
-@use 'variables/variables' as v;
+@use '@angular/material' as mat;
+@use 'variables/variables' as *;
 
 .select-container {
-  min-width: v.$app-base-gap-width * 60;
-  max-width: v.$app-base-gap-width * 80;
+  min-width: $app-base-gap-width * 60;
+  max-width: $app-base-gap-width * 80;
   display: flex;
   flex-direction: column;
-  background: map-get(v.$app-primary-color, 50);
+  background: map-get($app-primary-color, 50);
 }
 
 .select-option {
@@ -15,21 +16,21 @@
   padding: 0;
   margin: 0;
   overflow: auto;
-  max-height: v.$app-base-gap-width * 80;
+  max-height: $app-base-gap-width * 80;
 
   &.selected {
-    border-bottom: solid map-get(v.$app-primary-color, 200) 1px;
+    border-bottom: solid map-get($app-primary-color, 200) 1px;
 
     > li {
-      color: v.get-color-from-palette(v.$app-interactive-color, link);
+      color: mat.get-color-from-palette($app-interactive-color, link);
     }
   }
 
   li {
     display: flex;
     align-items: center;
-    padding: v.$app-base-gap-width * 2 v.$app-base-gap-width * 4;
-    line-height: v.$app-base-gap-width * 6;
+    padding: $app-base-gap-width * 2 $app-base-gap-width * 4;
+    line-height: $app-base-gap-width * 6;
     margin: 0;
     cursor: pointer;
 
@@ -40,11 +41,11 @@
     > .mat-icon {
       flex-shrink: 0;
       flex-grow: 0;
-      color: v.get-color-from-palette(v.$app-interactive-color, link);
+      color: mat.get-color-from-palette($app-interactive-color, link);
     }
 
     &:hover {
-      background-color: map-get(v.$app-primary-color, 100);
+      background-color: map-get($app-primary-color, 100);
     }
 
     &.disabled {
@@ -54,9 +55,9 @@
 }
 
 .select-icon-thumb {
-  width: v.$app-base-gap-width * 4;
-  height: v.$app-base-gap-width * 4;
-  margin-right: v.$app-base-gap-width * 2;
+  width: $app-base-gap-width * 4;
+  height: $app-base-gap-width * 4;
+  margin-right: $app-base-gap-width * 2;
   vertical-align: middle;
 }
 

@@ -1,8 +1,0 @@
-<div class="toast"
-     [ngClass]="className"
-     (@fadeAnimation.done)="onFadeFinished($event)"
-     [@fadeAnimation]="{value: animationState, params: animationParams}">
-  <mat-icon class="toast-icon" fontSet="iconfont" [fontIcon]="iconType"></mat-icon>
-  <div class="toast-text">{{ data.text }}</div>
-  <mat-icon class="toast-icon mouse-style" fontSet="iconfont" fontIcon="iconclose"></mat-icon>
-</div>

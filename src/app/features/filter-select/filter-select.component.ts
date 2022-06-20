@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { CdkAccordionItem } from '@angular/cdk/accordion';
 
-import { SelectOptionInterface } from '../interfaces/select.interface';
+import {SelectOptionInterface} from "../../../interfaces/select.interface";
+
 
 /**
  * filter select
@@ -13,7 +14,7 @@ import { SelectOptionInterface } from '../interfaces/select.interface';
   styleUrls: ['./filter-select.component.scss']
 })
 export class FilterSelectComponent extends CdkAccordionItem implements OnInit {
-  filterControl = new FormControl();
+  filterControl = new UntypedFormControl();
 
   variables = [
     { value: 0, view: 'UNKNOWN CROPTYPE', show: true },

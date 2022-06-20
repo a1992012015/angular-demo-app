@@ -8,9 +8,10 @@ import {
   Output,
   ViewChild
 } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 
-import { SelectOptionInterface } from '../../interfaces/select.interface';
+import {SelectOptionInterface} from "../../../../interfaces/select.interface";
+
 
 /**
  * mat select filter
@@ -22,7 +23,7 @@ import { SelectOptionInterface } from '../../interfaces/select.interface';
 })
 export class MatSelectFilterComponent implements OnInit, OnDestroy {
   @ViewChild('input', { static: true }) input?: ElementRef;
-  @Input() searchForm = new FormGroup({ value: new FormControl() });
+  @Input() searchForm = new UntypedFormGroup({ value: new UntypedFormControl() });
   @Input() array: SelectOptionInterface[] = [];
   @Input() displayMember?: 'view';
   @Input() showSpinner = true;

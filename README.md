@@ -1,10 +1,10 @@
-# AngularTestApp
+# AngularDemoApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.2.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
@@ -25,22 +25,3 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-
-```mermaid
-graph TD
-  A[Cha] -->B(Bhu)
-  B --> C{Left me}
-  C -->|One| D[Lef1]
-  C -->|Tow| E[Lef2]
-  C -->|Three| F[Lef3]
-```
-
-```flow
-st=>start: 开始
-op=>operation: My Operation
-cond=>condition: Yes or No?
-e=>end
-st->op->cond
-cond(yes)->e
-cond(no)->op
-```

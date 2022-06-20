@@ -7,9 +7,9 @@ import {
   NDVIImageTileInterface,
   TileDataInterface,
   WorkerResponseInterface
-} from '../interfaces/chart-polygon.interface';
+} from "../../../interfaces/chart-polygon.interface";
+import {convertImgToBase64} from "../../../services/common.utilities";
 import { createAllTileImageSvg } from '../../../workers/private-ndvi-workeflow';
-import { CommonService } from '../../shares/common.service';
 
 /**
  * map svg cut component
@@ -39,8 +39,8 @@ export class MapSvgCutComponent implements OnInit {
     }
   };
 
-  constructor(private commonService: CommonService) {
-  }
+  // constructor(private commonService: CommonService) {
+  // }
 
   ngOnInit(): void {
     console.log('undefined');
@@ -70,8 +70,8 @@ export class MapSvgCutComponent implements OnInit {
 
   handleImageCutChange() {
     Promise.all([
-      this.commonService.convertImgToBase64('../../../assets/images/publicTileImage.png'),
-      this.commonService.convertImgToBase64('../../../assets/images/privateTileImage.png')
+      convertImgToBase64('../../../assets/images/publicTileImage.png'),
+      convertImgToBase64('../../../assets/images/privateTileImage.png')
     ]).then(([img1, img2]) => {
       this.tileImageList['publicTile'].image = img1;
       this.tileImageList['privateTile'].image = img2;

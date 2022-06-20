@@ -3,22 +3,11 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-test-app": {
+    "angular-demo-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
-        },
-        "@schematics/angular:application": {
-          "strict": true
-        }
-      },
-      "i18n": {
-        "sourceLocale": "en-US",
-        "locales": {
-          "es-AR": {
-            "translation": "src/i18n/messages.es-AR.xlf"
-          }
         }
       },
       "root": "",
@@ -26,31 +15,20 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-builders/custom-webpack:browser",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "localize": true,
-            "aot": true,
-            "outputPath": "dist/angular-test-app",
+            "outputPath": "dist/angular-demo-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "allowedCommonJsDependencies": [
-              "bignumber.js"
-            ],
-            "customWebpackConfig": {
-              "path": "./extra-webpack.config.js",
-              "mergeRules": {
-                "externals": "replace"
-              }
-            },
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "src/manifest.webmanifest"
+              "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
             ],
             "stylePreprocessorOptions": {
@@ -58,10 +36,7 @@
                 "src/styles"
               ]
             },
-            "scripts": [],
-            "serviceWorker": true,
-            "ngswConfigPath": "ngsw-config.json",
-            "webWorkerTsConfig": "tsconfig.worker.json"
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -86,100 +61,57 @@
               "outputHashing": "all"
             },
             "development": {
-              "localize": false,
-              "aot": true,
+              "buildOptimizer": false,
               "optimization": false,
-              "outputHashing": "none",
-              "sourceMap": true,
-              "namedChunks": true,
+              "vendorChunk": true,
               "extractLicenses": false,
-              "vendorChunk": false,
-              "buildOptimizer": true
-            },
-            "es-AR": {
-              "localize": [
-                "es-AR"
-              ]
+              "sourceMap": true,
+              "namedChunks": true
             }
           },
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-builders/custom-webpack:dev-server",
+          "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "port": 3000,
-            "browserTarget": "angular-test-app:build"
+            "port": 3000
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-test-app:build:production"
+              "browserTarget": "angular-demo-app:build:production"
             },
             "development": {
-              "browserTarget": "angular-test-app:build:development"
-            },
-            "es-AR": {
-              "browserTarget": "angular-test-app:build:es-AR"
+              "browserTarget": "angular-demo-app:build:development"
             }
           },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-builders/custom-webpack:extract-i18n",
+          "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-test-app:build",
-            "customWebpackConfig": {
-              "path": "./extra-webpack.config.js"
-            }
+            "browserTarget": "angular-demo-app:build"
           }
         },
         "test": {
-          "builder": "@angular-builders/custom-webpack:karma",
+          "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
-            "customWebpackConfig": {
-              "path": "./extra-webpack.config.js"
-            },
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "src/manifest.webmanifest"
+              "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
             ],
-            "stylePreprocessorOptions": {
-              "includePaths": [
-                "src/styles"
-              ]
-            },
-            "scripts": [
-              "src/tests/mock.js"
-            ],
-            "webWorkerTsConfig": "tsconfig.worker.json"
-          }
-        },
-        "xliffmerge": {
-          "builder": "@ngx-i18nsupport/tooling:xliffmerge",
-          "options": {
-            "xliffmergeOptions": {
-              "i18nFormat": "xlf",
-              "srcDir": "src/i18n",
-              "genDir": "src/i18n",
-              "defaultLanguage": "en-US",
-              "languages": [
-                "en-US",
-                "es-AR"
-              ],
-              "beautifyOutput": true
-            }
+            "scripts": []
           }
         }
       }
     }
-  },
-  "defaultProject": "angular-test-app"
+  }
 }

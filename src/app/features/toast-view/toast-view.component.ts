@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { HeroCacheService } from '../multiple-instance/services/hero-cache.service';
-import { ToastType } from '../../shares/toast/services/toast.interface';
-import { ToastService } from '../../shares/toast/services/toast.service';
+import {ToastService} from "../../toast/services/toast.service";
+import {ToastType} from "../../toast/services/toast.interface";
 
 /**
  * toast view component

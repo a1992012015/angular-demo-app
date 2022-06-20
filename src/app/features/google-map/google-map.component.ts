@@ -70,7 +70,7 @@ export class GoogleMapComponent implements OnInit {
     this.map.panTo({ lat: 43.7824, lng: -94.9431 });
 
     const overlay = new USGSOverlay(bounds, this.image);
-    overlay.setMap(this.map);
+    overlay?.setMap(this.map);
     this.map.fitBounds(this.imageBounds);
   }
 }

@@ -1,0 +1,85 @@
+@use '@angular/material' as mat;
+@use 'sass:map';
+
+$app-primary-text: rgba(0, 0, 0, .87);
+$app-secondary-text: rgba(0, 0, 0, .6);
+$app-icon-text: rgba(0, 0, 0, .54);
+$app-note-text: rgba(0, 0, 0, .38);
+
+$app-primary-color: (
+  50: #f6fcf9,
+  100: #6af3fd,
+  200: #50f2fd,
+  300: #32edfa,
+  400: #25dce9,
+  500: #1dc8d4,
+  600: #16b6c0,
+  700: #009ca6,
+  800: #008891,
+  900: #007279,
+  A100: #6af3fd,
+  A200: #50f2fd,
+  A400: #25dce9,
+  A700: #009ca6,
+  contrast: (
+    50: rgba(black, .87),
+    100: rgba(black, .87),
+    200: rgba(black, .87),
+    300: rgba(black, .87),
+    400: rgba(black, .87),
+    500: rgba(black, .87),
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: rgba(black, .87),
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);
+
+
+$app-accent-color: (
+  50: #fff,
+  100: #f8f8f8,
+  200: #dedede,
+  300: #c3c3c3,
+  400: #aaa,
+  500: #8b8b8b,
+  600: #717171,
+  700: #575757,
+  800: #3d3d3d,
+  900: #303030,
+  A100: #f7f7f7,
+  A200: #dedede,
+  A400: #aaa,
+  A700: #575757,
+  contrast: (
+    50: rgba(black, .87),
+    100: rgba(black, .87),
+    200: rgba(black, .87),
+    300: rgba(black, .87),
+    400: rgba(black, .87),
+    500: rgba(black, .87),
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: rgba(black, .87),
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);
+
+$app-interactive-color: (
+  primary: mat.get-color-from-palette($app-primary-color, 700),
+  primary-hover: mat.get-color-from-palette($app-primary-color, 800),
+  primary-pressed: mat.get-color-from-palette($app-primary-color, 900),
+  white: mat.get-color-from-palette($app-accent-color, 50),
+  link: #1a73e8,
+);
+
+
+$app-primary: mat.define-palette($app-primary-color, A700, 400, 900);
