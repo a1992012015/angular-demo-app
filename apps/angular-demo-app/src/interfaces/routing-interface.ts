@@ -11,11 +11,10 @@ export const featureRoute = {
       cssSelector: 'css-selector',
       chartTest: 'chart-test',
       animationFrame: 'animation-frame',
-      mapSvgCut: 'map-svg-cut',
+      webWorker: 'web-worker',
       selectFilter: 'select-filter',
       toastMassage: 'toast-massage',
       googleMap: 'google-map',
-      multipleSelect: 'multiple-select',
       multipleInstance: 'multiple-instance',
     }
   }

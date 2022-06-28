@@ -24,7 +24,7 @@
 
     <mat-form-field appearance="standard">
       <mat-label>Enter a date range</mat-label>
-      <mat-date-range-input [formGroup]="rangeDate" [rangePicker]="picker">
+      <mat-date-range-input [formGroup]="rangeDate" [rangePicker]="picker" [dateFilter]="filterHandle$">
         <input matStartDate formControlName="start" placeholder="Start date">
         <input matEndDate formControlName="end" placeholder="End date">
       </mat-date-range-input>

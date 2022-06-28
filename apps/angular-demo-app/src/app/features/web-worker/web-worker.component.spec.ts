@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MapSvgCutComponent } from './map-svg-cut.component';
+import { WebWorkerComponent } from './web-worker.component';
 
-describe('MapSvgCutComponent', () => {
-  let component: MapSvgCutComponent;
-  let fixture: ComponentFixture<MapSvgCutComponent>;
+describe('WebWorkerComponent', () => {
+  let component: WebWorkerComponent;
+  let fixture: ComponentFixture<WebWorkerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MapSvgCutComponent]
+      declarations: [WebWorkerComponent]
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MapSvgCutComponent);
+    fixture = TestBed.createComponent(WebWorkerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

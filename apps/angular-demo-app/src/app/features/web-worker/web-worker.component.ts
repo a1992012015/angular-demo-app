@@ -7,8 +7,8 @@ import {
   NDVIImageTileInterface,
   TileDataInterface,
   WorkerResponseInterface
-} from "../../../interfaces/chart-polygon.interface";
-import {convertImgToBase64} from "../../../services/common.utilities";
+} from '../../../interfaces/chart-polygon.interface';
+import { convertImgToBase64 } from '../../../services/common.utilities';
 import { createAllTileImageSvg } from '../../../workers/private-ndvi-workeflow';
 
 /**
@@ -16,10 +16,10 @@ import { createAllTileImageSvg } from '../../../workers/private-ndvi-workeflow';
  */
 @Component({
   selector: 'app-map-svg-cut',
-  templateUrl: './map-svg-cut.component.html',
-  styleUrls: ['./map-svg-cut.component.scss']
+  templateUrl: './web-worker.component.html',
+  styleUrls: ['./web-worker.component.scss']
 })
-export class MapSvgCutComponent implements OnInit {
+export class WebWorkerComponent implements OnInit {
   @ViewChild('privateSvgElement', { static: false }) privateSvgElement?: ElementRef<HTMLElement>;
   @ViewChild('publicSvgElement', { static: true }) publicSvgElement?: ElementRef<HTMLElement>;
 
@@ -39,13 +39,47 @@ export class MapSvgCutComponent implements OnInit {
     }
   };
 
-  // constructor(private commonService: CommonService) {
-  // }
-
   ngOnInit(): void {
-    console.log('undefined');
+    this.workerFibonacci();
+    this.ndviCutFibonacci();
+  }
+
+  addImageToDom(imageList: WorkerResponseInterface[]) {
+    imageList.forEach((svg, index) => {
+      const doc = new DOMParser().parseFromString(svg.svgElement, 'text/xml');
+      if (index === 0) {
+        this.publicSvgElement?.nativeElement.appendChild(doc.documentElement);
+      } else {
+        this.privateSvgElement?.nativeElement.appendChild(doc.documentElement);
+      }
+    });
+  }
+
+  private workerFibonacci(): void {
     if (typeof Worker !== 'undefined') {
-      console.log(new URL('../../../workers/private-ndvi-worker.worker', import.meta.url));
+      const fibonacciWorker = new Worker(
+        new URL('../../../workers/fibonacci.worker', import.meta.url),
+        { type: 'module' }
+      );
+      const startDate = new Date();
+
+      fibonacciWorker.onmessage = ({ data }) => {
+        const endDate = new Date();
+        console.log('fibonacci onmessage data', data);
+        const time = endDate.getTime() - startDate.getTime();
+        console.log('times: ', time / 1000);
+      };
+
+      fibonacciWorker.onerror = (error) => {
+        console.log('fibonacci onmessage error', error);
+      };
+
+      fibonacciWorker.postMessage(36);
+    }
+  }
+
+  private ndviCutFibonacci(): void {
+    if (typeof Worker !== 'undefined') {
       this.ndviImageWorker = new Worker(
         new URL('../../../workers/private-ndvi-worker.worker', import.meta.url),
         { type: 'module' }
@@ -64,11 +98,10 @@ export class MapSvgCutComponent implements OnInit {
     } else {
       // Web workers are not supported in this environment.
       // You should add a fallback so that your program still executes correctly.
-      this.handleImageCutChange();
     }
   }
 
-  handleImageCutChange() {
+  private handleImageCutChange() {
     Promise.all([
       convertImgToBase64('../../../assets/images/publicTileImage.png'),
       convertImgToBase64('../../../assets/images/privateTileImage.png')
@@ -86,18 +119,6 @@ export class MapSvgCutComponent implements OnInit {
         const imageList = createAllTileImageSvg(this.tileImageList);
         console.log('imageList', imageList);
         this.addImageToDom(imageList);
-      }
-    });
-
-  }
-
-  addImageToDom(imageList: WorkerResponseInterface[]) {
-    imageList.forEach((svg, index) => {
-      const doc = new DOMParser().parseFromString(svg.svgElement, 'text/xml');
-      if (index === 0) {
-        this.publicSvgElement?.nativeElement.appendChild(doc.documentElement);
-      } else {
-        this.privateSvgElement?.nativeElement.appendChild(doc.documentElement);
       }
     });
   }

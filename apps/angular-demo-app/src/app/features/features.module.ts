@@ -11,7 +11,7 @@ import {RemComputeComponent} from './rem-compute/rem-compute.component';
 import {CssSelectorComponent} from './css-selector/css-selector.component';
 import {ChartTestComponent} from './chart-test/chart-test.component';
 import {AnimationFrameComponent} from './animation-frame/animation-frame.component';
-import {MapSvgCutComponent} from './map-svg-cut/map-svg-cut.component';
+import {WebWorkerComponent} from './web-worker/web-worker.component';
 import {MatSelectFilterComponent} from './filter-select/mat-select-filter/mat-select-filter.component';
 import {MatSelectContainerComponent} from './filter-select/mat-select-container/mat-select-container.component';
 import {FilterSelectComponent} from './filter-select/filter-select.component';
@@ -38,7 +38,7 @@ import {ToastModule} from "../toast/toast.module";
     CssSelectorComponent,
     ChartTestComponent,
     AnimationFrameComponent,
-    MapSvgCutComponent,
+    WebWorkerComponent,
     MatSelectFilterComponent,
     MatSelectContainerComponent,
     FilterSelectComponent,

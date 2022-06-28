@@ -54,11 +54,11 @@ export class FeaturesComponent implements OnInit {
       ]
     },
     {
-      routerName: '地图图片',
+      routerName: 'Web Worker',
       routerPath: [
         featureRoute.features.root,
         featureRoute.features.init,
-        featureRoute.features.children.mapSvgCut
+        featureRoute.features.children.webWorker
       ]
     },
     {
@@ -100,31 +100,7 @@ export class FeaturesComponent implements OnInit {
         otherRoute.other.init,
         otherRoute.other.children.printTest
       ]
-    },
-    {
-      routerName: '双重选择',
-      routerPath: [
-        featureRoute.features.root,
-        featureRoute.features.init,
-        featureRoute.features.children.multipleSelect
-      ]
-    },
-    // {
-    //   routerName: '动态卡片',
-    //   routerPath: [
-    //     featureRoute.features.root,
-    //     featureRoute.features.init,
-    //     featureRoute.features.children.dynamicLoad
-    //   ]
-    // },
-    // {
-    //   routerName: 'typescript 测试',
-    //   routerPath: [
-    //     featureRoute.features.root,
-    //     featureRoute.features.init,
-    //     featureRoute.features.children.typescriptTest
-    //   ]
-    // }
+    }
   ];
 
   constructor(private router: Router) {
@@ -135,7 +111,7 @@ export class FeaturesComponent implements OnInit {
 
   goToPathRoute(index: number) {
     this.router.navigate(this.routerPaths[index].routerPath).then((navigate) => {
-      // console.log(this.routerPaths[index].routerPath, navigate);
+      console.log(this.routerPaths[index].routerPath, navigate);
     });
   }
 }
