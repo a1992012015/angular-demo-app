@@ -1,0 +1,30 @@
+<div class="features-container">
+  <mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>{{title}}</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>share</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav #drawer mode="side" opened class="content-sidenav">
+      <mat-nav-list>
+        <mat-list-item class="list-item" *ngFor="let router of routerPaths;index as i;" (click)="goToPathRoute(i)">
+          <mat-icon mat-list-icon>{{router.routerIcon}}</mat-icon>
+          {{router.routerName}}
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

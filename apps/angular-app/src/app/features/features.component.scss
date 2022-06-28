@@ -1,0 +1,20 @@
+.features-container {
+  height: 100%;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.example-container {
+  height: calc(100% - 64px);
+}
+
+.content-sidenav {
+  width: 200px;
+}
+
+.list-item {
+  font-size: 12px;
+  color: rgba(0, 0, 0, .87);
+}

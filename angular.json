@@ -1,6 +1,12 @@
 {
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "angular-demo-app": "apps/angular-demo-app"
+    "angular-app": "apps/angular-app",
+    "angular-app-e2e": "apps/angular-app-e2e",
+    "api": "apps/api",
+    "data": "libs/data",
+    "mat-design": "libs/mat-design",
+    "ui": "libs/ui"
   }
 }
