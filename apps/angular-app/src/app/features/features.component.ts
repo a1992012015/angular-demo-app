@@ -30,6 +30,15 @@ export class FeaturesComponent implements OnInit {
       ]
     },
     {
+      routerName: 'Todo Api',
+      routerIcon: 'api',
+      routerPath: [
+        featureRoute.features.root,
+        featureRoute.features.init,
+        featureRoute.features.children.todosApi
+      ]
+    },
+    {
       routerName: 'CSS选择器',
       routerIcon: 'contrast',
       routerPath: [

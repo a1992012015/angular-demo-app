@@ -1,0 +1,11 @@
+@use "libs/data/src/lib/styles/variables/variables" as *;
+@use '@angular/material' as mat;
+
+.app-container {
+  height: 100%;
+  overflow: auto;
+}
+
+.app-title {
+  font-size: $app-base-gap-width * 8;
+}

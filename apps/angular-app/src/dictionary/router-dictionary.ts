@@ -6,19 +6,13 @@ export const featureRoute = {
     root: 'features',
     init: 'core',
     children: {
+      todosApi: 'todos-api',
       dashboard: 'dashboard',
       formField: 'form-field',
+      webWorker: 'web-worker',
       cssSelector: 'css-selector',
       animationFrame: 'animation-frame',
-      multipleInstance: 'multiple-instance',
-
-      remCompute: 'rem-compute',
-      chartTest: 'chart-test',
-      webWorker: 'web-worker',
-      selectFilter: 'select-filter',
-      toastMassage: 'toast-massage',
-      googleMap: 'google-map',
-      dynamicComponent: 'dynamic-component',
+      multipleInstance: 'multiple-instance'
     }
   }
 };
