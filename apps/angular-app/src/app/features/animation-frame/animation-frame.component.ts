@@ -1,17 +1,22 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'angular-demo-app-animation-frame',
   templateUrl: './animation-frame.component.html',
   styleUrls: ['./animation-frame.component.scss']
 })
-export class AnimationFrameComponent implements OnInit {
+export class AnimationFrameComponent implements OnInit, OnDestroy {
   @ViewChild('box', { static: true }) box?: ElementRef;
 
   private animationWidth$ = this.animationWidth.bind(this);
+  private animation?: number;
 
   ngOnInit(): void {
-    requestAnimationFrame(this.animationWidth$);
+    this.animation = requestAnimationFrame(this.animationWidth$);
+  }
+
+  ngOnDestroy(): void {
+    this.animation !== undefined && cancelAnimationFrame(this.animation);
   }
 
   animationWidth(timestamp: number) {
@@ -20,7 +25,7 @@ export class AnimationFrameComponent implements OnInit {
     const width = div.style.width ? div.style.width : 10;
     div.style.width = parseInt(width, 10) + 1 + 'px';
     if (parseInt(div.style.width, 10) < 200) {
-      requestAnimationFrame(this.animationWidth$);
+      this.animation = requestAnimationFrame(this.animationWidth$);
     }
   }
 }

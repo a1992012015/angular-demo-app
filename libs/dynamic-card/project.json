@@ -1,20 +1,20 @@
 {
   "projectType": "library",
-  "sourceRoot": "libs/mat-design/src",
+  "sourceRoot": "libs/dynamic-card/src",
   "prefix": "angular-demo-app",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/mat-design"],
+      "outputs": ["coverage/libs/dynamic-card"],
       "options": {
-        "jestConfig": "libs/mat-design/jest.config.ts",
+        "jestConfig": "libs/dynamic-card/jest.config.ts",
         "passWithNoTests": true
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["libs/mat-design/**/*.ts", "libs/mat-design/**/*.html"]
+        "lintFilePatterns": ["libs/dynamic-card/**/*.ts", "libs/dynamic-card/**/*.html"]
       }
     }
   },

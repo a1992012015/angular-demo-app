@@ -1,3 +1,9 @@
+@use "libs/data/src/lib/styles/variables/variables" as *;
+
+.css-selector-container {
+  padding: $app-base-gap-width * 4;
+}
+
 .selector-1:nth-child(even):nth-last-child(-n+3) ~ .selector-1 {
   background: #f00;
 }

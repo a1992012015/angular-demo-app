@@ -1,7 +1,9 @@
+@use "libs/data/src/lib/styles/variables/variables" as *;
 
-.animation {
+.animation-container {
   display: flex;
   justify-content: center;
+  padding: $app-base-gap-width * 4;
 }
 
 .box {

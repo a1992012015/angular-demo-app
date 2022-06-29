@@ -10,6 +10,7 @@ import { FormFieldComponent } from './form-field/form-field.component';
 import { CssSelectorComponent } from './css-selector/css-selector.component';
 import { AnimationFrameComponent } from './animation-frame/animation-frame.component';
 import { MultipleInstanceComponent } from './multiple-instance/multiple-instance.component';
+import { DynamicComponentComponent } from './dynamic-component/dynamic-component.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,7 @@ const routes: Routes = [
       { path: featureRoute.features.children.cssSelector, component: CssSelectorComponent },
       { path: featureRoute.features.children.animationFrame, component: AnimationFrameComponent },
       { path: featureRoute.features.children.multipleInstance, component: MultipleInstanceComponent },
+      { path: featureRoute.features.children.dynamicComponent, component: DynamicComponentComponent },
       { path: '**', redirectTo: featureRoute.features.children.dashboard, pathMatch: 'full' }
     ]
   },

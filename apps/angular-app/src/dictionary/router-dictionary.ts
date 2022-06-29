@@ -12,7 +12,8 @@ export const featureRoute = {
       webWorker: 'web-worker',
       cssSelector: 'css-selector',
       animationFrame: 'animation-frame',
-      multipleInstance: 'multiple-instance'
+      multipleInstance: 'multiple-instance',
+      dynamicComponent: 'dynamic-component'
     }
   }
 };

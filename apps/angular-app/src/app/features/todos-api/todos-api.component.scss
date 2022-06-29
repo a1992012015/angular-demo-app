@@ -1,9 +1,11 @@
 @use "libs/data/src/lib/styles/variables/variables" as *;
 @use '@angular/material' as mat;
 
-.app-container {
+.todo-api-container {
   height: 100%;
   overflow: auto;
+  box-sizing: border-box;
+  padding: $app-base-gap-width * 4;
 }
 
 .app-title {

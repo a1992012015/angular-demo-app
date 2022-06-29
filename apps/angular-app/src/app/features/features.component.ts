@@ -64,6 +64,15 @@ export class FeaturesComponent implements OnInit {
         featureRoute.features.init,
         featureRoute.features.children.multipleInstance
       ]
+    },
+    {
+      routerName: '动态组件',
+      routerIcon: 'flutter_dash',
+      routerPath: [
+        featureRoute.features.root,
+        featureRoute.features.init,
+        featureRoute.features.children.dynamicComponent
+      ]
     }
   ]
 

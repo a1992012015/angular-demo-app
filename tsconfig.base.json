@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@angular-demo-app/data": ["libs/data/src/index.ts"],
+      "@angular-demo-app/dynamic-card": ["libs/dynamic-card/src/index.ts"],
       "@angular-demo-app/mat-design": ["libs/mat-design/src/index.ts"],
       "@angular-demo-app/ui": ["libs/ui/src/index.ts"]
     }

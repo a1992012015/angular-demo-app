@@ -1,9 +1,5 @@
 @use "libs/data/src/lib/styles/variables/variables" as *;
 
-.multiple-instance-container {
+.dynamic-component-container {
   padding: $app-base-gap-width * 4;
-}
-
-.hero-item {
-  margin: 0 10px;
 }

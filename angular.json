@@ -6,6 +6,7 @@
     "angular-app-e2e": "apps/angular-app-e2e",
     "api": "apps/api",
     "data": "libs/data",
+    "dynamic-card": "libs/dynamic-card",
     "mat-design": "libs/mat-design",
     "ui": "libs/ui"
   }

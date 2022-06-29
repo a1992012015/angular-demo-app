@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 import { FeaturesRoutingModule } from './features-routing.module';
+import { DynamicCardModule } from '@angular-demo-app/dynamic-card';
 
 import { HeroService } from './multiple-instance/services/hero.service';
 import { LoggerService } from './multiple-instance/services/logger.service';
@@ -19,6 +20,7 @@ import { HeroBioComponent } from './multiple-instance/hero-bio/hero-bio.componen
 import { HeroItemComponent } from './multiple-instance/hero-item/hero-item.component';
 import { AnimationFrameComponent } from './animation-frame/animation-frame.component';
 import { MultipleInstanceComponent } from './multiple-instance/multiple-instance.component';
+import { DynamicComponentComponent } from './dynamic-component/dynamic-component.component';
 import { HeroContactComponent } from './multiple-instance/hero-contact/hero-contact.component';
 
 @NgModule({
@@ -33,8 +35,17 @@ import { HeroContactComponent } from './multiple-instance/hero-contact/hero-cont
     HeroContactComponent,
     AnimationFrameComponent,
     MultipleInstanceComponent,
+    DynamicComponentComponent
   ],
-  imports: [CommonModule, HttpClientModule, FeaturesRoutingModule, MatDesignModule, UiModule],
-  providers: [HeroService, HeroCacheService, LoggerService],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    FeaturesRoutingModule,
+    MatDesignModule,
+    DynamicCardModule,
+    UiModule
+  ],
+  providers: [HeroService, HeroCacheService, LoggerService]
 })
-export class FeaturesModule {}
+export class FeaturesModule {
+}

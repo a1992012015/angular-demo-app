@@ -1,12 +1,12 @@
-<angular-demo-app-hero-bio *ngFor="let hero of heroes;" [heroId]="hero.id">
-  <angular-demo-app-hero-contact></angular-demo-app-hero-contact>
-</angular-demo-app-hero-bio>
+<div class="multiple-instance-container">
+  <angular-demo-app-hero-bio *ngFor="let hero of heroes;" [heroId]="hero.id">
+    <angular-demo-app-hero-contact></angular-demo-app-hero-contact>
+  </angular-demo-app-hero-bio>
 
-<div class="hero-item" *ngFor="let hero of heroes;">
-  <p>{{hero.id}}</p>
-  <p>{{hero.name}}</p>
-  <p>{{hero.description}}</p>
-  <p>{{hero.phone}}</p>
+  <div class="hero-item" *ngFor="let hero of heroes;">
+    <p>{{hero.id}}</p>
+    <p>{{hero.name}}</p>
+    <p>{{hero.description}}</p>
+    <p>{{hero.phone}}</p>
+  </div>
 </div>
-
-<angular-demo-app-hero-item></angular-demo-app-hero-item>
