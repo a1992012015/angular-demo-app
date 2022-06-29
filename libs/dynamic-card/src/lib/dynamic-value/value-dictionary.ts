@@ -1,16 +1,9 @@
-import { Type } from '@angular/core';
+import { EValueType } from '@angular-demo-app/data';
 
-export enum EValueType {
-  UNKNOWN,
-  DEFAULT
-}
-
-export abstract class ValueAbstract {
-  abstract type: EValueType;
-
-  protected abstract component: Type<unknown>;
-}
+import { UnknownValue } from './value-class/unknown.value';
+import { DefaultValue } from './value-class/default.value';
 
 export const valueDictionary = {
-  // [EValueType.DEFAULT]: DefaultContainer
+  [EValueType.UNKNOWN]: UnknownValue,
+  [EValueType.DEFAULT]: DefaultValue
 };

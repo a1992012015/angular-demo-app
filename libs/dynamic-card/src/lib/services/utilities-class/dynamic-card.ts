@@ -1,6 +1,5 @@
-import { IDynamicParams } from '../../interfaces/dynamic.interface';
-import { EContainerType } from '../../dynamic-container/container-dictionary';
-
+import { EContainerType, IDynamicParams } from '@angular-demo-app/data';
+import { ICardConfig } from '@angular-demo-app/data';
 
 export interface IDynamicCard {
   init(): void;
@@ -21,7 +20,7 @@ export class DynamicCard implements IDynamicCard {
     return this.dynamicData?.localeId || '';
   }
 
-  get mergeConfig(): Map<string, object> {
+  get mergeConfig(): Map<string, ICardConfig> {
     return this.dynamicData?.config || new Map();
   }
 

@@ -1,12 +1,9 @@
+import { EContainerType } from '@angular-demo-app/data';
+
 import { UnknownContainer } from './container-class/unknown.container';
 import { DefaultContainer } from './container-class/default.container';
 
-export enum EContainerType {
-  UNKNOWN,
-  DEFAULT
-}
-
-export const contentDictionary = {
+export const containerDictionary = {
   [EContainerType.UNKNOWN]: UnknownContainer,
   [EContainerType.DEFAULT]: DefaultContainer
 };

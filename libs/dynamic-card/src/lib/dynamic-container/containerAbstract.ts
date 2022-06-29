@@ -1,6 +1,6 @@
+import { EContainerType } from '@angular-demo-app/data';
 import { Type } from '@angular/core';
 
-import { EContainerType } from './container-dictionary';
 import { IDynamicComponent } from '../interfaces/dynamic.interface';
 
 export abstract class ContainerAbstract {

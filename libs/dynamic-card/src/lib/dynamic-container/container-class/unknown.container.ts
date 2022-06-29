@@ -1,7 +1,7 @@
+import { EContainerType } from '@angular-demo-app/data';
 import { Type } from '@angular/core';
 
-import { EContainerType } from '../container-dictionary';
-import { ContainerAbstract } from '../contentAbstract';
+import { ContainerAbstract } from '../containerAbstract';
 
 export class UnknownContainer extends ContainerAbstract {
   type = EContainerType.UNKNOWN;
