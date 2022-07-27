@@ -17,6 +17,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormFieldComponent } from './form-field/form-field.component';
 import { CssSelectorComponent } from './css-selector/css-selector.component';
 import { HeroBioComponent } from './multiple-instance/hero-bio/hero-bio.component';
+import { ImmutableDataComponent } from './immutable-data/immutable-data.component';
 import { HeroItemComponent } from './multiple-instance/hero-item/hero-item.component';
 import { AnimationFrameComponent } from './animation-frame/animation-frame.component';
 import { MultipleInstanceComponent } from './multiple-instance/multiple-instance.component';
@@ -35,7 +36,8 @@ import { HeroContactComponent } from './multiple-instance/hero-contact/hero-cont
     HeroContactComponent,
     AnimationFrameComponent,
     MultipleInstanceComponent,
-    DynamicComponentComponent
+    DynamicComponentComponent,
+    ImmutableDataComponent
   ],
   imports: [
     CommonModule,
@@ -47,5 +49,4 @@ import { HeroContactComponent } from './multiple-instance/hero-contact/hero-cont
   ],
   providers: [HeroService, HeroCacheService, LoggerService]
 })
-export class FeaturesModule {
-}
+export class FeaturesModule {}

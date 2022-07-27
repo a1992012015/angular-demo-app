@@ -11,6 +11,7 @@ export const featureRoute = {
       formField: 'form-field',
       webWorker: 'web-worker',
       cssSelector: 'css-selector',
+      immutableData: 'immutable-data',
       animationFrame: 'animation-frame',
       multipleInstance: 'multiple-instance',
       dynamicComponent: 'dynamic-component'

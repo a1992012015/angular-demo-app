@@ -1,0 +1,27 @@
+<div class="container">
+  <p>immutable-data works!</p>
+
+  <div class="immutable-content">
+    <h4>updatedMap</h4>
+    <div *ngFor="let value of updatedMap">{{ value[0] }}: {{ value[1] }}</div>
+  </div>
+
+  <div class="immutable-content">
+    <h4>anotherUpdatedMap</h4>
+    <div *ngFor="let value of anotherUpdatedMap">{{ value[0] }}: {{ value[1] }}</div>
+  </div>
+
+  <div class="immutable-content">
+    <h4>sectionClass1</h4>
+    <div>order: {{ sectionClass1.data.get('order') }}</div>
+    <div>name: {{ sectionClass1.data.get('name') }}</div>
+  </div>
+
+  <div class="immutable-content">
+    <h4>sectionClass2</h4>
+    <div>order: {{ sectionClass2.data.get('order') }}</div>
+    <div>name: {{ sectionClass2.data.get('name') }}</div>
+  </div>
+
+  <button mat-raised-button color="primary" (click)="cloneSection()">Change Class</button>
+</div>

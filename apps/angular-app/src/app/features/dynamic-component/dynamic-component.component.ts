@@ -31,15 +31,7 @@ export class DynamicComponentComponent implements OnInit {
                   sectionType: ESectionType.DEFAULT,
                   values: [
                     { value: 'First Value', valueType: EValueType.DEFAULT },
-                    { value: 'Second Value', valueType: EValueType.DEFAULT },
-                    { value: 'Third Value', valueType: EValueType.DEFAULT }
-                  ]
-                },
-                {
-                  sectionType: ESectionType.DEFAULT,
-                  values: [
-                    { value: 'First Value', valueType: EValueType.DEFAULT },
-                    { value: 'Third Value', valueType: EValueType.DEFAULT }
+                    { value: 'Second Value', valueType: EValueType.DEFAULT }
                   ]
                 },
                 {
@@ -57,25 +49,17 @@ export class DynamicComponentComponent implements OnInit {
                   sectionType: ESectionType.DEFAULT,
                   values: [
                     { value: 'First Value', valueType: EValueType.DEFAULT },
-                    { value: 'Third Value', valueType: EValueType.DEFAULT }
-                  ]
-                },
-                {
-                  sectionType: ESectionType.DEFAULT,
-                  values: [
-                    { value: 'Third Value', valueType: EValueType.DEFAULT }
                   ]
                 },
                 {
                   sectionType: ESectionType.DEFAULT,
                   values: [
                     { value: 'First Value', valueType: EValueType.DEFAULT },
-                    { value: 'Second Value', valueType: EValueType.DEFAULT },
-                    { value: 'Third Value', valueType: EValueType.DEFAULT }
+                    { value: 'Second Value', valueType: EValueType.DEFAULT }
                   ]
                 }
               ]
-            },
+            }
           ]
         }
       ],
@@ -91,21 +75,13 @@ export class DynamicComponentComponent implements OnInit {
                   sectionType: ESectionType.DEFAULT,
                   values: [
                     { value: 'First Value', valueType: EValueType.DEFAULT },
-                    { value: 'Third Value', valueType: EValueType.DEFAULT }
-                  ]
-                },
-                {
-                  sectionType: ESectionType.DEFAULT,
-                  values: [
-                    { value: 'Third Value', valueType: EValueType.DEFAULT }
                   ]
                 },
                 {
                   sectionType: ESectionType.DEFAULT,
                   values: [
                     { value: 'First Value', valueType: EValueType.DEFAULT },
-                    { value: 'Second Value', valueType: EValueType.DEFAULT },
-                    { value: 'Third Value', valueType: EValueType.DEFAULT }
+                    { value: 'Second Value', valueType: EValueType.DEFAULT }
                   ]
                 }
               ]
@@ -117,15 +93,7 @@ export class DynamicComponentComponent implements OnInit {
                   sectionType: ESectionType.DEFAULT,
                   values: [
                     { value: 'First Value', valueType: EValueType.DEFAULT },
-                    { value: 'Second Value', valueType: EValueType.DEFAULT },
-                    { value: 'Third Value', valueType: EValueType.DEFAULT }
-                  ]
-                },
-                {
-                  sectionType: ESectionType.DEFAULT,
-                  values: [
-                    { value: 'First Value', valueType: EValueType.DEFAULT },
-                    { value: 'Third Value', valueType: EValueType.DEFAULT }
+                    { value: 'Second Value', valueType: EValueType.DEFAULT }
                   ]
                 },
                 {
@@ -135,7 +103,7 @@ export class DynamicComponentComponent implements OnInit {
                   ]
                 }
               ]
-            },
+            }
           ]
         }
       ]

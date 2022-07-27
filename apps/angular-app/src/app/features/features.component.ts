@@ -30,6 +30,15 @@ export class FeaturesComponent implements OnInit {
       ]
     },
     {
+      routerName: 'Immutable 测试',
+      routerIcon: 'language',
+      routerPath: [
+        featureRoute.features.root,
+        featureRoute.features.init,
+        featureRoute.features.children.immutableData
+      ]
+    },
+    {
       routerName: 'Todo Api',
       routerIcon: 'api',
       routerPath: [
