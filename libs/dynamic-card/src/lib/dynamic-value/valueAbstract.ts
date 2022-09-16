@@ -11,8 +11,8 @@ export abstract class ValueAbstract {
   constructor(private config: IValueConfig) {
   }
 
-  get displayValue(): string {
-    return this.config.value;
+  get UUID(): string {
+    return this.config.uuid
   }
 
   valueComponent(props: Record<string, unknown> = {}): IDynamicComponent {

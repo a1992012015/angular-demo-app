@@ -1,6 +1,11 @@
 @use "libs/data/src/lib/styles/variables/variables" as *;
 
+:host:last-child .default-content-container {
+  border-right-width: 1px;
+}
+
 .default-content-container {
   border: 1px solid #000000;
+  border-right-width: 0;
   padding: $app-base-gap-width * 4;
 }

@@ -1,0 +1,43 @@
+<div class="chart-dialog">
+  <button mat-raised-button color="primary" (click)="close()">Close</button>
+
+  <div>
+    <button mat-raised-button color="primary" (click)="jumpTo(0)">jumpTo 1</button>
+    <button mat-raised-button color="primary" (click)="jumpTo(1)">jumpTo 2</button>
+    <button mat-raised-button color="primary" (click)="jumpTo(2)">jumpTo 3</button>
+    <button mat-raised-button color="primary" (click)="jumpTo(3)">jumpTo 4</button>
+  </div>
+
+  <div class="container">
+    <div class="content" [style.transform]="transform">
+      <div>
+        <google-chart class="google-chart"
+                      [type]="columnChart.type"
+                      [columns]="columnChart.columns"
+                      [options]="columnChart.options"
+                      [data]="columnChart.data"></google-chart>
+      </div>
+      <div>
+        <google-chart class="google-chart"
+                      [type]="columnChart.type"
+                      [columns]="columnChart.columns"
+                      [options]="columnChart.options"
+                      [data]="columnChart.data"></google-chart>
+      </div>
+      <div>
+        <google-chart class="google-chart"
+                      [type]="columnChart.type"
+                      [columns]="columnChart.columns"
+                      [options]="columnChart.options"
+                      [data]="columnChart.data"></google-chart>
+      </div>
+      <div>
+        <google-chart class="google-chart"
+                      [type]="columnChart.type"
+                      [columns]="columnChart.columns"
+                      [options]="columnChart.options"
+                      [data]="columnChart.data"></google-chart>
+      </div>
+    </div>
+  </div>
+</div>

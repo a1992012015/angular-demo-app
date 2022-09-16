@@ -1,5 +1,7 @@
 @use "libs/data/src/lib/styles/variables/variables" as *;
 
 .dynamic-component-container {
+  width: 100%;
+  height: 100%;
   padding: $app-base-gap-width * 4;
 }

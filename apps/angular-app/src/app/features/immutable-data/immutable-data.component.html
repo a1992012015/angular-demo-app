@@ -24,4 +24,15 @@
   </div>
 
   <button mat-raised-button color="primary" (click)="cloneSection()">Change Class</button>
+
+  <div>
+    <div class="crop-type" *ngFor="let name of cropTypeS;index as i;">
+      <p class="type-index">{{i + 1}}</p>
+      <p class="type-name">Name AR: {{name}}</p>
+      <p class="type-name">Translate: {{upperTo(name)}}</p>
+      <p class="type-name">Name US: {{cropTypeE[i]}}</p>
+
+      <button mat-raised-button color="primary" (click)="copyText(name)">Copy</button>
+    </div>
+  </div>
 </div>

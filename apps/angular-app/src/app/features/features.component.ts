@@ -30,6 +30,15 @@ export class FeaturesComponent implements OnInit {
       ]
     },
     {
+      routerName: 'Chart 测试用例',
+      routerIcon: 'location_city',
+      routerPath: [
+        featureRoute.features.root,
+        featureRoute.features.init,
+        featureRoute.features.children.chartDemo
+      ]
+    },
+    {
       routerName: 'Immutable 测试',
       routerIcon: 'language',
       routerPath: [

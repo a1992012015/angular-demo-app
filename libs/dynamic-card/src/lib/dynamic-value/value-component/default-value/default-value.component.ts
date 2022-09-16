@@ -16,6 +16,6 @@ export class DefaultValueComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('dynamic key => ', this.dynamic.key);
+    console.log('dynamic value key => ', this.value?.UUID);
   }
 }

@@ -12,7 +12,7 @@ import { containerDictionary } from '../dynamic-container/container-dictionary';
   templateUrl: './dynamic-card-view.component.html',
   styleUrls: ['./dynamic-card-view.component.scss'],
   viewProviders: [
-    { provide: DYNAMIC_CARD, useValue: new DynamicCard() },
+    { provide: DYNAMIC_CARD, useFactory: () => new DynamicCard() },
     NoticeDynamicService
   ]
 })
@@ -23,8 +23,7 @@ export class DynamicCardViewComponent implements OnInit {
   constructor(
     @Inject(DYNAMIC_CARD) private dynamic: DynamicCard,
     private noticeDynamicService: NoticeDynamicService
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     console.log('dynamic', this.dynamic);

@@ -1,4 +1,4 @@
-@use "libs/data/src/lib/styles/variables/variables" as *;
+@use 'libs/data/src/lib/styles/variables/variables' as *;
 @use '@angular/material' as mat;
 
 .todo-api-container {
@@ -8,6 +8,13 @@
   padding: $app-base-gap-width * 4;
 }
 
-.app-title {
-  font-size: $app-base-gap-width * 8;
+.proxies-controller {
+
+  .proxies-btn {
+    margin-left: $app-base-gap-width * 4;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
 }

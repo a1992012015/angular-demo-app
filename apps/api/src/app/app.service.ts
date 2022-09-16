@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Todo } from '@angular-demo-app/data';
 
-
 @Injectable()
 export class AppService {
   todos: Todo[] = [{ title: 'Todo 1' }, { title: 'Todo 2' }];

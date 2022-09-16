@@ -1,7 +1,12 @@
 @use "libs/data/src/lib/styles/variables/variables" as *;
 
+:host:last-child .default-card-container {
+  border-bottom-width: 1px;
+}
+
 .default-card-container {
   border: 1px solid #000000;
+  border-bottom-width: 0;
   padding: $app-base-gap-width * 4;
 }
 

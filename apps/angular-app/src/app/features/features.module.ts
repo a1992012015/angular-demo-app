@@ -1,4 +1,5 @@
 import { MatDesignModule } from '@angular-demo-app/mat-design';
+import { GoogleChartsModule } from 'angular-google-charts';
 import { HttpClientModule } from '@angular/common/http';
 import { UiModule } from '@angular-demo-app/ui';
 import { CommonModule } from '@angular/common';
@@ -23,6 +24,7 @@ import { AnimationFrameComponent } from './animation-frame/animation-frame.compo
 import { MultipleInstanceComponent } from './multiple-instance/multiple-instance.component';
 import { DynamicComponentComponent } from './dynamic-component/dynamic-component.component';
 import { HeroContactComponent } from './multiple-instance/hero-contact/hero-contact.component';
+import { ChartDemoComponent } from './chart-demo/chart-demo.component';
 
 @NgModule({
   declarations: [
@@ -37,12 +39,14 @@ import { HeroContactComponent } from './multiple-instance/hero-contact/hero-cont
     AnimationFrameComponent,
     MultipleInstanceComponent,
     DynamicComponentComponent,
-    ImmutableDataComponent
+    ImmutableDataComponent,
+    ChartDemoComponent
   ],
   imports: [
     CommonModule,
     HttpClientModule,
     FeaturesRoutingModule,
+    GoogleChartsModule,
     MatDesignModule,
     DynamicCardModule,
     UiModule

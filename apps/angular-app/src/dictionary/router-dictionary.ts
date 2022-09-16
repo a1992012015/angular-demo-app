@@ -9,6 +9,7 @@ export const featureRoute = {
       todosApi: 'todos-api',
       dashboard: 'dashboard',
       formField: 'form-field',
+      chartDemo: 'chart-demo',
       webWorker: 'web-worker',
       cssSelector: 'css-selector',
       immutableData: 'immutable-data',

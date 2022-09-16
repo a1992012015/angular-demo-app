@@ -2,4 +2,14 @@
   <button mat-raised-button color="primary" id="add-todo" (click)="addTodo()">Add Todo</button>
 
   <angular-demo-app-todos [todos]="todos"></angular-demo-app-todos>
+
+  <div class="proxies-controller">
+    <button mat-raised-button color="primary" class="proxies-btn" (click)="getProxies()">Get Proxies</button>
+
+    <button mat-raised-button color="primary" class="proxies-btn" (click)="getConfig()">Get Config</button>
+
+    <button mat-raised-button color="primary" class="proxies-btn" (click)="getYaml()">Get Yaml</button>
+
+    <button mat-raised-button color="primary" class="proxies-btn" (click)="setYaml()">Set Yaml</button>
+  </div>
 </div>

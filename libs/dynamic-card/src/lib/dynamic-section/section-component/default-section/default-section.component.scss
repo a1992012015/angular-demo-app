@@ -1,6 +1,11 @@
 @use "libs/data/src/lib/styles/variables/variables" as *;
 
+:host:last-child .default-section-container {
+  border-bottom-width: 1px;
+}
+
 .default-section-container {
   border: 1px solid #000000;
+  border-bottom-width: 0;
   padding: $app-base-gap-width * 4;
 }

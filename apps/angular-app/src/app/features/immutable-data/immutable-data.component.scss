@@ -5,3 +5,20 @@
 .immutable-content {
   margin: 1rem 0;
 }
+
+.crop-type {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+
+  .type-index {
+    margin-bottom: 0;
+    width: 40px;
+  }
+
+  .type-name {
+    margin-right: 5px;
+    margin-bottom: 0;
+    width: 400px;
+  }
+}

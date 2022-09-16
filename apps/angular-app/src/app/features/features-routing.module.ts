@@ -7,6 +7,7 @@ import { FeaturesComponent } from './features.component';
 import { TodosApiComponent } from './todos-api/todos-api.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormFieldComponent } from './form-field/form-field.component';
+import { ChartDemoComponent } from './chart-demo/chart-demo.component';
 import { CssSelectorComponent } from './css-selector/css-selector.component';
 import { ImmutableDataComponent } from './immutable-data/immutable-data.component';
 import { AnimationFrameComponent } from './animation-frame/animation-frame.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
       { path: featureRoute.features.children.todosApi, component: TodosApiComponent },
       { path: featureRoute.features.children.dashboard, component: DashboardComponent },
       { path: featureRoute.features.children.formField, component: FormFieldComponent },
+      { path: featureRoute.features.children.chartDemo, component: ChartDemoComponent },
       { path: featureRoute.features.children.cssSelector, component: CssSelectorComponent },
       { path: featureRoute.features.children.immutableData, component: ImmutableDataComponent },
       { path: featureRoute.features.children.animationFrame, component: AnimationFrameComponent },

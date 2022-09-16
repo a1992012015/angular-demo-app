@@ -1,0 +1,22 @@
+.chart-dialog {
+  width: 100vw;
+  height: 100vh;
+}
+
+.container {
+  height: 700px;
+  overflow: hidden;
+}
+
+.content {
+  height: 2800px;
+  display: grid;
+  transition: transform .3s ease-in;
+  grid-template-rows: repeat(auto-fill, 25%);
+  grid-template-columns: repeat(auto-fill, 100%);
+}
+
+.google-chart {
+  width: 1400px;
+  height: 700px;
+}

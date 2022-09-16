@@ -1,10 +1,15 @@
-@use "libs/data/src/lib/styles/variables/variables" as *;
+@use 'libs/data/src/lib/styles/variables/variables' as *;
+
+:host:last-child .default-value-container {
+  border-bottom-width: 1px;
+}
 
 .default-value-container {
   border: 1px solid #000000;
+  border-bottom-width: 0;
   padding: $app-base-gap-width * 4;
 }
 
-.value-display {
+.value-name {
   margin: 0;
 }
