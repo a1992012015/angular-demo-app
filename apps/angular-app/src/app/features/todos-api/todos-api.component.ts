@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Todo } from '@angular-demo-app/data';
+import { concatMap, delay, mergeMap, of } from 'rxjs';
 
 @Component({
   selector: 'angular-demo-app-todos-api',
@@ -16,6 +17,7 @@ export class TodosApiComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('TodosApiComponent', this.todos);
+    this.rxjsTest1();
   }
 
   fetch(): void {
@@ -50,5 +52,28 @@ export class TodosApiComponent implements OnInit {
     this.http.post('/api/app/yaml', { body: [] }).subscribe((response) => {
       console.log('response', response);
     });
+  }
+
+  private rxjsTest1(): void {
+    // 发出延迟值
+    const source = of(2000, 1000);
+    // 将内部 observable 映射成 source，当前一个完成时发出结果并订阅下一个
+    const example = source.pipe(
+      concatMap((val) => {
+        console.log('val', val);
+        return of(`Delayed by: ${val}ms`).pipe(delay(val));
+      })
+    );
+    // 输出: With concatMap: Delayed by: 2000ms, With concatMap: Delayed by: 1000ms
+    const subscribe = example.subscribe((val) => console.log(`With concatMap: ${val}`));
+
+    // 展示 concatMap 和 mergeMap 之间的区别
+    const mergeMapExample = source
+      .pipe(
+        // 只是为了确保 meregeMap 的日志晚于 concatMap 示例
+        delay(5000),
+        mergeMap((val) => of(`Delayed by: ${val}ms`).pipe(delay(val)))
+      )
+      .subscribe((val) => console.log(`With mergeMap: ${val}`));
   }
 }

@@ -14,8 +14,10 @@ import { HeroCacheService } from './multiple-instance/services/hero-cache.servic
 
 import { FeaturesComponent } from './features.component';
 import { TodosApiComponent } from './todos-api/todos-api.component';
+import { DragDropComponent } from './drag-drop/drag-drop.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormFieldComponent } from './form-field/form-field.component';
+import { ChartDemoComponent } from './chart-demo/chart-demo.component';
 import { CssSelectorComponent } from './css-selector/css-selector.component';
 import { HeroBioComponent } from './multiple-instance/hero-bio/hero-bio.component';
 import { ImmutableDataComponent } from './immutable-data/immutable-data.component';
@@ -24,7 +26,6 @@ import { AnimationFrameComponent } from './animation-frame/animation-frame.compo
 import { MultipleInstanceComponent } from './multiple-instance/multiple-instance.component';
 import { DynamicComponentComponent } from './dynamic-component/dynamic-component.component';
 import { HeroContactComponent } from './multiple-instance/hero-contact/hero-contact.component';
-import { ChartDemoComponent } from './chart-demo/chart-demo.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ChartDemoComponent } from './chart-demo/chart-demo.component';
     MultipleInstanceComponent,
     DynamicComponentComponent,
     ImmutableDataComponent,
-    ChartDemoComponent
+    ChartDemoComponent,
+    DragDropComponent
   ],
   imports: [
     CommonModule,

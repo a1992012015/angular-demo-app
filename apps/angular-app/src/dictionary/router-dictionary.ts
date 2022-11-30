@@ -7,6 +7,7 @@ export const featureRoute = {
     init: 'core',
     children: {
       todosApi: 'todos-api',
+      dragDrop: 'drag-drop',
       dashboard: 'dashboard',
       formField: 'form-field',
       chartDemo: 'chart-demo',

@@ -1,0 +1,23 @@
+<h1>Drag&Drop with a flex-wrap</h1>
+
+<ul class="example-list">
+  <li *ngFor="let item of items">{{ item }}</li>
+</ul>
+
+<div class="example-container" cdkDropListGroup>
+  <div
+    class="example-drop-list"
+    cdkDropList
+    (cdkDropListEntered)="onDropListEntered($event)"
+    (cdkDropListDropped)="onDropListDropped()"
+  ></div>
+  <div
+    cdkDropList
+    class="example-drop-list"
+    (cdkDropListEntered)="onDropListEntered($event)"
+    (cdkDropListDropped)="onDropListDropped()"
+    *ngFor="let item of items"
+  >
+    <div cdkDrag cdkDragBoundary=".example-container" class="example-box">{{ item }}</div>
+  </div>
+</div>

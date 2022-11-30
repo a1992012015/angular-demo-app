@@ -30,6 +30,15 @@ export class FeaturesComponent implements OnInit {
       ]
     },
     {
+      routerName: 'Drag Drop',
+      routerIcon: 'dynamic_form',
+      routerPath: [
+        featureRoute.features.root,
+        featureRoute.features.init,
+        featureRoute.features.children.dragDrop
+      ]
+    },
+    {
       routerName: 'Chart 测试用例',
       routerIcon: 'location_city',
       routerPath: [

@@ -8,8 +8,16 @@ import * as fs from 'fs';
 export class ClashService {
   constructor(private http: HttpService) {}
 
-  private readonly rule = ['SRC-IP-CIDR,192.168.2.86/32,🕹️ Switch'];
-  private readonly proxiesGroup = { name: '🕹️ Switch', type: 'select', proxies: [] };
+  private readonly rule = [
+    'SRC-IP-CIDR,192.168.2.86/32,🕹️ Switch',
+    'SRC-IP-CIDR,192.168.2.201/32,🕹️ Switch',
+    'SRC-IP-CIDR,192.168.170.200/32,🕹️ Switch'
+  ];
+  private readonly proxiesGroup = {
+    name: '🕹️ Switch',
+    type: 'select',
+    proxies: ['PROXY', 'DIRECT']
+  };
 
   getProxies(): Observable<object> {
     return this.http.get('http://127.0.0.1:9090/proxies');
@@ -31,7 +39,7 @@ export class ClashService {
     try {
       const config = yaml.load(fs.readFileSync('/Users/liujie/.config/clash/EXFLUX.yaml', 'utf8'));
       const proxies = config.proxies.filter((proxies) => proxies.name.includes('游戏'));
-      const filterProxies = proxies.map((proxies) => proxies.name);
+      const filterProxies = [...this.proxiesGroup.proxies, ...proxies.map((p) => p.name)];
       const group = Object.assign({}, this.proxiesGroup, { proxies: filterProxies });
       config['proxy-groups'].splice(1, 0, group);
       config['rules'].unshift(...this.rule);
